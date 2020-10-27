@@ -25,11 +25,11 @@ public:
 			{
 				sum = sum + nums[i];
 				int b = max(maxsub, sum);
-				if (maxsub != b)
+				/*if (maxsub != b)
 				{
 					sum = b;
-				}
-				maxsub = b;
+				}*/
+				ma1xsub = b;
 			}
 		}
 		return maxsub;
@@ -55,6 +55,22 @@ public:
 			//=左侧的就sum相当与f(i),=右侧的sum相当于f(i-1)
 			sum = max(sum + i, i);
 			maxsub = max(sum, maxsub);
+		}
+		return maxsub;
+	}
+};
+
+class Solution
+{
+public:
+	int maxSubArray(vector<int> &nums)
+	{
+		int maxsub = nums[0];
+		int pre = 0;
+		for (auto n : nums)
+		{
+			pre = max(pre + n, n);
+			maxsub = max(maxsub, pre);
 		}
 		return maxsub;
 	}
