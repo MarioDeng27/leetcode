@@ -1,4 +1,3 @@
-
 /*
     方法一：还是根据200提，将grid初始化并查集
 */
@@ -111,12 +110,12 @@ public:
     }
 };
 
-
-
+/*
+    方法二：简化版的并查集，用总人数去初始化并查集
+*/
 class UnionFind
 {
 private:
-    //表示岛屿的数量
     int count;
     vector<int> parent;
     vector<int> rank;
@@ -162,10 +161,6 @@ public:
     }
 };
 
-/*
-    方法二：简化版的并查集，用总人数去初始化并查集
-
-*/
 class Solution
 {
 public:
@@ -191,5 +186,85 @@ public:
             }
         }
         return uf.getcnt();
+    }
+};
+
+//方法三：DFS(官方答案)
+class Solution
+{
+public:
+    void dfs(vector<vector<int>> &M, int i, vector<bool> &visited)
+    {
+        for (int j = 0; j < M.size(); j++)
+        {
+            if (M[i][j] == 1 && visited[j] == false)
+            {
+                visited[j] = true;
+                dfs(M, j, visited);
+            }
+        }
+    }
+    int findCircleNum(vector<vector<int>> &M)
+    {
+        int count = 0;
+        int n = M.size();
+        vector<bool> visited(n, false);
+        for (int i = 0; i < n; i++)
+        {
+            if (visited[i] == false)
+            {
+                dfs(M, i, visited);
+                count++;
+            }
+        }
+        return count;
+    }
+};
+
+/*
+    方法四:自认为方法三dfs的简化版本
+    就是改变了visited = true的顺序，以及省区了i=j的情况
+
+    因为是矩阵，行和列一样，假定以垂直方向的行作为N名不同的学生
+    然后第i行的i同学，如果和j是同学，那么M[i][j] =1
+    每一行的列表示其他的同学，如果为1，则二者为朋友，除了和自己本身的情况，就是i=j
+*/
+class Solution
+{
+public:
+    void dfs(vector<vector<int>> &M, int i, vector<bool> &visited)
+    {
+        //直到当前i同学所在的朋友圈所有的学生都被搜寻过后并且没有朋友关系的同学出现才结束。
+        for (int j = 0; j < M.size(); j++)
+        {
+            //M[i][j] == 1：i和j是朋友；visited[j] == false：j同学的朋友圈子还没搜索过；i != j：忽略i同学和自己本身是朋友的情况
+            if (M[i][j] == 1 && visited[j] == false && i != j)
+            {
+                //同理如果j是i的朋友，那么将继续搜寻j的朋友圈
+                visited[j] = true;
+                dfs(M, j, visited);
+            }
+        }
+    }
+    int findCircleNum(vector<vector<int>> &M)
+    {
+        int count = 0;
+        int n = M.size();
+        //表示n个学生是否进行搜索过他们各自的朋友
+        vector<bool> visited(n, false);
+        //遍历n次，表示搜寻n个学生
+        for (int i = 0; i < n; i++)
+        {
+            //如果这个学生没被搜寻过则他所在的朋友圈必定属于一个朋友圈，接着去搜寻他的朋友
+            //在主函数里，有几次dfs那么就有几个朋友圈
+            if (visited[i] == false)
+            {
+                //表示i学生马上要开始搜索了，表示以及搜索完毕
+                visited[i] = true;
+                dfs(M, i, visited);
+                count++;
+            }
+        }
+        return count;
     }
 };
