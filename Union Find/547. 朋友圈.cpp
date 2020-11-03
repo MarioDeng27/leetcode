@@ -268,3 +268,41 @@ public:
         return count;
     }
 };
+
+/*
+    方法五:BFS实现
+*/
+class Solution
+{
+public:
+    int findCircleNum(vector<vector<int>> &M)
+    {
+        int n = M.size();
+        int count = 0;
+        vector<bool> visited(n, false);
+        for (int i = 0; i < n; i++)
+        {
+            if (visited[i] == false)
+            {
+                count++;
+                queue<int> q;
+                q.push(i);
+                int p;
+                while (!q.empty())
+                {
+                    p = q.front();
+                    q.pop();
+                    visited[p] = true;
+                    for (int j = 0; j < n; j++)
+                    {
+                        if (M[p][j] == 1 && visited[j] == false)
+                        {
+                            q.push(j);
+                        }
+                    }
+                }
+            }
+        }
+        return count;
+    }
+};
