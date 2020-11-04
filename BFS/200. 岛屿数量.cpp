@@ -242,32 +242,8 @@ public:
 class Solution
 {
 public:
-    int numIslands(vector<vector<char>> &grid)
+    void solve(vector<vector<char>> &board)
     {
-        int r = grid.size();
-        if (r == 0)
-            return 0;
-        int c = grid[0].size();
-        UnionFind uf(grid);
-        for (int i = 0; i < r; i++)
-        {
-            for (int j = 0; j < c; j++)
-            {
-                if (grid[i][j] == '1')
-                {
-                    grid[i][j] == '0';
-                    if (i - 1 >= 0 && grid[i - 1][j] == '1') //上
-                        uf.unite((i - 1) * c + j, i * c + j);
-                    if (i + 1 < r && grid[i + 1][j] == '1') //下
-                        uf.unite((i + 1) * c + j, i * c + j);
-                    if (j - 1 >= 0 && grid[i][j - 1] == '1') //左
-                        uf.unite(i * c + j - 1, i * c + j);
-                    if (j + 1 < c && grid[i][j + 1] == '1') //右
-                        uf.unite(i * c + j + 1, i * c + j);
-                }
-            }
-        }
-        return uf.getcnt();
     }
 };
 
