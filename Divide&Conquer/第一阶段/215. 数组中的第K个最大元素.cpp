@@ -37,6 +37,7 @@ public:
         if (largestIndex != i)
         {
             swap(nums, largestIndex, i);
+            //交换过后,i的值是这三个值中最大的,largestIndex对应的已经被替换了,它有可能会对它作为根节点的局部大顶堆有影响,所以得递归检查,怕破坏之前整理好的大顶堆
             maxHeapify(nums, largestIndex, heapsize);
         }
     }
@@ -59,6 +60,7 @@ public:
             swap(nums, 0, i);
             heapsize--;
             maxHeapify(nums, 0, heapsize);
+            //buildMaxHeap(nums, heapsize); //这边为什么不用build,因为太低效了,相当于会可能改变原有已经是大顶堆的情况,而从上往下,只需改变部分就行了,一条支路也许是.
         }
         return nums[0];
     }
