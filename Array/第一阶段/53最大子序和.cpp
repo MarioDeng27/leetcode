@@ -29,7 +29,7 @@ public:
 				{
 					sum = b;
 				}*/
-				ma1xsub = b;
+				maxsub = b;
 			}
 		}
 		return maxsub;
@@ -112,7 +112,7 @@ public:
 		int isum = l.isum + r.isum;
 		return (ranges){lsum, rsum, msum, isum};
 	}
-
+	//得到a到b子数组的ranges值,怎么得到,只要求出左的range和又的range就行
 	ranges get(vector<int> &nums, int a, int b)
 	{
 		if (a == b)
