@@ -101,3 +101,51 @@ public:
             return {};
     }
 };
+
+class Solution
+{
+public:
+    vector<int> vistied;
+    vector<vector<int>> edges;
+    bool valid = true;
+    vector<int> res;
+    void dfs(int u)
+    {
+        vistied[u] = 1;
+        for (int i = 0; i < edges[u].size(); i++)
+        {
+            int v = edges[u][i];
+            if (vistied[v] == 0)
+            {
+                dfs(v);
+            }
+            else if (vistied[v] == 1)
+            {
+                valid = false;
+                return;
+            }
+            if (!valid)
+                return;
+        }
+        vistied[u] = 2;
+        res.push_back(u);
+    }
+    vector<int> findOrder(int numCourses, vector<vector<int>> &prerequisites)
+    {
+        vistied.resize(numCourses, false);
+        edges.resize(numCourses);
+        for (auto p : prerequisites)
+        {
+            edges[p[1]].push_back(p[0]);
+        }
+        for (int i = 0; i < numCourses; i++)
+        {
+            if (vistied[i] == 0)
+                dfs(i);
+        }
+        if (!valid)
+            return {};
+        reverse(res.begin(), res.end());
+        return res;
+    }
+};
