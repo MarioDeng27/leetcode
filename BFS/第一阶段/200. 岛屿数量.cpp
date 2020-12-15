@@ -209,7 +209,7 @@ public:
             }
         }
     }
-    //将同一颗树上的所有节点的父节点都设置为根节点，并且返回根节点
+    //将同一颗树上的所有节点的父节点都设置为根节点，并且返回根节点,最多两层
     int find(int x)
     {
         if (parent[x] != x)
@@ -239,16 +239,96 @@ public:
     }
 };
 
-class Solution
+//UnionFind实现
+class UnionFind
 {
 public:
-    void solve(vector<vector<char>> &board)
+    //表示岛屿的数量
+    int count = 0;
+    vector<int> parent;
+    vector<int> rank;
+    UnionFind(vector<vector<char>> &grid)
     {
+        int r = grid.size();
+        int c = grid[0].size();
+        for (int i = 0; i < r; i++)
+        {
+            for (int j = 0; j < c; j++)
+            {
+                if (grid[i][j] == '1')
+                {
+                    parent.push_back(i * c + j);
+                    count++;
+                }
+                else
+                    parent.push_back(-1);
+
+                rank.push_back(0);
+            }
+        }
+    }
+    int find(int x)
+    {
+        if (parent[x] != x)
+        {
+            parent[x] = find(parent[x]);
+        }
+        return parent[x];
+    }
+
+    void unite(int x, int y)
+    {
+        int rootx = find(x);
+        int rooty = find(y);
+        if (rootx != rooty)
+        {
+            //如果rootx < rooty 就交换rootx和rooty,之后就rank[rootx] > rank[rooty]
+            if (rank[rootx] < rank[rooty])
+            {
+                swap(rootx, rooty);
+            }
+            //让rooty的根节点为rootx,秩大的那个作为根
+            parent[rooty] = rootx;
+            if (rank[rootx] == rank[rooty])
+                rank[rootx]++;
+            //一旦发现符合条件的集合合并了，count就要少1
+            count--;
+        }
+    }
+    int getcount()
+    {
+        return count;
     }
 };
 
-int main()
+class Solution
 {
-
-    return 0;
-}
+public:
+    int numIslands(vector<vector<char>> &grid)
+    {
+        int r = grid.size();
+        if (r == 0)
+            return 0;
+        int c = grid[0].size();
+        UnionFind uf(grid);
+        for (int i = 0; i < r; i++)
+        {
+            for (int j = 0; j < c; j++)
+            {
+                if (grid[i][j] == '1')
+                {
+                    grid[i][j] == '0';
+                    if (i - 1 >= 0 && grid[i - 1][j] == '1')
+                        uf.unite(c * i + j, c * (i - 1) + j);
+                    if (i + 1 < r && grid[i + 1][j] == '1')
+                        uf.unite(c * i + j, c * (i + 1) + j);
+                    if (j - 1 >= 0 && grid[i][j - 1] == '1')
+                        uf.unite(c * i + j, c * i + j - 1);
+                    if (j + 1 < c && grid[i][j + 1] == '1')
+                        uf.unite(c * i + j, c * i + j + 1);
+                }
+            }
+        }
+        return uf.getcount();
+    }
+};
