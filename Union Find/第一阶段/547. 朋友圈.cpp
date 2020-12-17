@@ -176,7 +176,7 @@ public:
         UnionFind uf(r);
         for (int i = 0; i < r; i++)
         {
-            for (int j = 0; j < c; j++)
+            for (int j = 0; j < c; j++) //for (int j = i + 1; j < r; j++)
             {
                 //这边不加i!=j也是可以，但是会多调用一次函数调用，浪费时间，因为同一节点与自己当然不用再合并
                 if (M[i][j] == 1 && i != j)
