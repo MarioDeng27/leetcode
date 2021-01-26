@@ -1,3 +1,13 @@
+/*
+ * @FilePath: \Sorte:\DataStructures-Algorithms\DataStructures-Algorithms\leetcode\Array\第二阶段\18. 四数之和.cpp
+ * @Brief: 
+ * @Version: 1.0
+ * @Date: 2020-11-08 15:12:53
+ * @Author: Mario Deng
+ * @Copyright: your copyright description
+ * @LastEditors: Mario Deng
+ * @LastEditTime: 2021-01-25 15:21:01
+ */
 //自己的想法
 class Solution
 {
@@ -44,8 +54,6 @@ public:
         return res;
     }
 };
-
-
 
 /*
     官方解法：其实就是对我的方法做了些优化，

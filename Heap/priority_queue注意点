@@ -34,6 +34,50 @@ template<class _Ty = void>
         }
     };
 
-总之：大顶堆和小顶堆的实现的比较方式和排序的比较方式相反，不管是但关键词排序还是多关键词排序
+总之：大顶堆和小顶堆的实现的比较方式和排序的比较方式相反，不管是单关键词排序还是多关键词排序
+
+
+class Solution
+{
+public:
+    vector<string> topKFrequent(vector<string> &words, int k)
+    {
+        map<string, int> m;
+        vector<string> res;
+        for (auto str : words)
+            ++m[str];
+        priority_queue<pair<string, int>, vector<pair<string, int>>, Order> pq(m.begin(), m.end());
+
+        for (int i = 0; i < k; i++)
+        {
+            res.push_back(pq.top().first);
+            pq.pop();
+        }
+        return res;
+    }
+    //用于排序
+    static bool comp(pair<string, int> &a, pair<string, int> &b)
+    {
+        if (a.second != b.second)
+            return a.second > b.second;
+        else
+        {
+            return a.first < b.first;
+        }
+    }
+
+    struct Order
+    { //起到less的作用，如果a的优先级大于b的，返回true，形成大顶堆
+        bool operator()(pair<string, int> &a, pair<string, int> &b) const
+        { //a,b频数大的，优先级大，频数相等，字典序小的优先级大.
+            if (a.second != b.second)
+                return a.second < b.second;
+            else
+            {
+                return a.first > b.first;
+            }
+        }
+    };
+};
 
 

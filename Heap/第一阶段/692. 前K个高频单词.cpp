@@ -1,13 +1,23 @@
-#include <iostream>
-#include <vector>
+/*
+ * @FilePath: \Sorte:\DataStructures-Algorithms\DataStructures-Algorithms\leetcode\Heap\第一阶段\692. 前K个高频单词.cpp
+ * @Brief: 
+ * @Version: 1.0
+ * @Date: 2020-11-08 15:12:20
+ * @Author: Mario Deng
+ * @Copyright: your copyright description
+ * @LastEditors: Mario Deng
+ * @LastEditTime: 2021-01-25 16:50:22
+ */
 #include <algorithm>
-#include <map>
 #include <cmath>
-#include <set>
-#include <unordered_map>
-#include <stack>
+#include <iostream>
+#include <map>
 #include <queue>
+#include <set>
 #include <sstream>
+#include <stack>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 /*
@@ -65,6 +75,7 @@ public:
         }
         return res;
     }
+    //用于排序
     static bool comp(pair<string, int> &a, pair<string, int> &b)
     {
         if (a.second != b.second)
@@ -76,7 +87,7 @@ public:
     }
 
     struct Order
-    { //起到greater的作用，如果a的优先级大于b的，返回true
+    { //起到less的作用，如果a的优先级大于b的，返回true，形成大顶堆
         bool operator()(pair<string, int> &a, pair<string, int> &b) const
         { //a,b频数大的，优先级大，频数相等，字典序小的优先级大.
             if (a.second != b.second)
