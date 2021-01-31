@@ -1,10 +1,10 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
-#include <map>
 #include <cmath>
+#include <iostream>
+#include <map>
 #include <set>
 #include <unordered_map>
+#include <vector>
 using namespace std;
 
 /*
@@ -62,6 +62,38 @@ public:
             if (m.find(pre - k) != m.end())
                 count += m[pre - k];
             ++m[pre];
+        }
+        return count;
+    }
+};
+/*
+    前缀和+哈希表
+
+    第i次，pre表示以i结尾的前的所有元素之和，pre(i)
+
+    第i+1元素到第j元素的连续子数组之和表示：pre[j]-pre[i]
+
+    每次计算出当前pre的值就将该值记录到哈希表中增加一次。
+
+    只要出现pre-k的值在哈希表中出现，那么count就增加对应值。理论就是  让k = pre[j]-pre[i] ,j在后面，i在前面，提前记录了pre[i]的值在哈希表里
+
+    就是变计算前缀和做判断，然后将该前缀和记录到哈希表里
+*/
+class Solution
+{
+public:
+    int subarraySum(vector<int> &nums, int k)
+    {
+        map<int, int> m;
+        int pre = 0;
+        int count = 0;
+        m[0] = 1;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            pre += nums[i];
+            if (m.find(pre - k) != m.end())
+                count += m[pre - k];
+            m[pre]++;
         }
         return count;
     }
