@@ -1,3 +1,13 @@
+/*
+ * @FilePath: \Sorte:\DataStructures-Algorithms\DataStructures-Algorithms\leetcode\LinkedLists\第一阶段\21合并两个有序链表.cpp
+ * @Brief: 
+ * @Version: 1.0
+ * @Date: 2020-11-08 15:12:20
+ * @Author: Mario Deng
+ * @Copyright: your copyright description
+ * @LastEditors: Mario Deng
+ * @LastEditTime: 2021-02-02 01:01:11
+ */
 #include <algorithm>
 #include <cmath>
 #include <iostream>
@@ -77,5 +87,49 @@ public:
         }
         prev->next = p1 == NULL ? p2 : p1;
         return head->next;
+    }
+};
+
+//自己的方法迭代
+class Solution
+{
+public:
+    ListNode *mergeTwoLists(ListNode *l1, ListNode *l2)
+    {
+        if (l1 == NULL)
+            return l2;
+        if (l2 == NULL)
+            return l1;
+        ListNode *res;
+        res = new ListNode();
+        ListNode *p1, *p2, *p3;
+        p1 = l1;
+        p2 = l2;
+        p3 = res;
+        while (p1 != NULL && p2 != NULL)
+        {
+            if (p1->val < p2->val)
+            {
+                p3->val = p1->val;
+                p1 = p1->next;
+            }
+
+            else
+            {
+                p3->val = p2->val;
+                p2 = p2->next;
+            }
+            p3->next = new ListNode();
+            p3 = p3->next;
+        }
+        if (p1 == NULL)
+        {
+            *p3 = *p2;
+        }
+        if (p2 == NULL)
+        {
+            *p3 = *p1;
+        }
+        return res;
     }
 };
