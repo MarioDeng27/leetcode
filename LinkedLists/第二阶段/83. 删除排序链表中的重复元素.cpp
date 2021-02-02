@@ -60,3 +60,37 @@ public:
         return ans;
     }
 };
+
+/*
+    自己的方法：
+    参考82的方法三：
+
+*/
+class Solution
+{
+public:
+    ListNode *deleteDuplicates(ListNode *head)
+    {
+        ListNode *prev, *curr;
+        ListNode *dummy = new ListNode(-1, head);
+        prev = dummy;
+        curr = head;
+        while (curr)
+        {
+            if (curr->next != nullptr && curr->val == curr->next->val)
+            {
+                while (curr->next != nullptr && curr->val == curr->next->val)
+                {
+                    curr = curr->next;
+                }
+                prev->next = curr;
+            }
+            else
+            {
+                prev = curr;
+                curr = curr->next;
+            }
+        }
+        return dummy->next;
+    }
+};
