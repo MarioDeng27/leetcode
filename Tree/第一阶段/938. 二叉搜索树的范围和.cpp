@@ -1,13 +1,23 @@
-#include <iostream>
-#include <vector>
+/*
+ * @FilePath: \Sorte:\DataStructures-Algorithms\DataStructures-Algorithms\leetcode\Tree\第一阶段\938. 二叉搜索树的范围和.cpp
+ * @Brief: 
+ * @Version: 1.0
+ * @Date: 2020-11-08 15:12:20
+ * @Author: Mario Deng
+ * @Copyright: your copyright description
+ * @LastEditors: Mario Deng
+ * @LastEditTime: 2021-02-04 01:20:03
+ */
 #include <algorithm>
-#include <map>
 #include <cmath>
-#include <set>
-#include <unordered_map>
-#include <stack>
+#include <iostream>
+#include <map>
 #include <queue>
+#include <set>
 #include <sstream>
+#include <stack>
+#include <unordered_map>
+#include <vector>
 using namespace std;
 
 struct TreeNode
@@ -86,5 +96,30 @@ public:
 		min = L;
 		max = R;
 		return preOder(root, 0);
+	}
+};
+/*
+	方法三：利用二叉搜索树的特点，加上三个if可以增加速度，利用dfs
+
+*/
+class Solution
+{
+public:
+	int sum = 0;
+	void dfs(TreeNode *root, int low, int high)
+	{
+		if (root == nullptr)
+			return;
+		if (root->val >= low && root->val <= high)
+			sum += root->val;
+		if (low < root->val)
+			dfs(root->left, low, high);
+		if (root->val < high)
+			dfs(root->right, low, high);
+	}
+	int rangeSumBST(TreeNode *root, int low, int high)
+	{
+		dfs(root, low, high);
+		return sum;
 	}
 };
