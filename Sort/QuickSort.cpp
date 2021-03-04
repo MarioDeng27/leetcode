@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-03-01 16:39:35
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-03-01 16:55:33
+ * @LastEditTime: 2021-03-04 22:21:18
  */
 class Solution
 {
@@ -71,3 +71,30 @@ public:
             QuickSort(nums, index + 1, end);
     }
 };
+
+//非递归，用栈来模拟
+void quickSort2(vector<int> &nums, int l, int r)
+{
+    stack<int> st;
+    st.push(l);
+    st.push(r);
+
+    while (!st.empty())
+    {
+        int right = st.top();
+        st.pop();
+        int left = st.top();
+        st.pop();
+        int m = partition(nums, left, right);
+        if (m + 1 < right)
+        {
+            st.push(m + 1);
+            st.push(right);
+        }
+        if (m - 1 > left)
+        {
+            st.push(left);
+            st.push(m - 1);
+        }
+    }
+}
