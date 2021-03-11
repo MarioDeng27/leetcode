@@ -20,7 +20,7 @@ template<class _Ty = void>
         return (_Left < _Right);
         }
     };
-注意：　greater 是前者大于后者，即实现从大到小排序，但是在创建优先队列时会变成小顶堆
+注意：　greater 是前者大于后者（前者优先级别大于后者），即实现从大到小排序，但是在创建优先队列时会变成小顶堆
 template<class _Ty = void>
     struct greater
     {    // functor for operator>
@@ -67,7 +67,7 @@ public:
     }
 
     struct Order
-    { //起到less的作用，如果a的优先级大于b的，返回true，形成大顶堆
+    { //起到less（左边的数字的优先级小，在形成compair的static函数或者struct Oder）的作用，如果a的小于b的，返回true，形成大顶堆
         bool operator()(pair<string, int> &a, pair<string, int> &b) const
         { //a,b频数大的，优先级大，频数相等，字典序小的优先级大.
             if (a.second != b.second)

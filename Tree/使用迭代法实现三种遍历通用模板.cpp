@@ -1,15 +1,18 @@
-#include <iostream>
-#include <vector>
 #include <algorithm>
-#include <map>
 #include <cmath>
-#include <set>
-#include <unordered_map>
-#include <stack>
+#include <iostream>
+#include <map>
 #include <queue>
+#include <set>
 #include <sstream>
+#include <stack>
+#include <unordered_map>
+#include <vector>
 using namespace std;
-
+//先序遍历：对于当前节点，先输出该节点，然后输出他的左孩子，最后输出他的右孩子。以上图为例，递归的过程如下：
+//中序遍历：对于当前结点，先输出它的左孩子，然后输出该结点，最后输出它的右孩子。以上图为例：
+//后序遍历：对于当前结点，先输出它的左孩子，然后输出它的右孩子，最后输出该结点。依旧以上图为例：
+//https : //blog.csdn.net/young2415/article/details/87467118?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.baidujs&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-1.baidujs
 struct TreeNode
 {
     int val;

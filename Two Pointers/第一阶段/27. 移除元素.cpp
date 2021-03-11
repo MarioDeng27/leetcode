@@ -76,3 +76,56 @@ public:
         return n;
     }
 };
+
+/*
+    双指针
+    利用i相当于快指针，来判断当前元素是否和val相等，如果不等的话，则当前元素肯定是可以保留的，将其保存到
+    j慢指针对应的元素，并且j+1。此后一旦出现要保留（不等于val）的元素就保存到j上。[相当于等于val就跳过，这个位置未来可能要被存保留的值]
+    最后呢，相当于[0,j-1]（j因为在循环里加了1）的前面这部分元素的值都是要保留的，就是不符合val的元素。则j就是要的答案。
+
+*/
+class Solution
+{
+public:
+    int removeElement(vector<int> &nums, int val)
+    {
+        int j = 0;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (nums[i] != val)
+            {
+                nums[j] = nums[i];
+                j++;
+            }
+        }
+        return j;
+    }
+};
+/*
+    双指针
+    从L左指针开始，如果发现L对应的元素的值等于val代表，发现了一个不符合要求的元素，那么我们要删除该元素
+    那么我们让第R-1的元素覆盖掉第L个元素，并且让原本的元素的长度减少1，表示删除，并且将原本最后的R-1的元素的值复制到了
+    L的位置用作保留。重新再次判断L的位置的元素。依次进行下去，如果L对应的元素值不是val那么就跳过当前元素
+
+*/
+class Solution
+{
+public:
+    int removeElement(vector<int> &nums, int val)
+    {
+        int L = 0;
+        int R = nums.size();
+        while (L < R)
+        {
+            if (nums[L] == val)
+            {
+                nums[L] = nums[R - 1];
+                R--;
+            }
+
+            else
+                L++;
+        }
+        return L;
+    }
+};
