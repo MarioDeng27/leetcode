@@ -6,21 +6,22 @@
  * @LastEditors: Mario Deng
  * @LastEditTime: 2021-03-09 18:37:08
  */
-#include <iostream>
-#include <vector>
-#include <stdlib.h> //rand()，srand()函数在这个头文件中
-#include <time.h>   //time(0)在这个头文件中
-#include <unordered_set>
-#include <cmath>
 #include <algorithm>
+#include <atomic>
+#include <cmath>
+#include <condition_variable>
 #include <cstring>
 #include <functional>
-#include <pthread.h>   // pthread_create(), pthread_join()
-#include <semaphore.h> // sem_init()
-#include <queue>
+#include <iostream>
 #include <mutex>
-#include <atomic>
+#include <pthread.h> // pthread_create(), pthread_join()
+#include <queue>
+#include <semaphore.h> // sem_init()
+#include <stdlib.h>    //rand()，srand()函数在这个头文件中
 #include <thread>
+#include <time.h> //time(0)在这个头文件中
+#include <unordered_set>
+#include <vector>
 using namespace std;
 //信号量实现，信号量能决定线程之间执行的相对顺序，它的计数值可以大于1
 class FooBar
@@ -160,6 +161,56 @@ public:
             // printBar() outputs "bar". Do not change or remove this line.
             printBar();
             fooed.store(false);
+        }
+    }
+};
+/*
+    条件变量condition_variable 类型，它调用wait类型的成员函数 会让unique_lock<mutex>模板类去来锁住当前线程，使其阻塞直到发生的条件满足为止
+    注意发生的条件应该要使用一个可调用对象来充当参数的，可调用对象里必须有对this的访问权，所以用lambda表达式是最好的。
+
+    condVariable.notify_one(); 若任何线程在*this上进行等待，则调用 notify_one 会解阻塞(唤醒)等待线程之一
+
+    condVariable.notify_all(); 若任何线程在 *this 上等待，则解阻塞（唤醒)全部等待线程。
+*/
+class FooBar
+{
+private:
+    int n;
+    mutex mu;
+    int count = 1;
+    condition_variable condVariable;
+
+public:
+    FooBar(int n)
+    {
+        this->n = n;
+    }
+
+    void foo(function<void()> printFoo)
+    {
+
+        for (int i = 0; i < n; i++)
+        {
+            unique_lock<mutex> lk(mu);
+            condVariable.wait(lk, [this]() { return count == 1; });
+            // printFoo() outputs "foo". Do not change or remove this line.
+            printFoo();
+            count++;
+            condVariable.notify_one();
+        }
+    }
+
+    void bar(function<void()> printBar)
+    {
+
+        for (int i = 0; i < n; i++)
+        {
+            unique_lock<mutex> lk(mu);
+            condVariable.wait(lk, [this]() { return count == 2; });
+            // printBar() outputs "bar". Do not change or remove this line.
+            printBar();
+            count--;
+            condVariable.notify_one();
         }
     }
 };
