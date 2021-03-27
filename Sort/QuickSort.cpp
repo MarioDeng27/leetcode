@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-03-01 16:39:35
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-03-04 22:21:18
+ * @LastEditTime: 2021-03-22 17:48:51
  */
 class Solution
 {
@@ -97,4 +97,33 @@ void quickSort2(vector<int> &nums, int l, int r)
             st.push(m - 1);
         }
     }
+}
+//这个记住，因为它直接处理了边界的情况
+int partition1(vector<int> &nums, int lo, int hi)
+{
+    if (lo == hi)
+        return lo;
+    int pivot = nums[lo];
+    int i = lo;
+    int j = hi;
+
+    while (i < j)
+    {
+        while (i < j && nums[j] >= pivot)
+            j--;
+        if (i < j)
+        {
+            nums[i] = nums[j];
+            i++;
+        }
+        while (i < j && nums[i] <= pivot)
+            i++;
+        if (i < j)
+        {
+            nums[j] = nums[i];
+            j--;
+        }
+    }
+    nums[i] = pivot;
+    return i;
 }
