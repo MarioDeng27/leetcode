@@ -6,7 +6,7 @@
  * @Author: Mario Deng
  * @Copyright: your copyright description
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-03-09 22:59:27
+ * @LastEditTime: 2021-04-07 17:45:12
  */
 
 //错误版本，使用了map<int,list::iter> 和 list<int>
@@ -88,7 +88,7 @@ public:
                 listCache.pop_back();
             }
         }
-        //不过之前list里面到底是有对应记录好，还是没记录好，反之就是返回最新的这对记录
+        //不管之前list里面到底是有对应记录好，还是没记录好，反之就是返回最新的这对记录
         listCache.push_front({key, value});
         //更新map记录
         mp[key] = listCache.begin();
