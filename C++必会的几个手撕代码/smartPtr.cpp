@@ -6,7 +6,7 @@
  * @Author: Mario Deng
  * @Copyright: your copyright description
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-03-20 22:24:21
+ * @LastEditTime: 2021-04-12 14:27:00
  */
 #include <iostream>
 
@@ -20,7 +20,7 @@ private:
     size_t *_cnt;
 
 public:
-    SmartPtr(T *ptr == nullptr) : _ptr(ptr)
+    SmartPtr(T *ptr = nullptr) : _ptr(ptr)
     {
         if (_ptr)
         {
@@ -81,4 +81,4 @@ public:
     {
         return *this->_cnt;
     }
-}
+};
