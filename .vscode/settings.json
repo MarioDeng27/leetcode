@@ -93,5 +93,6 @@
         "typeindex": "cpp"
     },
     "editor.formatOnSave": true,
-    "editor.formatOnPaste": true, // 格式化时调整include的顺序（按字母排序）
+    "editor.formatOnPaste": true,
+    "C_Cpp.errorSquiggles": "Enabled", // 格式化时调整include的顺序（按字母排序）
 }
