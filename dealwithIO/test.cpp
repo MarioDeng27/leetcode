@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-07-14 21:18:46
+ * @LastEditTime: 2021-07-19 21:01:11
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -57,6 +57,14 @@ void func(vector<vector<int>> &A)
     }
     A = B;
 }
+struct ListNode
+{
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
 struct TreeNode
 {
@@ -65,40 +73,113 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-
 class Solution
 {
 public:
-    TreeNode *buildCore(vector<int> &preorder, int p_left, int p_right, vector<int> &inorder, int i_left, int i_right)
+    pair<ListNode *, ListNode *> reverseCore(ListNode *begin, ListNode *end)
     {
-        if (p_right < p_left || i_right < i_left)
-            return nullptr;
-        TreeNode *root = new TreeNode(0);
-        root->val = preorder[p_left];
-        int index = i_left;
-        for (int i = i_left; i <= i_right; i++)
+        ListNode *pre;
+        ListNode *cur;
+        ListNode *next;
+        cur = begin;
+        while (cur != end->next)
         {
-            if (preorder[p_left] == inorder[i])
-                index = i;
+            next = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = next;
         }
-        root->left = buildCore(preorder, p_left + 1, p_left + index - i_left, inorder, i_left, index - 1);
-        root->right = buildCore(preorder, p_left + index - i_left + 1, p_right, inorder, index + 1, i_right);
-        return root;
+        return {end, begin};
     }
-    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder)
+    ListNode *reverseBetween(ListNode *head, int left, int right)
     {
-        return buildCore(preorder, 0, preorder.size() - 1, inorder, 0, inorder.size() - 1);
+        int i = 0;
+        ListNode *cur = head;
+        ListNode *pre;
+        ListNode *begin;
+        ListNode *end;
+        ListNode *next;
+        ListNode *prebegin;
+        ListNode *nextend;
+        while (cur)
+        {
+            i++;
+            if (i == left)
+            {
+                begin = cur;
+                prebegin = pre;
+            }
+            if (i == right)
+            {
+                end = cur;
+                nextend = cur->next;
+                break;
+            }
+            next = cur->next;
+            pre = cur;
+            cur = next;
+        }
+        auto temp = reverseCore(begin, end);
+        prebegin->next = temp.first;
+        temp.second->next = nextend;
+        return head;
+    }
+    ListNode *next = nullptr;
+    ListNode *reverseBeginN(ListNode *head, int N)
+    {
+        if (N == 1)
+        {
+            next = head->next;
+            return head;
+        }
+        ListNode *last = reverseBeginN(head->next, N - 1);
+        head->next->next = head;
+        head->next = next;
+        return last;
+    }
+    ListNode *reverseBetween2(ListNode *head, int left, int right)
+    {
+        if (left == 1)
+            return reverseBeginN(head, right);
+        ListNode *last = reverseBetween2(head->next, left - 1, right - 1);
+        head->next = last;
+        return head;
     }
 };
-
+class Solution
+{
+public:
+    ListNode *reverseList(ListNode *head)
+    {
+        if (head == nullptr || head->next == nullptr)
+            return head;
+        ListNode *last = reverseList(head->next);
+        head->next->next = head;
+        head->next = nullptr;
+        return last;
+    }
+    ListNode *reverseList1(ListNode *head)
+    {
+        if (head == nullptr || head->next == nullptr)
+            return head;
+        ListNode *pre = nullptr;
+        ListNode *cur;
+        ListNode *next;
+        cur = head;
+        while (cur)
+        {
+            next = cur->next;
+            cur->next = pre;
+            pre = cur;
+            cur = next;
+        }
+        return pre;
+    }
+};
 int main()
 {
-    /* vector<int> vec1 = {1, 2, 3, 0};
-    vector<int> vec2 = {4, 5, 6, 0};
-    vector<int> vec3 = {7, 8, 9, 0};
-    vector<int> vec4 = {10, 11, 12, 0};
-    vector<vector<int>> A = {vec1, vec2, vec3, vec4};
-    func(A); */
-    cout << (new Solution())->sumNums(3);
+    vector<int> vec2 = {4, 5, 1, 3, 7, 4, 6, 0};
+    for (auto num : vec2)
+        cout << num << " ";
     return 0;
 }

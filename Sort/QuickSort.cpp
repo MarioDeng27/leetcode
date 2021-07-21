@@ -40,6 +40,7 @@ public:
         nums[l] = pivot;
         return l;
     }
+
     int Partition(vector<int> &nums, int start, int end)
     {
         int index = (end - start) / 2 + start;
