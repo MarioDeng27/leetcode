@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-07-28 21:13:38
+ * @LastEditTime: 2021-08-02 20:17:09
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -77,21 +77,42 @@ struct TreeNode
 class Solution
 {
 public:
-    TreeNode *searchBST(TreeNode *root, int val)
+    //返回min-max之间作为根节点的BST的数组，min对应一个BST,min+1对应一个BST。。。
+    vector<TreeNode *> build(int min, int max)
     {
-        if (root == nullptr)
-            return nullptr;
-        if (root->val > val)
-            return searchBST(root->left, val);
-        if (root->val < val)
-            return searchBST(root->right, val);
-        return root;
+        vector<TreeNode *> res;
+        if (min > max)
+        {
+            TreeNode *p = nullptr;
+            res.push_back(p);
+            return res;
+        }
+        for (int i = min; i <= max; i++)
+        {
+            vector<TreeNode *> left = build(min, i - 1);
+            vector<TreeNode *> right = build(i + 1, max);
+            for (auto p : left)
+                for (auto q : right)
+                {
+                    TreeNode *node = new TreeNode(i);
+                    node->left = p;
+                    node->right = q;
+                    res.push_back(node);
+                }
+        }
+        return res;
+    }
+    vector<TreeNode *> generateTrees(int n)
+    {
+        return build(1, n);
     }
 };
+
 int main()
 {
-    vector<int> vec2 = {4, 5, 1, 3, 7, 4, 6, 0};
+    /*  vector<int> vec2 = {4, 5, 1, 3, 7, 4, 6, 0};
     for (auto num : vec2)
-        cout << num << " ";
+        cout << num << " "; */
+    cout << Solution().numTrees(3);
     return 0;
 }
