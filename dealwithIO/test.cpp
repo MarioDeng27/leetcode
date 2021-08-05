@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-04 16:15:02
+ * @LastEditTime: 2021-08-05 21:46:49
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -83,11 +83,24 @@ public:
     string serialize(TreeNode *root)
     {
         if (root == nullptr)
-            return nullstr + splitstr;
-        string rootstr = to_string(root->val) + splitstr;
-        string leftstr = serialize(root->left);
-        string rightstr = serialize(root->right);
-        return rootstr + leftstr + rightstr;
+            return "";
+        queue<TreeNode *> que;
+        que.push(root);
+        string res = "";
+        while (!que.empty())
+        {
+            TreeNode *p = que.front();
+            que.pop();
+            if (p == nullptr)
+            {
+                res += nullstr + splitstr;
+                continue;
+            }
+            res += to_string(p->val) + splitstr;
+            que.push(p->left);
+            que.push(p->right);
+        }
+        return res;
     }
 
     // Decodes your encoded data to tree.
@@ -109,15 +122,32 @@ public:
     }
     TreeNode *deserializehelp(list<string> &strlist)
     {
-        string val = strlist.front();
-        strlist.pop_front();
-        if (val == "#")
-        {
+        if (strlist.empty())
             return nullptr;
+        queue<TreeNode *> que;
+        TreeNode *root = new TreeNode(stoi(strlist.front()));
+        strlist.pop_front();
+        que.push(root);
+        while (!strlist.empty())
+        {
+            TreeNode *parent = que.front();
+            que.pop();
+            string left = strlist.front();
+            strlist.pop_front();
+            if (left != nullstr)
+            {
+                parent->left = new TreeNode(stoi(left));
+                que.push(parent->left);
+            }
+
+            string right = strlist.front();
+            strlist.pop_front();
+            if (right != nullstr)
+            {
+                parent->right = new TreeNode(stoi(right));
+                que.push(parent->right);
+            }
         }
-        TreeNode *root = new TreeNode(stoi(val));
-        root->left = deserializehelp(strlist);
-        root->right = deserializehelp(strlist);
         return root;
     }
 };
