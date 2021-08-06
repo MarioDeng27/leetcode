@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-05 21:46:49
+ * @LastEditTime: 2021-08-06 18:41:55
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -74,81 +74,30 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-class Codec
+class Solution
 {
 public:
-    // Encodes a tree to a single string.
-    string splitstr = ",";
-    string nullstr = "#";
-    string serialize(TreeNode *root)
+    int res = INT_MAX;
+    map<int, int> mp;
+    int coinChange(vector<int> &coins, int amount)
     {
-        if (root == nullptr)
-            return "";
-        queue<TreeNode *> que;
-        que.push(root);
-        string res = "";
-        while (!que.empty())
+        int pre = 0;
+        int cur = amount + 1;
+        for (int i = 1; i < amount + 1; i++)
         {
-            TreeNode *p = que.front();
-            que.pop();
-            if (p == nullptr)
+            cur = amount + 1;
+            for (auto coin : coins)
             {
-                res += nullstr + splitstr;
-                continue;
+                if (i - coin >= 0)
+                {
+                    cur = min(pre + 1, cur);
+                }
             }
-            res += to_string(p->val) + splitstr;
-            que.push(p->left);
-            que.push(p->right);
+            pre = cur;
         }
-        return res;
-    }
-
-    // Decodes your encoded data to tree.
-    TreeNode *deserialize(string data)
-    {
-        list<string> strlist;
-        string temp = "";
-        for (auto chr : data)
-        {
-            if (chr == ',')
-            {
-                strlist.push_back(temp);
-                temp = "";
-            }
-            else
-                temp += chr;
-        }
-        return deserializehelp(strlist);
-    }
-    TreeNode *deserializehelp(list<string> &strlist)
-    {
-        if (strlist.empty())
-            return nullptr;
-        queue<TreeNode *> que;
-        TreeNode *root = new TreeNode(stoi(strlist.front()));
-        strlist.pop_front();
-        que.push(root);
-        while (!strlist.empty())
-        {
-            TreeNode *parent = que.front();
-            que.pop();
-            string left = strlist.front();
-            strlist.pop_front();
-            if (left != nullstr)
-            {
-                parent->left = new TreeNode(stoi(left));
-                que.push(parent->left);
-            }
-
-            string right = strlist.front();
-            strlist.pop_front();
-            if (right != nullstr)
-            {
-                parent->right = new TreeNode(stoi(right));
-                que.push(parent->right);
-            }
-        }
-        return root;
+        if (cur == amount + 1)
+            return -1;
+        return cur;
     }
 };
 
