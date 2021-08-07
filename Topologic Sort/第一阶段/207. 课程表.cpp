@@ -9,7 +9,7 @@
 
 	我们将 u 放入答案中；
 
-	我们移除 u 的所有出边，也就是将 uu 的所有相邻节点的入度减少 1。如果某个相邻节点 v 的入度变为 0，那么我们就将 v 放入队列中。
+	我们移除 u 的所有出边，也就是将 u 的所有相邻节点的入度减少 1。如果某个相邻节点 v 的入度变为 0，那么我们就将 v 放入队列中。
 
 	在广度优先搜索的过程结束后。如果答案中包含了这 n 个节点，那么我们就找到了一种拓扑排序，否则说明图中存在环，也就不存在拓扑排序了。
 
@@ -111,5 +111,49 @@ public:
 			}
 		}
 		return valid;
+	}
+};
+
+class Solution
+{
+public:
+	vector<int> status;
+	bool flag = true;
+	void dfs(vector<vector<int>> &edeges, int u)
+	{
+		if (flag == false)
+			return;
+		status[u] = 1;
+		for (int i = 0; i < edeges[u].size(); i++)
+		{
+			int v = edeges[u][i];
+			if (status[v] == 1)
+			{
+				flag = false;
+				return;
+			}
+			if (status[v] == 2)
+				continue;
+			dfs(edeges, v);
+		}
+		status[u] = 2;
+	}
+	bool canFinish(int numCourses, vector<vector<int>> &prerequisites)
+	{
+		vector<vector<int>> edeges(numCourses, vector<int>());
+		for (auto p : prerequisites)
+		{
+			edeges[p[1]].push_back(p[0]);
+		}
+
+		status = vector<int>(numCourses, 0);
+		for (int i = 0; i < numCourses; i++)
+		{
+			if (!flag)
+				return flag;
+			if (status[i] == 0)
+				dfs(edeges, i);
+		}
+		return true;
 	}
 };
