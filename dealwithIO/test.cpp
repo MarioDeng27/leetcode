@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-06 18:41:55
+ * @LastEditTime: 2021-08-10 21:02:32
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -73,34 +73,46 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-
-class Solution
+class MedianFinder
 {
 public:
-    int res = INT_MAX;
-    map<int, int> mp;
-    int coinChange(vector<int> &coins, int amount)
+    /** initialize your data structure here. */
+
+    //small是大顶堆，large是小顶堆，large的数量要么等于small，要么比small的数量多一个
+    priority_queue<int, vector<int>, less<int>> small;
+    priority_queue<int, vector<int>, greater<int>> large;
+
+    MedianFinder()
     {
-        int pre = 0;
-        int cur = amount + 1;
-        for (int i = 1; i < amount + 1; i++)
+    }
+
+    void addNum(int num)
+    {
+        //往large里添加元素
+        if (small.size() == large.size())
         {
-            cur = amount + 1;
-            for (auto coin : coins)
-            {
-                if (i - coin >= 0)
-                {
-                    cur = min(pre + 1, cur);
-                }
-            }
-            pre = cur;
+            small.push(num);
+            large.push(small.top());
+            small.pop();
         }
-        if (cur == amount + 1)
-            return -1;
-        return cur;
+        else
+        {
+            large.push(num);
+            small.push(large.top());
+            large.pop();
+        }
+    }
+
+    double findMedian()
+    {
+        int size = small.size() + large.size();
+        //偶数情况
+        if (size % 2 == 0)
+            return (small.top() + large.top()) * 1.0 / 2.0;
+        else
+            return large.top();
     }
 };
-
 int main()
 {
     vector<int> vec(4);
