@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-10 21:02:32
+ * @LastEditTime: 2021-08-13 20:11:43
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -73,46 +73,64 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-class MedianFinder
+class Solution
 {
 public:
-    /** initialize your data structure here. */
-
-    //small是大顶堆，large是小顶堆，large的数量要么等于small，要么比small的数量多一个
-    priority_queue<int, vector<int>, less<int>> small;
-    priority_queue<int, vector<int>, greater<int>> large;
-
-    MedianFinder()
+    int left_bound(vector<int> &nums, int target)
     {
+        int left = 0;
+        int right = nums.size() - 1;
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > target)
+            {
+                right = mid - 1;
+            }
+            else if (nums[mid] < target)
+            {
+                left = mid + 1;
+            }
+            else if (nums[mid] == target)
+            {
+                right = mid - 1;
+            }
+        }
+        if (left >= nums.size() || nums[left] != target)
+            return -1;
+        return left;
+    }
+    int right_bound(vector<int> &nums, int target)
+    {
+        int left = 0;
+        int right = nums.size() - 1;
+        while (left <= right)
+        {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] > target)
+            {
+                right = mid - 1;
+            }
+            else if (nums[mid] < target)
+            {
+                left = mid + 1;
+            }
+            else if (nums[mid] == target)
+            {
+                left = mid + 1;
+            }
+        }
+        if (right < 0 || nums[right] != target)
+            return -1;
+        return right;
     }
 
-    void addNum(int num)
+    vector<int> searchRange(vector<int> &nums, int target)
     {
-        //往large里添加元素
-        if (small.size() == large.size())
-        {
-            small.push(num);
-            large.push(small.top());
-            small.pop();
-        }
-        else
-        {
-            large.push(num);
-            small.push(large.top());
-            large.pop();
-        }
-    }
-
-    double findMedian()
-    {
-        int size = small.size() + large.size();
-        //偶数情况
-        if (size % 2 == 0)
-            return (small.top() + large.top()) * 1.0 / 2.0;
-        else
-            return large.top();
+        return {left_bound(nums, target), right_bound(nums, target)};
     }
 };
+
 int main()
 {
     vector<int> vec(4);
