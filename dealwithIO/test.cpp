@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-13 20:11:43
+ * @LastEditTime: 2021-08-16 20:30:29
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -76,64 +76,39 @@ struct TreeNode
 class Solution
 {
 public:
-    int left_bound(vector<int> &nums, int target)
+    int lengthOfLongestSubstring(string s)
     {
-        int left = 0;
-        int right = nums.size() - 1;
-        while (left <= right)
+        if (s.size() == 0)
+            return 0;
+        int left = 0, right = 0;
+        int res = 0;
+        unordered_set<char> window;
+        while (right < s.size())
         {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] > target)
+            char chr = s[right];
+            right++;
+            if (window.count(chr) == 0)
             {
-                right = mid - 1;
+                window.insert(chr);
+                res = max(res, right - left);
             }
-            else if (nums[mid] < target)
+            else if (window.count(chr) > 0)
             {
-                left = mid + 1;
-            }
-            else if (nums[mid] == target)
-            {
-                right = mid - 1;
+                while (s[left] != chr)
+                {
+                    window.erase(s[left]);
+                    left++;
+                }
+                left++;
             }
         }
-        if (left >= nums.size() || nums[left] != target)
-            return -1;
-        return left;
-    }
-    int right_bound(vector<int> &nums, int target)
-    {
-        int left = 0;
-        int right = nums.size() - 1;
-        while (left <= right)
-        {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] > target)
-            {
-                right = mid - 1;
-            }
-            else if (nums[mid] < target)
-            {
-                left = mid + 1;
-            }
-            else if (nums[mid] == target)
-            {
-                left = mid + 1;
-            }
-        }
-        if (right < 0 || nums[right] != target)
-            return -1;
-        return right;
-    }
-
-    vector<int> searchRange(vector<int> &nums, int target)
-    {
-        return {left_bound(nums, target), right_bound(nums, target)};
+        return res;
     }
 };
 
 int main()
 {
-    vector<int> vec(4);
-    cout << " " << endl;
+
+    cout << Solution().lengthOfLongestSubstring("abcabcbb");
     return 0;
 }
