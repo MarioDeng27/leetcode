@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-17 16:26:52
+ * @LastEditTime: 2021-08-17 21:53:25
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -74,72 +74,31 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-int maxProfit_k_inf(vector<int> prices)
+class Solution
 {
-    int dp_i_0 = 0;
-    int dp_i_1 = INT_MIN;
-    for (int i = 0; i < prices.size(); i++)
+public:
+    int rob(vector<int> &nums)
     {
-        int temp = dp_i_0;
-        // dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
-        dp_i_0 = max(dp_i_0, dp_i_1 + prices[i]);
-        // dp[i][1] = max(dp[i-1][1], -prices[i])
-        dp_i_1 = max(dp_i_1, temp - prices[i]);
-    }
-    return dp_i_0;
-}
-
-int maxProfit_k_any(vector<int> prices, int k_max)
-{
-    if (prices.size() == 0)
-        return 0;
-
-    if (k_max > prices.size() / 2)
-        return maxProfit_k_inf(prices);
-    //dp[n][k_max+1][2]
-    vector<vector<vector<int>>> dp(prices.size(), vector<vector<int>>(k_max + 1, vector<int>(2)));
-    for (int i = 0; i < prices.size(); i++)
-    {
-        for (int k = k_max; k >= 1; k--)
+        int n = nums.size();
+        vector<int> dp(n + 2, 0);
+        dp[n] = 0;
+        int dp_i2 = 0;
+        int dp_i1 = 0;
+        int dp_i = 0;
+        for (int i = n - 1; i >= 0; i--)
         {
-            // i == -1时，dp[-1][k][0] = 0, dp[-1][k][1] = INT_MIN
-            if (i == 0)
-            {
-                dp[i][k][0] = 0;
-                // 解释：
-                //   dp[i][k][0]
-                // = max(dp[-1][k][0], dp[-1][k][1] + prices[i])
-                // = max(0, -infinity + prices[i]) = 0
-                dp[i][k][1] = -prices[i];
-                //解释：
-                //   dp[i][k][1]
-                // = max(dp[-1][k][1], dp[-1][k-1][0] - prices[i])
-                // = max(-infinity, 0 - prices[i])
-                // = -prices[i]
-            }
-            else
-            {
-                dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i]);
-                dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]);
-            }
+            //int done = dp[i + 2] + nums[i];
+            int done = dp_i2 + nums[i];
+            //int notdone = dp[i + 1];
+            int notdone = dp_i1;
+            dp_i = max(done, notdone);
+            dp_i2 = dp_i1;
+            dp_i1 = dp_i;
         }
-    }
-    return dp[prices.size() - 1][k_max][0];
-}
 
-int maxProfit_k_2(vector<int> prices)
-{
-    int dp_i_1_0 = 0, dp_i_2_0 = 0;
-    int dp_i_1_1 = INT_MIN, dp_i_2_1 = INT_MIN;
-    for (int i = 0; i < prices.size(); i++)
-    {
-        dp_i_2_0 = max(dp_i_2_0, dp_i_2_1 + prices[i]);
-        dp_i_2_1 = max(dp_i_2_1, dp_i_1_0 - prices[i]);
-        dp_i_1_0 = max(dp_i_1_0, dp_i_1_1 + prices[i]);
-        dp_i_1_1 = max(dp_i_1_1, -prices[i]);
+        return dp_i;
     }
-    return dp_i_2_0;
-}
+};
 int main()
 {
 
