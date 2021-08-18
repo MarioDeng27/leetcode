@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-17 21:53:25
+ * @LastEditTime: 2021-08-18 10:37:37
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -77,31 +77,38 @@ struct TreeNode
 class Solution
 {
 public:
+    unordered_map<int, int> mem;
+    //偷 [start,end) 的房子的最大利润
+    int dp(vector<int> &nums, int start, int end)
+    {
+        if (start >= end)
+            return 0;
+        if (mem.count(start) > 0)
+            return mem[start];
+        //偷start这一房子
+        int done = nums[start] + dp(nums, start + 2, end);
+        //不偷start这一房子
+        int notdone = dp(nums, start + 1, end);
+        int res = max(done, notdone);
+        mem[start] = res;
+        return res;
+    }
     int rob(vector<int> &nums)
     {
-        int n = nums.size();
-        vector<int> dp(n + 2, 0);
-        dp[n] = 0;
-        int dp_i2 = 0;
-        int dp_i1 = 0;
-        int dp_i = 0;
-        for (int i = n - 1; i >= 0; i--)
-        {
-            //int done = dp[i + 2] + nums[i];
-            int done = dp_i2 + nums[i];
-            //int notdone = dp[i + 1];
-            int notdone = dp_i1;
-            dp_i = max(done, notdone);
-            dp_i2 = dp_i1;
-            dp_i1 = dp_i;
-        }
-
-        return dp_i;
+        if (nums.size() == 1)
+            return nums[0];
+        //偷不包含第一个房子，从第二个房子开始到最后一个房子的结果
+        int nostart = dp(nums, 1, nums.size());
+        mem.clear();
+        //偷不包含最后一个房子，从第一个房子开始，到倒数第二个房子的结果
+        int noend = dp(nums, 0, nums.size() - 1);
+        return max(nostart, noend);
     }
 };
+
 int main()
 {
-
-    cout << Solution().lengthOfLongestSubstring("abcabcbb");
+    vector<int> nums = {200, 3, 140, 20, 10};
+    cout << Solution().rob(nums);
     return 0;
 }
