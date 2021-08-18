@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-18 10:37:37
+ * @LastEditTime: 2021-08-18 11:21:15
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -74,35 +74,39 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+/*
+    输入: [3,2,3,null,3,null,1]
+
+     3
+    / \
+   2   3
+    \   \ 
+     3   1
+
+输出: 7 
+解释: 小偷一晚能够盗取的最高金额 = 3 + 3 + 1 = 7.
+
+*/
+//[4,1,null,2,null,3]
 class Solution
 {
 public:
-    unordered_map<int, int> mem;
-    //偷 [start,end) 的房子的最大利润
-    int dp(vector<int> &nums, int start, int end)
+    unordered_map<TreeNode *, int> mem;
+    int rob(TreeNode *root)
     {
-        if (start >= end)
+        if (root == nullptr)
             return 0;
-        if (mem.count(start) > 0)
-            return mem[start];
-        //偷start这一房子
-        int done = nums[start] + dp(nums, start + 2, end);
-        //不偷start这一房子
-        int notdone = dp(nums, start + 1, end);
+
+        if (mem.count(root) > 0)
+            return mem[root];
+
+        int done = root->val + (root->left != nullptr ? rob(root->left->right) + rob(root->left->left) : 0) + (root->right != nullptr ? rob(root->right->left) + rob(root->right->right) : 0);
+        int notdone = rob(root->left) + rob(root->right);
+
         int res = max(done, notdone);
-        mem[start] = res;
+        mem[root] = res;
+
         return res;
-    }
-    int rob(vector<int> &nums)
-    {
-        if (nums.size() == 1)
-            return nums[0];
-        //偷不包含第一个房子，从第二个房子开始到最后一个房子的结果
-        int nostart = dp(nums, 1, nums.size());
-        mem.clear();
-        //偷不包含最后一个房子，从第一个房子开始，到倒数第二个房子的结果
-        int noend = dp(nums, 0, nums.size() - 1);
-        return max(nostart, noend);
     }
 };
 
