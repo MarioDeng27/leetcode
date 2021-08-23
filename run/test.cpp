@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-14 14:52:52
+ * @LastEditTime: 2021-08-21 14:55:28
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -86,5 +86,7 @@ public:
 
 int main()
 {
+
+    cout << "1" << endl;
     return 0;
 }
