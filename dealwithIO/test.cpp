@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-19 21:16:41
+ * @LastEditTime: 2021-08-23 16:57:30
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -73,66 +73,39 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-class Solution
+
+char *my_strcpy(char *dst, char *src, int count)
 {
-public:
-    vector<vector<int>> twoSumTarget(vector<int> &nums, int target)
+    assert(dst != NULL);
+    assert(src != NULL);
+    char *ret = dst;
+    if (dst <= src || src + count <= dst)
     {
-        int low = 0;
-        int high = nums.size() - 1;
-        vector<vector<int>> res;
-        while (low < high)
+        while ((*dst++ = *src++) != '\0')
         {
-            int sum = nums[low] + nums[high];
-            int left = nums[low];
-            int right = nums[high];
-            if (sum < target)
-            {
-                //去除nums从low位置开始与left一样的值
-                while (low < high && nums[low] == left)
-                    low++;
-            }
-            else if (sum > target)
-            {
-                //去除nums从high位置开始与right一样的值
-                while (low < high && nums[high] == right)
-                    high--;
-            }
-            else if (sum == target)
-            {
-                res.push_back({left, right});
-                while (low < high && nums[low] == left)
-                    low++;
-                while (low < high && nums[high] == right)
-                    high--;
-            }
+            count--;
+            if (count == 0)
+                break;
         }
-        return res;
+    }
+    else
+    {
+        char *src_back = src + count - 1;
+        char *dst_back = dst + count - 1;
+        while (((*dst-- = *src--) != '\0'))
+        {
+            count--;
+            if (count == 0)
+                break;
+        }
     }
 
-    vector<vector<int>> threeSumTarget(vector<int> &nums, int target)
-    {
-        sort(nums.begin(), nums.end());
-        int n = nums.size();
-        vector<vector<int>> res;
-        for (int i = 0; i < nums.size(); i++)
-        {
-            int num = nums[i];
-            auto tuples = twoSumTarget(nums, target - num);
-            for (auto tuple : tuples)
-            {
-                tuple.push_back(num);
-                res.push_back(tuple);
-            }
-            while (i < n - 1 && nums[i] == nums[i + 1])
-                i++;
-        }
-        return res;
-    }
+    return ret;
 };
 int main()
 {
-    vector<int> nums = {200, 3, 140, 20, 10};
-    // cout << Solution().rob(nums);
+    char str[10] = "abc";
+    char *temp = my_strcpy(str + 1, str);
+    cout << temp << "sss" << endl;
     return 0;
 }
