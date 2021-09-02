@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-23 16:57:30
+ * @LastEditTime: 2021-09-02 15:58:47
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -74,38 +74,19 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-char *my_strcpy(char *dst, char *src, int count)
+template <typename T>  struct is_void
 {
-    assert(dst != NULL);
-    assert(src != NULL);
-    char *ret = dst;
-    if (dst <= src || src + count <= dst)
-    {
-        while ((*dst++ = *src++) != '\0')
-        {
-            count--;
-            if (count == 0)
-                break;
-        }
-    }
-    else
-    {
-        char *src_back = src + count - 1;
-        char *dst_back = dst + count - 1;
-        while (((*dst-- = *src--) != '\0'))
-        {
-            count--;
-            if (count == 0)
-                break;
-        }
-    }
-
-    return ret;
+         static const bool value = false;
+     
 };
-int main()
+template <>  struct is_void<void>
 {
-    char str[10] = "abc";
-    char *temp = my_strcpy(str + 1, str);
-    cout << temp << "sss" << endl;
-    return 0;
+         static const bool value = true;
+     
+};
+int main()
+{
+        std::cout << is_void<int>::value;
+            std::cout << is_void<void>::value;
+        return 0;
 }
