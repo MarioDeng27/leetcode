@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-21 14:55:28
+ * @LastEditTime: 2021-09-09 22:27:29
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -46,47 +46,37 @@ using namespace std; */
 class Solution
 {
 public:
-    bool checkInclusion(string s1, string s2)
+    bool canJump(vector<int> &nums)
     {
-        map<char, int> need;
-        map<char, int> windows;
-        for (auto chr : s1)
-            need[chr]++;
-        int left = 0;
-        int right = 0;
-        int valid = 0;
-
-        while (right < s2.size())
+        int n = nums.size();
+        int cur = 0;
+        int i = 0;
+        while (i < n)
         {
-            char chr = s2[right];
-            right++;
-            if (need.count(chr) > 0)
+            int maxval = -1;
+            int temp = i;
+            if (i + nums[i] >= n - 1)
+                return true;
+            int I = i + nums[i];
+            for (int j = i + 1; j <= I; j++)
             {
-                windows[chr]++;
-                if (windows[chr] == need[chr])
-                    valid++;
-            }
-            while (right - left >= s1.size())
-            {
-                if (valid == need.size())
+                if (nums[j] + j >= n - 1)
                     return true;
-                char tmp = s2[left];
-                left++;
-                if (need.count(tmp) > 0)
+                if (j < n && nums[j] + j > maxval)
                 {
-                    if (windows[tmp] == need[tmp])
-                        valid--;
-                    windows[tmp]--;
+                    maxval = nums[j] + j;
+                    i = j;
                 }
             }
+            if (temp == i)
+                break;
         }
-        return false;
+        return i >= n - 1;
     }
 };
-
 int main()
 {
-
-    cout << "1" << endl;
+    vector<int> t = {3, 0, 8, 2, 0, 0, 1};
+    cout << Solution().canJump(t);
     return 0;
 }

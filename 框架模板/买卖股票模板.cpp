@@ -4,17 +4,16 @@
  * @Autor: Mario Deng
  * @Date: 2021-08-17 19:15:03
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-17 19:16:36
+ * @LastEditTime: 2021-09-08 18:54:56
  */
-base case：
+/* base case：
     dp[-1][k][0] = dp[i][0][0] = 0 dp[-1][k][1] = dp[i][0][1] = -infinity
 
-                                                                    状态转移方程：
-                                                                        dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i])
-        dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i])
+ 状态转移方程：
+        dp[i][k][0] = max(dp[i - 1][k][0], dp[i - 1][k][1] + prices[i])
+        dp[i][k][1] = max(dp[i - 1][k][1], dp[i - 1][k - 1][0] - prices[i]) */
 
-            int
-            maxProfit_k_1(vector<int> prices)
+int maxProfit_k_1(vector<int> prices)
 {
     vector<vector<int>> dp(prices.size(), vector<int>(2));
     for (int i = 0; i < prices.size(); i++)
