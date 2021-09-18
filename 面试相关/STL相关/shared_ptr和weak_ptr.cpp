@@ -4,9 +4,10 @@
  * @Autor: Mario Deng
  * @Date: 2021-08-19 19:45:46
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-08-19 19:46:40
+ * @LastEditTime: 2021-09-11 19:52:23
  */
-
+#include <iostream>
+using namespace std;
 class Counter
 {
 public:
@@ -166,3 +167,29 @@ private:
     T *_ptr;
     Counter *cnt;
 };
+
+class parent;
+class child;
+class parent
+{
+public:
+    // SharePtr<child> ch;
+    WeakPtr<child> ch;
+};
+class child
+{
+public:
+    SharePtr<parent> pt;
+};
+int main()
+{
+    //SharePtr<parent> ft(new parent());
+    //SharePtr<child> son(new child());
+    //ft->ch=son;
+    //son->pt=ft;
+    //SharePtr<child> son2=(ft->ch).lock();
+    SharePtr<int> i;
+    WeakPtr<int> wi(i);
+    cout << wi.expired() << endl;
+    return 0;
+}

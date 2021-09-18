@@ -1,0 +1,195 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Mario Deng
+ * @Date: 2021-09-18 18:25:30
+ * @LastEditors: Mario Deng
+ * @LastEditTime: 2021-09-18 18:25:31
+ */
+
+
+//https://blog.csdn.net/sxhelijian/article/details/8978850
+C++中各种输入函数的用法总结
+
+1.scanf()函数
+原型：int scanf(const char *restrict format,......);
+入口参数：第一个参数是格式字符串，它指定了输入的格式，......格式化后的字符串存取地址。
+返回值：函数返回值为int类型，如果读取到了“文件结束”则返回EOF，EOF为Ctrl+z或者Ctrl+d。其他情况则返回int型数字，例如：int res = scanf("%d %d",&a,&b);如果a,b都读取成功，则返回2；如果a,b只读取成功了一个，则返回1；如果a,b都没有读取成功，则返回0.
+说明：scanf()函数是C语言库中的函数，但由于C++的向下兼容性，所以在C++中也可以使用此函数。次函数是从标准输入流stdio（一般是键盘输入）中读取数据，并将其按照指定格式输入到制定地址。
+头文件：#include <stdio.h>
+用例：
+
+复制代码
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a,b;
+    scanf("%d %d",&a,&b); //注意此处输入的格式，两个输入数字之间要以空格分隔开来。
+    printf("%d %d",a,b);
+}
+复制代码
+2.cin()类（此类命名空间都在std中，无需添加头文件）。
+2.1.cin>>函数
+说明：当我们从键盘输入时，有一个缓冲区，当输入结束时会将所输入的数据存到缓冲区。而cin>>的作用就是从缓冲区读数据，所以当缓冲区数据本来就有残留时，会出现读取出错的问题。值得一提的是：cin函数遇到空格、TAB、换行时读取结束。
+用例：
+  1.输入一个字符串。
+复制代码
+　　#include <iostream>
+　　using namespace std;
+　　void main ()
+　　{
+　　　　char a[10];
+　　　　cin>>a;
+　　　　cout<<a<<endl;
+　　}
+复制代码
+　　输入：aaabbbccc
+　　输出：aaabbbccc
+
+　　输入：aaa bbb ccc
+　　输出：aaa
+
+　　2.输入一个数字。
+复制代码
+　　#include <iostream>
+　　using namespace std;
+　　void main ()
+　　{
+　　　　int a,b;
+　　　　cin>>a>>b;
+　　　　cout<<a+b<<endl;
+
+　　}
+复制代码
+ 
+
+　　输入：1回车2回车
+　　输出：3
+2.2.cin.get()函数
+原型：该函数有三种形式，分别是char ch = cin.get(), cin.get(char ch), cin.get(array,length)
+    1.cin.get() 和 cin.get(char ch)的用法
+    这两个函数功能基本一样，都是读取缓冲区的一个字符，遇到换行符结束，但是这两个函数都不会丢弃缓冲区里边的空格      和换行符。char ch = cin.get(), cin.get(char ch)这两句可得到相同的结果。
+    用例：
+
+复制代码
+   #include <iostream>
+　　using namespace std;
+      void main()
+     {
+        char ch1,ch2;
+        cin.get(ch1);
+        ch2 = cin.get();
+
+        cout<<ch1<<endl;
+        cout<<ch2<<endl;
+    }   
+复制代码
+ 
+
+
+    输入：a换行
+    输出：a
+   
+    （此处有一行空行，因为不会丢弃缓冲区里边的空行）
+
+---------------------------------------------------------------------
+    2.cin.get(array,length)
+    这个函数是从缓冲区读取字符串，其中array是字符串接受地址，length-1是字符串长度，因为最后一个字符必须存  储'\0'结束符，所以此函数只能接受length-1个字符。
+    用例：
+
+复制代码
+    #include <iostream>
+    using namespace std;
+    void main()
+    {
+        char ch[5];
+        cin.get(ch,5);
+        cou<<ch<<endl;
+    }
+复制代码
+    输入：abcdefghi
+    输出：abcd
+2.3.cin.getline(string str,int length)函数
+说明：接收一个长度为length-1的字符串，包括空格，遇到换行结束。
+
+复制代码
+     #include<iostream>
+　　using namespace std;
+　　int main()
+　　{
+　　　　char ch[10];
+　　　　cin.getline(ch,5);
+　　　　cout<<ch<<endl;
+　　　　return 0;
+　　}
+复制代码
+　　输入：aaaaaaaa
+　　输出：aaaa
+3.getline()函数
+原型：ssize_t getline(char **lineptr,size_t *n,FILE *stream);(在Ｃ语言的GCC扩展定义中)
+    　　getline(cin,string s);（在C++中）
+
+说明：getline不是C语言的库函数，而是GCC的扩展定义或者C++库函数，在Ｃ语言中和C++中的使用是不同的.
+用例１：（在C++中,应包含头文件<string>，读取字符串包含空格，遇到换行结束，不包括换行）
+
+复制代码
+＃include <iostream>
+using namespace std;
+int main()
+{
+    string s;
+    getline(cin,s);
+    cout<<s<<endl;
+
+    return 0;
+}
+复制代码
+输入：abcdefgh换行
+输出：abcdefgh
+用例２：（在Ｃ语言中，GCC扩展定义）
+待补充。。。。。。
+４．gets()函数
+原型：char *gets(char *buffer);
+入口参数：从缓冲区读取字符串后的写入地址
+返回值：读取成功后返回与入口参数buffer相同的地址。读取错误返回NULL。
+头文件：<string>
+说明:接收输入的字符串，没有上限，但是要保证buffer足够大，以换行结束，并将换行符转化为'\0'。
+用例：
+
+复制代码
+　　#include<iostream>
+　　#include<string>
+　　using namespace std;
+　　int main()
+　　{
+　　　　char ch[10];
+　　　　gets(ch);
+　　　　cout<<ch<<endl;
+　　　　return 0;
+　　}
+复制代码
+　　输入：abcdefg回车
+　　输出：abcdefg
+
+５．getchar()函数
+原型：int getchar(void);
+返回值：读取成功返回用户输入的ASCII码，读取失败返回EOF.
+头文件：<string>或者<stdio.h>
+说明：接收一个字符的输入，包含空格，遇到换行符结束。
+复制代码
+　　#include<iostream>
+　　#include<string>
+　　using namespace std;
+　　int main()
+　　{
+　　　　char ch;
+　　　　ch = getchar();
+　　　　cout<<ch<<endl;
+　　　　return 0;
+　　}
+复制代码
+　　输入：abc回车
+　　输出：a
