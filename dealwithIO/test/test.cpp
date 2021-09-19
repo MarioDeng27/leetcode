@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-09-02 19:21:12
+ * @LastEditTime: 2021-09-19 13:40:59
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -43,20 +43,6 @@ using namespace std;
 /* #include <bits/stdc++.h>
 using namespace std; */
 
-void func(vector<vector<int>> &A)
-{
-    int R = A.size();
-    int C = A[0].size();
-    vector<vector<int>> B(R, vector<int>(C));
-    for (int i = 0; i < R; i++)
-    {
-        for (int j = 0; j < C; j++)
-        {
-            B[j][R - 1 - i] = A[i][j];
-        }
-    }
-    A = B;
-}
 struct ListNode
 {
     int val;
@@ -73,77 +59,70 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+/* #include <bits/stdc++.h>
+using namespace std; */
 
 class Solution
 {
 public:
-    pair<int, int> expandAroundCenter(string &s, int left, int right)
+    //unordered_map<int, int> mem;
+    vector<int> count;
+    int dp(vector<int> &coins, int amount)
     {
-        while (left >= 0 && right < s.size() && s[left] == s[right])
+        if (amount < 0)
+            return -1;
+        if (amount == 0)
+            return 0;
+        if (count[amount] != 0)
+            return count[amount];
+        int minval = INT_MAX;
+        for (int i = 0; i < coins.size(); i++)
         {
-            --left;
-            ++right;
+            int a = dp(coins, amount - coins[i]);
+            if (a == -1)
+                continue;
+            minval = min(minval, a + 1);
         }
-        return {left + 1, right - 1};
+        int res = -1;
+        if (minval != INT_MAX)
+            res = minval;
+        count[amount] = res;
+        return res;
     }
-    string longestPalindrome(string s)
-    {
-        //表示回文串的左右两边索引,循环过程中维护这两个值,表示最长的回文串
-        int start = 0;
-        int end = 0;
 
-        int n = s.size();
+    int coinChange(vector<int> &coins, int amount)
+    {
+        /* count.resize(amount + 1, 0);
+        int res = dp(coins, amount);
+        return res; */
+        int n = coins.size();
+        int dp[amount + 1];
+        memset(dp, 0, sizeof(dp));
         for (int i = 0; i < n; i++)
         {
-            //两种基本的case,其中一种就是以单个字母进行向外扩展,也就是说回文串的长度是奇数的情况
-            auto p1 = expandAroundCenter(s, i, i);
-            //以两个相邻字母进行向外扩展,是偶数的情况
-            auto p2 = expandAroundCenter(s, i, i + 1);
-            //当以当前i值的情况向外扩展,得到的符合回文串并且是该情况下最长的,与目前的答案长度进行比较
-            if (p1.second - p1.first > end - start)
-            {
-                start = p1.first;
-                end = p1.second;
-            }
-            if (p2.second - p2.first > end - start)
-            {
-                start = p2.first;
-                end = p2.second;
-            }
+            if (coins[i] <= amount)
+                dp[coins[i]] = 1;
         }
-        return s.substr(start, end - start + 1);
-    }
-};
-class Solution
-{
-public:
-    int longestCommonSubsequence(string text1, string text2)
-    {
-        int m = text1.size();
-        int n = text2.size();
-        int dp[m + 1][n + 1];
-        memset(dp, 0, sizeof(dp));
-        int res = 0;
-        for (int i = 1; i <= m; i++)
-        {
-            for (int j = 1; j <= n; j++)
-            {
-                if (text1[i - 1] == text2[j - 1])
-                {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
-                }
-                else
-                {
-                    dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
-                }
-            }
-        }
-        return dp[m][n];
-    }
-};
 
+        for (int i = 1; i <= amount; i++)
+        {
+            int minval = INT_MAX;
+            for (int j = 0; j < n; j++)
+            {
+                if (coins[j] <= i)
+                    minval = min(dp[i - coins[j]] + 1, minval);
+            }
+            dp[i] = minval;
+        }
+        if (dp[amount] == INT_MAX)
+            return -1;
+        return dp[amount];
+    }
+};
 int main()
 {
-    cout << Solution().longestPalindrome("babad");
+    vector<int> nums = {2, 3, 6, 7};
+    auto res = Solution().combinationSum(nums, 7);
+
     return 0;
 }

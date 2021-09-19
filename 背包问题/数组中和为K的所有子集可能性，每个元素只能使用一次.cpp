@@ -4,11 +4,11 @@
  * @Autor: Mario Deng
  * @Date: 2021-09-18 22:18:09
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-09-19 12:18:04
+ * @LastEditTime: 2021-09-19 12:16:04
  */
 //回溯
 vector<vector<int>> vec;
-void backtrack(vector<int> &nums, int C, int index, vector<int> &track, int sum)
+void backtrack(vector<int> &nums, int C, int index, vector<int> track, int sum)
 {
     if (index == nums.size())
         return;
