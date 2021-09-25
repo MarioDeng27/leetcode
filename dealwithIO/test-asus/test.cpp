@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-09-17 22:34:43
+ * @LastEditTime: 2021-09-25 20:42:54
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -76,48 +76,53 @@ struct TreeNode
 class Solution
 {
 public:
-    unordered_map<char, vector<int>> chartoindexs;
-    int findRotateSteps(string ring, string key)
+    int findCheapestPrice(int n, vector<vector<int>> &flights, int src, int dst, int k)
     {
-        for (int i = 0; i < ring.size(); i++)
+        map<int, vector<pair<int, int>>> fromset;
+        // dp[i][k]表示 在k步之内（k条边内）到达i的最小路径
+        int dp[n][k + 1];
+        //-1代表src在k个中转点的情况下不能到达 i
+        memset(dp, -1, sizeof(dp));
+        for (int i = 0; i < flights.size(); i++)
         {
-            chartoindexs[ring[i]].push_back(i);
-        }
-        int m = ring.size();
-        int n = key.size();
-        int dp[n][m];
-        memset(dp, 0, sizeof(dp));
-
-        for (int j = n - 1; j >= 0; j--)
-        {
-            for (int i = 0; i < m; i++)
+            int to = flights[i][1];
+            int from = flights[i][0];
+            int cost = flights[i][2];
+            fromset[to].push_back({from, cost});
+            if (from == src)
             {
-                char need = key[j];
-                int res = INT_MAX;
-                for (int k = 0; k < chartoindexs[need].size(); k++)
-                {
-                    int index = chartoindexs[need][k];
-                    int steps = abs(i - index);
-                    steps = min(steps, m - steps);
-                    if (j == n - 1)
-                        res = min(res, steps);
-                    else
-                    {
-                        res = min(res, dp[j + 1][index] + steps);
-                    }
-                }
-                dp[j][i] = res;
-                if (i == 0 && j == 0)
-                    break;
+                dp[to][0] = cost;
             }
         }
-
-        return dp[0][0] + key.size();
+        for (int i = 0; i <= k; i++)
+            dp[src][i] = 0;
+        for (int j = 1; j <= k; j++)
+        {
+            for (int i = 0; i < n; i++)
+            {
+                if (fromset.count(i) == 0 || i == src)
+                    continue;
+                auto froms = fromset[i];
+                int res = INT_MAX;
+                for (int t = 0; t < froms.size(); t++)
+                {
+                    int from = froms[t].first;
+                    int cost = froms[t].second;
+                    if (dp[from][j - 1] == -1 || dp[from][j - 1] == INT_MAX)
+                        continue;
+                    res = min(dp[from][j - 1] + cost, res);
+                }
+                dp[i][j] = res;
+            }
+        }
+        return dp[dst][k] == INT_MAX ? -1 : dp[dst][k];
     }
 };
-
 int main()
 {
-    cout << 123;
+    int n = 3;
+    //vector<vector<int>> flights = {{4, 1, 1}, {1, 2, 3}, {0, 3, 2}, {0, 4, 10}, {3, 1, 1}, {1, 4, 3}};
+    vector<vector<int>> flights = {{0, 1, 100}, {1, 2, 100}, {0, 2, 500}};
+    cout << Solution().findCheapestPrice(3, flights, 0, 2, 1) << endl;
     return 0;
 }
