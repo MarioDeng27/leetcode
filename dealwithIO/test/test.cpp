@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-09-19 13:40:59
+ * @LastEditTime: 2021-09-28 21:06:18
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -16,7 +16,7 @@
  * @LastEditors: Mario Deng
  * @LastEditTime: 2021-07-02 00:37:48
  */
-#include <algorithm>
+/*#include <algorithm>
 #include <array>
 #include <atomic>
 #include <bits/stdc++.h>
@@ -38,10 +38,10 @@
 #include <thread>
 #include <unordered_map>
 #include <vector>
-using namespace std;
+using namespace std;*/
 
-/* #include <bits/stdc++.h>
-using namespace std; */
+#include <bits/stdc++.h>
+using namespace std;
 
 struct ListNode
 {
@@ -59,70 +59,120 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-/* #include <bits/stdc++.h>
-using namespace std; */
+/*  #include <bits/stdc++.h>
+using namespace std;  */
 
 class Solution
 {
 public:
-    //unordered_map<int, int> mem;
-    vector<int> count;
-    int dp(vector<int> &coins, int amount)
+    int totalSum;
+    int dfs(TreeNode *root, int targetSum)
     {
-        if (amount < 0)
-            return -1;
-        if (amount == 0)
+        if (root == nullptr)
             return 0;
-        if (count[amount] != 0)
-            return count[amount];
-        int minval = INT_MAX;
-        for (int i = 0; i < coins.size(); i++)
-        {
-            int a = dp(coins, amount - coins[i]);
-            if (a == -1)
-                continue;
-            minval = min(minval, a + 1);
-        }
-        int res = -1;
-        if (minval != INT_MAX)
-            res = minval;
-        count[amount] = res;
-        return res;
+        int res = 0;
+        if (root->val == targetSum)
+            res = 1;
+        int a = dfs(root->left, targetSum - root->val);
+        int b = dfs(root->right, targetSum - root->val);
+
+        return res + a + b;
     }
-
-    int coinChange(vector<int> &coins, int amount)
+    int pathSum(TreeNode *root, int targetSum)
     {
-        /* count.resize(amount + 1, 0);
-        int res = dp(coins, amount);
-        return res; */
-        int n = coins.size();
-        int dp[amount + 1];
-        memset(dp, 0, sizeof(dp));
-        for (int i = 0; i < n; i++)
-        {
-            if (coins[i] <= amount)
-                dp[coins[i]] = 1;
-        }
-
-        for (int i = 1; i <= amount; i++)
-        {
-            int minval = INT_MAX;
-            for (int j = 0; j < n; j++)
-            {
-                if (coins[j] <= i)
-                    minval = min(dp[i - coins[j]] + 1, minval);
-            }
-            dp[i] = minval;
-        }
-        if (dp[amount] == INT_MAX)
-            return -1;
-        return dp[amount];
+        if (root == nullptr)
+            return 0;
+        int a = dfs(root, targetSum);
+        int b = pathSum(root->left, targetSum);
+        int c = pathSum(root->right, targetSum);
+        return a + b + c;
     }
 };
+
+void trimLeftTrailingSpaces(string &input)
+{
+    input.erase(input.begin(), find_if(input.begin(), input.end(), [](int ch)
+                                       { return !isspace(ch); }));
+}
+
+void trimRightTrailingSpaces(string &input)
+{
+    input.erase(find_if(input.rbegin(), input.rend(), [](int ch)
+                        { return !isspace(ch); })
+                    .base(),
+                input.end());
+}
+
+TreeNode *stringToTreeNode(string input)
+{
+    trimLeftTrailingSpaces(input);
+    trimRightTrailingSpaces(input);
+    input = input.substr(1, input.length() - 2);
+    if (!input.size())
+    {
+        return nullptr;
+    }
+
+    string item;
+    stringstream ss;
+    ss.str(input);
+
+    getline(ss, item, ',');
+    TreeNode *root = new TreeNode(stoi(item));
+    queue<TreeNode *> nodeQueue;
+    nodeQueue.push(root);
+
+    while (true)
+    {
+        TreeNode *node = nodeQueue.front();
+        nodeQueue.pop();
+
+        if (!getline(ss, item, ','))
+        {
+            break;
+        }
+
+        trimLeftTrailingSpaces(item);
+        if (item != "null")
+        {
+            int leftNumber = stoi(item);
+            node->left = new TreeNode(leftNumber);
+            nodeQueue.push(node->left);
+        }
+
+        if (!getline(ss, item, ','))
+        {
+            break;
+        }
+
+        trimLeftTrailingSpaces(item);
+        if (item != "null")
+        {
+            int rightNumber = stoi(item);
+            node->right = new TreeNode(rightNumber);
+            nodeQueue.push(node->right);
+        }
+    }
+    return root;
+}
+
+int stringToInteger(string input)
+{
+    return stoi(input);
+}
+
 int main()
 {
-    vector<int> nums = {2, 3, 6, 7};
-    auto res = Solution().combinationSum(nums, 7);
+    string line = "[10,5,-3,3,2,null,11,3,-2,null,1]";
+
+    TreeNode *root = stringToTreeNode(line);
+
+    int targetSum = 8;
+
+    int ret = Solution().pathSum(root, targetSum);
+
+    string out = to_string(ret);
+    cout << out << endl;
 
     return 0;
 }
