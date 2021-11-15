@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-09-27 17:51:06
+ * @LastEditTime: 2021-11-15 20:26:16
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -73,87 +73,130 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+
+template <typename T>
+void submit(T f)
+{
+    cout << typeid(T).name() << endl;
+    function<void(int)> func(f);
+    func(1);
+}
+
+void myfunc()
+{
+    cout << "no para" << endl;
+}
+void myfunc1(int i)
+{
+    cout << "have a para" << endl;
+}
+
+void delay(double sec)
+{
+    time_t start_time, cur_time; // 变量声明
+    time(&start_time);
+    do
+    {
+        time(&cur_time);
+    } while ((cur_time - start_time) < sec);
+};
+
+void show(int n)
+{
+    cout << "n=" << n << endl;
+}
+thread returnThread()
+{
+    thread tt(show, 10);
+    return tt;
+}
+#include <ctime>
+#include <iostream>
+#include <thread>
+using namespace std;
+void delay(double sec)
+{
+    time_t start_time, cur_time; // 变量声明
+    time(&start_time);
+    do
+    {
+        time(&cur_time);
+    } while ((cur_time - start_time) < sec);
+};
+
+void show(int n)
+{
+    cout << "n=" << n << endl;
+}
+thread returnThread()
+{
+    thread tt(show, 10);
+    return tt;
+}
 class Solution
 {
 public:
-    const long N = 1000000007;
-    int numDecodings(string s)
+    int bulbSwitch(int n)
     {
-        int n = s.size();
-        long dp[n + 1];
-        memset(dp, 0, sizeof(dp));
-        dp[n] = 1;
-
-        long pre = 1;
-        long cur;
-        for (int i = n - 1; i >= 0; i--)
+        vector<bool> arr(n, true);
+        for (int i = 2; i <= n; i++)
         {
-            if (i == n - 1)
+            // for (int j = 1; j <= n; j++)
+            // {
+            //     if (j % i == 0)
+            //     {
+            //         arr[j] = !arr[j];
+            //     }
+            // }
+            for (int j = i; j <= n; j += i)
             {
-                if (s[i] == '*')
-                    cur = 9;
-                else if (s[i] == '0')
-                    cur = 0;
-                else
-                    cur = 1;
-                continue;
+                arr[j] = !arr[j];
             }
-
-            if (s[i] == '0')
-            {
-                pre = cur;
-                cur = 0;
-                continue;
-            }
-
-            long a = 0;
-            if (s[i] == '*')
-            {
-                a = 9 * cur;
-                if (s[i + 1] == '*')
-                {
-                    a += (15 * pre);
-                }
-                else if (s[i + 1] != '*')
-                {
-                    int num = s[i + 1] - '0';
-                    if (num >= 0 && num <= 6)
-                        a = a + 2 * pre;
-                    else
-                        a = a + pre;
-                }
-            }
-
-            else
-            {
-                a = cur;
-                if (i + 1 <= s.size() - 1 && s[i + 1] != '*')
-                {
-                    int num = (s[i] - '0') * 10 + (s[i + 1] - '0');
-                    if (num <= 26)
-                    {
-                        a += pre;
-                    }
-                }
-                else if (i + 1 <= s.size() - 1 && s[i + 1] == '*')
-                {
-                    if (s[i] == '1')
-                        a = a + 9 * pre;
-                    if (s[i] == '2')
-                        a = a + 6 * pre;
-                }
-            }
-            pre = cur;
-            cur = a % N;
         }
-        return cur;
+        int cnt = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (arr[i])
+                cnt++;
+        }
+        return cnt;
     }
 };
 int main()
 {
-    int n = 3;
-    //vector<vector<int>> flights = {{4, 1, 1}, {1, 2, 3}, {0, 3, 2}, {0, 4, 10}, {3, 1, 1}, {1, 4, 3}};
-    vector<vector<int>> flights = {{0, 1, 100}, {1, 2, 100}, {0, 2, 500}};
-    cout << Solution().numDecodings("*1") << endl;
-    return 0;
+
+    thread t(show, 18);
+    cout << "t is joinable? " << t.joinable() << endl;
+
+    thread t1(returnThread());
+    cout << "t1 is joinable? " << t1.joinable() << endl;
+
+    thread t2(show, 3);
+    cout << "t2 is joinable? " << t2.joinable() << endl;
+    t2.join();
+    cout << "after t2.join(),t2 is joinable? " << t2.joinable() << endl;
+
+    thread t3(show, 5);
+    cout << "t3 is joinable? " << t3.joinable() << endl;
+    t3.detach();
+    cout << "after t3.detach(),t3 is joinable? " << t3.joinable() << endl;
+}
+int main()
+{
+
+    thread t(show, 18);
+    cout << "t is joinable? " << t.joinable() << endl;
+
+    thread t1(returnThread());
+    cout << "t1 is joinable? " << t1.joinable() << endl;
+
+    thread t2(show, 3);
+    cout << "t2 is joinable? " << t2.joinable() << endl;
+    t2.join();
+    cout << "after t2.join(),t2 is joinable? " << t2.joinable() << endl;
+
+    thread t3(show, 5);
+    cout << "t3 is joinable? " << t3.joinable() << endl;
+    t3.detach();
+    cout << "after t3.detach(),t3 is joinable? " << t3.joinable() << endl;
 }
