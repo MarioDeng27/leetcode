@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-15 20:26:16
+ * @LastEditTime: 2021-11-27 19:51:30
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -43,20 +43,6 @@ using namespace std;
 /* #include <bits/stdc++.h>
 using namespace std; */
 
-void func(vector<vector<int>> &A)
-{
-    int R = A.size();
-    int C = A[0].size();
-    vector<vector<int>> B(R, vector<int>(C));
-    for (int i = 0; i < R; i++)
-    {
-        for (int j = 0; j < C; j++)
-        {
-            B[j][R - 1 - i] = A[i][j];
-        }
-    }
-    A = B;
-}
 struct ListNode
 {
     int val;
@@ -74,129 +60,81 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-template <typename T>
-void submit(T f)
-{
-    cout << typeid(T).name() << endl;
-    function<void(int)> func(f);
-    func(1);
-}
-
-void myfunc()
-{
-    cout << "no para" << endl;
-}
-void myfunc1(int i)
-{
-    cout << "have a para" << endl;
-}
-
-void delay(double sec)
-{
-    time_t start_time, cur_time; // 变量声明
-    time(&start_time);
-    do
-    {
-        time(&cur_time);
-    } while ((cur_time - start_time) < sec);
-};
-
-void show(int n)
-{
-    cout << "n=" << n << endl;
-}
-thread returnThread()
-{
-    thread tt(show, 10);
-    return tt;
-}
-#include <ctime>
-#include <iostream>
-#include <thread>
-using namespace std;
-void delay(double sec)
-{
-    time_t start_time, cur_time; // 变量声明
-    time(&start_time);
-    do
-    {
-        time(&cur_time);
-    } while ((cur_time - start_time) < sec);
-};
-
-void show(int n)
-{
-    cout << "n=" << n << endl;
-}
-thread returnThread()
-{
-    thread tt(show, 10);
-    return tt;
-}
 class Solution
 {
 public:
-    int bulbSwitch(int n)
+    int maxArea(vector<int> &height)
     {
-        vector<bool> arr(n, true);
-        for (int i = 2; i <= n; i++)
+        int n = height.size();
+        int res = 0;
+        // for (int i = 0; i < n; i++)
+        // {
+        //     for (int j = i + 1; j < n; j++)
+        //     {
+        //         int minval = min(height[i], height[j]);
+        //         res = max(res, minval * (j - i));
+        //     }
+        // }
+        int l = 0;
+        int r = n - 1;
+        while (l < r)
         {
-            // for (int j = 1; j <= n; j++)
-            // {
-            //     if (j % i == 0)
-            //     {
-            //         arr[j] = !arr[j];
-            //     }
-            // }
-            for (int j = i; j <= n; j += i)
+            int index = r;
+            if (height[l] < height[r])
             {
-                arr[j] = !arr[j];
+                index = l;
             }
+            res = max(res, height[index] * (r - l));
+            if (index == l)
+                l++;
+            else
+                r--;
         }
-        int cnt = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (arr[i])
-                cnt++;
-        }
-        return cnt;
+        return res;
     }
+};
+class function_wrapper
+{
+    struct impl_base
+    {
+        virtual void call() = 0;
+        virtual ~impl_base() {}
+    };
+    std::unique_ptr<impl_base> impl;
+    template <typename F>
+    struct impl_type : impl_base
+    {
+        F f;
+        impl_type(F &&f_) : f(std::move(f_)) {}
+        void call() { f(); }
+    };
+
+public:
+    template <typename F>
+    function_wrapper(F &&f) : impl(new impl_type<F>(std::move(f))){};
+    void operator()() { impl->call(); }
+    function_wrapper() = default;
+    function_wrapper(function_wrapper &&other) : impl(std::move(other.impl)){};
+    function_wrapper &operator=(function_wrapper &&other)
+    {
+        impl = std::move(other.impl);
+        return *this;
+    }
+    function_wrapper(const function_wrapper &) = delete;
+    function_wrapper(function_wrapper &) = delete;
+    function_wrapper &operator=(const function_wrapper &) = delete;
+};
+class Point
+{
+public:
+    Point(int _x, int _y) : x(_x), y(_y){};
+    int x;
+    int y;
 };
 int main()
 {
-
-    thread t(show, 18);
-    cout << "t is joinable? " << t.joinable() << endl;
-
-    thread t1(returnThread());
-    cout << "t1 is joinable? " << t1.joinable() << endl;
-
-    thread t2(show, 3);
-    cout << "t2 is joinable? " << t2.joinable() << endl;
-    t2.join();
-    cout << "after t2.join(),t2 is joinable? " << t2.joinable() << endl;
-
-    thread t3(show, 5);
-    cout << "t3 is joinable? " << t3.joinable() << endl;
-    t3.detach();
-    cout << "after t3.detach(),t3 is joinable? " << t3.joinable() << endl;
-}
-int main()
-{
-
-    thread t(show, 18);
-    cout << "t is joinable? " << t.joinable() << endl;
-
-    thread t1(returnThread());
-    cout << "t1 is joinable? " << t1.joinable() << endl;
-
-    thread t2(show, 3);
-    cout << "t2 is joinable? " << t2.joinable() << endl;
-    t2.join();
-    cout << "after t2.join(),t2 is joinable? " << t2.joinable() << endl;
-
-    thread t3(show, 5);
-    cout << "t3 is joinable? " << t3.joinable() << endl;
-    t3.detach();
-    cout << "after t3.detach(),t3 is joinable? " << t3.joinable() << endl;
+    Point *p = new Point(3, 4);
+    Point *p2 = move(p);
+    cout << p2->x << endl;
+    cout << p2->y << endl;
 }
