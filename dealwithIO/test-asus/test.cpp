@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2021-11-27 19:51:30
+ * @LastEditTime: 2021-11-29 15:16:57
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -67,14 +67,6 @@ public:
     {
         int n = height.size();
         int res = 0;
-        // for (int i = 0; i < n; i++)
-        // {
-        //     for (int j = i + 1; j < n; j++)
-        //     {
-        //         int minval = min(height[i], height[j]);
-        //         res = max(res, minval * (j - i));
-        //     }
-        // }
         int l = 0;
         int r = n - 1;
         while (l < r)
@@ -131,10 +123,32 @@ public:
     int x;
     int y;
 };
+// #include <iostream>
+// using namespace std;
+class shape
+{
+public:
+    shape() { cout << "shape" << endl; }
+
+    ~shape()
+    {
+        cout << "~shape" << endl;
+    }
+};
+class circle : public shape
+{
+public:
+    circle() { cout << "circle" << endl; }
+
+    ~circle()
+    {
+        cout << "~circle" << endl;
+    }
+};
+
 int main()
 {
-    Point *p = new Point(3, 4);
-    Point *p2 = move(p);
-    cout << p2->x << endl;
-    cout << p2->y << endl;
+    circle();
+
+    return 0;
 }
