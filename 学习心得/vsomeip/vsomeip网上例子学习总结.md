@@ -252,11 +252,11 @@ int main() {
 2021-11-08 22:49:14.884907 [info] Parsed vsomeip configuration in 0ms
 2021-11-08 22:49:14.885536 [info] Configuration module loaded.
 2021-11-08 22:49:14.885669 [info] Initializing vsomeip application "Hello".
-2021-11-08 22:49:14.886103 [info] Instantiating routing manager [Host].
+2021-11-08 22:49:14.886103 [info] Instantiating routing manager [<u>Host</u>].
 2021-11-08 22:49:14.886377 [info] create_local_server Routing endpoint at /tmp/vsomeip-0
 2021-11-08 22:49:14.886801 [info] Service Discovery enabled. Trying to load module.
 2021-11-08 22:49:14.888751 [info] Service Discovery module loaded.
-2021-11-08 22:49:14.894132 [info] Application(Hello, 1000) is initialized (11, 100).
+2021-11-08 22:49:14.894132 [info] Application(<u>Hello, 1000</u>) is initialized (11, 100).
 2021-11-08 22:49:14.894970 [info] REQUEST(1000): [1234.5678:255.4294967295]
 2021-11-08 22:49:14.896091 [info] Listening at /tmp/vsomeip-1000
 2021-11-08 22:49:14.897294 [info] Starting vsomeip application "Hello" (1000) using 2 threads I/O nice 255
@@ -270,7 +270,7 @@ int main() {
 CLIENT: Service [1234.5678] is NOT available.
 2021-11-08 22:49:24.904099 [info] vSomeIP 3.1.20.3 | (default)
 2021-11-08 22:49:24.164903 [info] Application/Client 1001 is registering.
-2021-11-08 22:49:24.166304 [info] Client [1000] is connecting to [1001] at /tmp/vsomeip-1001
+2021-11-08 22:49:24.166304 [info] <u>Client [1000] is connecting to [1001] at /tmp/vsomeip-1001</u>
 2021-11-08 22:49:24.168682 [info] REGISTERED_ACK(1001)
 2021-11-08 22:49:24.170525 [info] OFFER(1001): [1234.5678:0.0] (true)
 2021-11-08 22:49:24.171216 [info] Port configuration missing for [1234.5678]. Service is internal.
@@ -288,12 +288,12 @@ CLIENT: received a notification for event [1234.5678.0002] to Client/Session [00
 2021-11-08 22:49:24.152864 [info] Parsed vsomeip configuration in 0ms
 2021-11-08 22:49:24.153476 [info] Configuration module loaded.
 2021-11-08 22:49:24.153564 [info] Initializing vsomeip application "World".
-2021-11-08 22:49:24.153738 [info] Instantiating routing manager [Proxy].
+2021-11-08 22:49:24.153738 [info] Instantiating routing manager [<u>Proxy</u>].
 2021-11-08 22:49:24.153877 [info] Client [ffff] is connecting to [0] at /tmp/vsomeip-0
-2021-11-08 22:49:24.154030 [info] Application(World, ffff) is initialized (11, 100).
+2021-11-08 22:49:24.154030 [info] Application(<u>World, ffff</u>) is initialized (11, 100).
 2021-11-08 22:49:24.154346 [info] Starting vsomeip application "World" (ffff) using 2 threads I/O nice 255
 2021-11-08 22:49:24.157225 [info] io thread id from application: ffff (World) is: 7fc4aa14e280 TID: 7987
-2021-11-08 22:49:24.163255 [info] Listening at /tmp/vsomeip-1001
+2021-11-08 22:49:24.163255 [info] Listening at <u>/tmp/vsomeip-1001</u>
 2021-11-08 22:49:24.164113 [info] Client 1001 (World) successfully connected to routing  ~> registering..
 2021-11-08 22:49:24.167845 [info] Application/Client 1001 (World) is registered.
 2021-11-08 22:49:24.169651 [info] REGISTER EVENT(1001): [1234.5678.0002:is_provider=1]
