@@ -1,0 +1,67 @@
+cd /apps/vsomeip/build/examples/hello_world/
+cd /apps/vsomeip/build2/examples/hello_world/
+
+HOST1运行service：
+env VSOMEIP_CONFIGURATION=../helloworld-local.json \
+VSOMEIP_APPLICATION_NAME=hello_world_service \
+./hello_world_service
+
+HOST1运行client：
+env VSOMEIP_CONFIGURATION=../helloworld-local.json \
+VSOMEIP_APPLICATION_NAME=hello_world_client \
+./hello_world_client
+
+env VSOMEIP_CONFIGURATION=./helloworld-local.json VSOMEIP_APPLICATION_NAME=hello_world_service ./hello_world_service
+
+
+env VSOMEIP_CONFIGURATION=./helloworld-local.json VSOMEIP_APPLICATION_NAME=hello_world_client ./hello_world_client
+
+env VSOMEIP_CONFIGURATION=./vsomeip-service-example.json VSOMEIP_APPLICATION_NAME=Service-Method-Example ./service-method-example
+
+env VSOMEIP_CONFIGURATION=./vsomeip-client-example.json VSOMEIP_APPLICATION_NAME=Client-Method-Example ./client-method-example
+
+
+root@iZbp17pnyq89ikha4acmetZ:/apps/vsomeip/build/examples/hello_world# env VSOMEIP_CONFIGURATION=./helloworld-local.json VSOMEIP_APPLICATION_NAME=hello_world_service ./hello_world_service
+2021-11-06 14:06:36.622562 [info] Parsed vsomeip configuration in 0ms
+2021-11-06 14:06:36.624472 [info] Using configuration file: "./helloworld-local.json".
+2021-11-06 14:06:36.625258 [info] Configuration module loaded.
+2021-11-06 14:06:36.625974 [info] Initializing vsomeip application "hello_world_service".
+2021-11-06 14:06:36.627084 [info] Instantiating routing manager [Host].
+2021-11-06 14:06:36.628220 [info] create_local_server Routing endpoint at /tmp/vsomeip-0
+2021-11-06 14:06:36.629382 [info] Application(hello_world_service, 4444) is initialized (11, 100).
+2021-11-06 14:06:36.630231 [info] Starting vsomeip application "hello_world_service" (4444) using 2 threads I/O nice 255
+2021-11-06 14:06:36.633756 [info] Watchdog is disabled!
+2021-11-06 14:06:36.635526 [info] io thread id from application: 4444 (hello_world_service) is: 7f845b1923c0 TID: 4017
+2021-11-06 14:06:36.636553 [info] vSomeIP 3.1.20.3 | (default)
+2021-11-06 14:06:36.637343 [info] io thread id from application: 4444 (hello_world_service) is: 7f84571bd700 TID: 4022
+2021-11-06 14:06:36.638577 [info] shutdown thread id from application: 4444 (hello_world_service) is: 7f84581bf700 TID: 4020
+2021-11-06 14:06:36.639511 [info] main dispatch thread id from application: 4444 (hello_world_service) is: 7f84589c0700 TID: 4019
+2021-11-06 14:06:36.640366 [info] OFFER(4444): [1111.2222:0.0] (true)
+2021-11-06 14:06:36.641650 [info] Listening at /tmp/vsomeip-4444
+2021-11-06 14:06:46.637699 [info] vSomeIP 3.1.20.3 | (default)
+
+
+
+
+
+
+------------------------------------------------------
+2021-11-06 20:30:01.056668 [info] Parsed vsomeip configuration in 0ms
+2021-11-06 20:30:01.057936 [info] Using configuration file: "./helloworld-local.json".
+2021-11-06 20:30:01.058503 [info] Configuration module loaded.
+2021-11-06 20:30:01.059017 [info] Initializing vsomeip application "hello_world_service".
+2021-11-06 20:30:01.059635 [info] Instantiating routing manager [Host].
+2021-11-06 20:30:01.067437 [info] create_local_server Routing endpoint at /tmp/vsomeip-0
+2021-11-06 20:30:01.068777 [info] Application(hello_world_service, 4444) is initialized (11, 100).
+2021-11-06 20:30:01.069445 [info] Starting vsomeip application "hello_world_service" (4444) using 2 threads I/O nice 255
+2021-11-06 20:30:01.071451 [info] Watchdog is disabled!
+2021-11-06 20:30:01.073241 [info] io thread id from application: 4444 (hello_world_service) is: 7f73f25633c0 TID: 4583
+2021-11-06 20:30:01.074063 [info] vSomeIP 3.1.20.3 | (default)
+2021-11-06 20:30:01.074827 [info] shutdown thread id from application: 4444 (hello_world_service) is: 7f73ef590700 TID: 4586
+2021-11-06 20:30:01.075634 [info] io thread id from application: 4444 (hello_world_service) is: 7f73ee58e700 TID: 4588
+2021-11-06 20:30:01.076487 [info] main dispatch thread id from application: 4444 (hello_world_service) is: 7f73efd91700 TID: 4585
+
+
+
+client_side_logging_
+

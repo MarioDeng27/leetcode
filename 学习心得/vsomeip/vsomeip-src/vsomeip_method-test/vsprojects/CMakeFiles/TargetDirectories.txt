@@ -1,0 +1,4 @@
+F:/cpp/vsomeip/vsomeip_method-test/vsprojects/CMakeFiles/service-method-example.dir
+F:/cpp/vsomeip/vsomeip_method-test/vsprojects/CMakeFiles/client-method-example.dir
+F:/cpp/vsomeip/vsomeip_method-test/vsprojects/CMakeFiles/ALL_BUILD.dir
+F:/cpp/vsomeip/vsomeip_method-test/vsprojects/CMakeFiles/ZERO_CHECK.dir
