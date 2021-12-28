@@ -1,0 +1,1743 @@
+!SESSION 2021-12-27 14:28:10.154 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=1.8.0_312
+java.vendor=Temurin
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-12-27 14:29:02.714
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\MARIO'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2021-12-27 14:39:26.850
+!MESSAGE Connection to https://mirror.kakao.com/eclipse/eclipse/updates/4.13/R-4.13-201909161045/plugins/org.junit_4.12.0.v201504281640.jar.pack.gz failed on Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect. Retry attempt 0 started
+!STACK 0
+org.apache.http.conn.HttpHostConnectException: Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:339)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 13 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2021-12-27 14:40:27.416
+!MESSAGE Connection to https://mirror.kakao.com/eclipse/releases/2019-09/201909181001/plugins/org.apache.commons.logging_1.1.1.v201101211721.jar.pack.gz failed on Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect. Retry attempt 0 started
+!STACK 0
+org.apache.http.conn.HttpHostConnectException: Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:339)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 13 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2021-12-27 14:40:30.193
+!MESSAGE Connection to https://mirror.kakao.com/eclipse/releases/2019-09/201909181001/plugins/org.eclipse.emf.compare_3.5.3.201909101346.jar.pack.gz failed on Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect. Retry attempt 0 started
+!STACK 0
+org.apache.http.conn.HttpHostConnectException: Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:339)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 13 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2021-12-27 14:40:51.396
+!MESSAGE Connection to https://mirror.kakao.com/eclipse/releases/2019-09/201909181001/plugins/org.eclipse.emf.mwe.core_1.5.0.201906111547.jar.pack.gz failed on Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect. Retry attempt 0 started
+!STACK 0
+org.apache.http.conn.HttpHostConnectException: Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:339)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 13 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2021-12-27 14:40:53.284
+!MESSAGE Connection to https://mirror.kakao.com/eclipse/releases/2019-09/201909181001/plugins/org.eclipse.emf.mwe2.lib_2.11.0.201906111547.jar.pack.gz failed on Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect. Retry attempt 0 started
+!STACK 0
+org.apache.http.conn.HttpHostConnectException: Connect to mirror.kakao.com:443 [mirror.kakao.com/173.236.212.42] failed: Connection timed out: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:159)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:373)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:394)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:237)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:607)
+	at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:339)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:142)
+	... 13 more
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2021-12-27 14:41:59.031
+!MESSAGE Connection to http://download.eclipse.org/nebula/releases/latest/features/org.eclipse.nebula.widgets.pgroup.feature_1.0.0.202011020719.jar failed on download.eclipse.org:80 failed to respond. Retry attempt 0 started
+!STACK 0
+org.apache.http.NoHttpResponseException: download.eclipse.org:80 failed to respond
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:141)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 2 0 2021-12-27 14:42:23.394
+!MESSAGE Connection to http://download.eclipse.org/nattable/releases/1.6.0/repository/plugins/org.eclipse.nebula.widgets.nattable.extension.glazedlists_1.6.0.201909181823.jar failed on download.eclipse.org:80 failed to respond. Retry attempt 0 started
+!STACK 0
+org.apache.http.NoHttpResponseException: download.eclipse.org:80 failed to respond
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:141)
+	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165)
+	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.performConnect(HttpClientRetrieveFileTransfer.java:1000)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer.access$0(HttpClientRetrieveFileTransfer.java:992)
+	at org.eclipse.ecf.provider.filetransfer.httpclient45.HttpClientRetrieveFileTransfer$1.performFileTransfer(HttpClientRetrieveFileTransfer.java:988)
+	at org.eclipse.ecf.filetransfer.FileTransferJob.run(FileTransferJob.java:74)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2021-12-27 14:44:39.546 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=1.8.0_312
+java.vendor=Temurin
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product -data file:/F:/一汽项目/demo/ -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-12-27 14:45:06.479
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\MARIO'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2021-12-27 15:00:35.118 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=1.8.0_312
+java.vendor=Temurin
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-12-27 15:00:54.955
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\MARIO'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY com.vector.cfg.project.creation.amsr.activities.CreateProjectFolderStructure.Activity_Logger 1 0 2021-12-27 15:32:14.305
+!MESSAGE Thread 'Worker-19: New DaVinci Adaptive Project' [#61]: Workflow 'Create project folder structure' started.
+
+!ENTRY com.vector.cfg.project.creation.amsr.activities.CreateProjectFolderStructure.Activity_Logger 1 0 2021-12-27 15:32:14.392
+!MESSAGE Thread 'Worker-19: New DaVinci Adaptive Project' [#61]: Workflow 'Create project folder structure' successfully finished.
+
+!ENTRY com.vector.cfg.project.creation.amsr.activities.CreateAdpaFile.Activity_Logger 1 0 2021-12-27 15:32:14.396
+!MESSAGE Thread 'Worker-19: New DaVinci Adaptive Project' [#61]: Workflow 'Generate new empty ECU configuration' started.
+
+!ENTRY com.vector.cfg.project.creation.amsr.activities.CreateAdpaFile.Activity_Logger 1 0 2021-12-27 15:32:14.889
+!MESSAGE Thread 'Worker-19: New DaVinci Adaptive Project' [#61]: Workflow 'Generate new empty ECU configuration' successfully finished.
+
+!ENTRY org.eclipse.core.resources 4 2 2021-12-27 15:32:15.264
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceDeltaVisitor.<init>(SourceFile:62)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.getDeltaVisitor(SourceFile:228)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.findResourceChangesForProject(SourceFile:193)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.createResourceChanges(SourceFile:150)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.resourceChanged(SourceFile:116)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:379)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1502)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1278)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1288)
+	at com.vector.cfg.util.projectcontext.eclipse.resources.AdaptiveNatureUtil.setNature(SourceFile:53)
+	at com.vector.cfg.project.creation.amsr.internal.builder.ProjectOutput.a(SourceFile:148)
+	at com.vector.cfg.project.creation.amsr.internal.builder.ProjectOutput.b(SourceFile:127)
+	at com.vector.cfg.project.creation.amsr.internal.builder.ProjectOutput.build(SourceFile:107)
+	at com.vector.cfg.gui.app.dvaide.projects.wizards.GenericProjectStructurePage.v(SourceFile:248)
+	at com.vector.ctrl.assistant.internal.AssistantPage$1.run(SourceFile:564)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:15.496
+!MESSAGE Thread 'Worker-19: Activating DaVinci tooling for "tongjiDemo"' [#61]: Workflow 'Loading Project' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:15.500
+!MESSAGE Thread 'Worker-19: Activating DaVinci tooling for "tongjiDemo"' [#61]: Action 'Loading project files...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:15.507
+!MESSAGE Thread 'Worker-19: Activating DaVinci tooling for "tongjiDemo"' [#61]: Action 'Loading project files...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:16.145
+!MESSAGE Thread 'Worker-19: Activating DaVinci tooling for "tongjiDemo"' [#61]: Workflow 'Loading Project' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:16.315
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Workflow 'Loading Project' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:16.869
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Loading AUTOSAR XML files...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:21.260
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Loading AUTOSAR XML files...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:21.276
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Initialize model extensions...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:21.277
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Initialize model extensions...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:21.278
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Initialize generators...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:21.922
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Initialize generators...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:21.924
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Initialize validation...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:22.164
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Initialize validation...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:22.369
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Project loaded' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:22.370
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Action 'Project loaded' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 15:32:22.371
+!MESSAGE Thread 'Worker-23: Activating DaVinci tooling for "tongjiDemo"' [#72]: Workflow 'Loading Project' successfully finished.
+
+!ENTRY org.eclipse.ui.workbench 4 2 2021-12-27 21:34:27.176
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.internal.ReopenEditorMenu.calcText(ReopenEditorMenu.java:107)
+	at org.eclipse.ui.internal.ReopenEditorMenu.calcText(ReopenEditorMenu.java:80)
+	at org.eclipse.ui.internal.ReopenEditorMenu.access$0(ReopenEditorMenu.java:75)
+	at org.eclipse.ui.internal.ReopenEditorMenu$1.run(ReopenEditorMenu.java:228)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.ReopenEditorMenu.fill(ReopenEditorMenu.java:225)
+	at org.eclipse.jface.action.MenuManager.doItemFill(MenuManager.java:728)
+	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:805)
+	at org.eclipse.jface.action.MenuManager.handleAboutToShow(MenuManager.java:473)
+	at org.eclipse.jface.action.MenuManager.access$1(MenuManager.java:466)
+	at org.eclipse.jface.action.MenuManager$2.menuShown(MenuManager.java:498)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1081)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1062)
+	at org.eclipse.swt.widgets.Control.WM_INITMENUPOPUP(Control.java:5134)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4790)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4858)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4858)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3583)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+
+!ENTRY org.eclipse.ui 4 4 2021-12-27 21:34:27.212
+!MESSAGE Exception in org.eclipse.ui.internal.ReopenEditorMenu$1.fill: java.lang.NullPointerException
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.internal.ReopenEditorMenu.calcText(ReopenEditorMenu.java:107)
+	at org.eclipse.ui.internal.ReopenEditorMenu.calcText(ReopenEditorMenu.java:80)
+	at org.eclipse.ui.internal.ReopenEditorMenu.access$0(ReopenEditorMenu.java:75)
+	at org.eclipse.ui.internal.ReopenEditorMenu$1.run(ReopenEditorMenu.java:228)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.ReopenEditorMenu.fill(ReopenEditorMenu.java:225)
+	at org.eclipse.jface.action.MenuManager.doItemFill(MenuManager.java:728)
+	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:805)
+	at org.eclipse.jface.action.MenuManager.handleAboutToShow(MenuManager.java:473)
+	at org.eclipse.jface.action.MenuManager.access$1(MenuManager.java:466)
+	at org.eclipse.jface.action.MenuManager$2.menuShown(MenuManager.java:498)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1081)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1062)
+	at org.eclipse.swt.widgets.Control.WM_INITMENUPOPUP(Control.java:5134)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4790)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4858)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4858)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3583)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+
+!ENTRY org.eclipse.ui.workbench 4 2 2021-12-27 21:34:27.482
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.internal.ReopenEditorMenu.calcText(ReopenEditorMenu.java:107)
+	at org.eclipse.ui.internal.ReopenEditorMenu.calcText(ReopenEditorMenu.java:80)
+	at org.eclipse.ui.internal.ReopenEditorMenu.access$0(ReopenEditorMenu.java:75)
+	at org.eclipse.ui.internal.ReopenEditorMenu$1.run(ReopenEditorMenu.java:228)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.ReopenEditorMenu.fill(ReopenEditorMenu.java:225)
+	at org.eclipse.jface.action.MenuManager.doItemFill(MenuManager.java:728)
+	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:805)
+	at org.eclipse.jface.action.MenuManager.handleAboutToShow(MenuManager.java:473)
+	at org.eclipse.jface.action.MenuManager.access$1(MenuManager.java:466)
+	at org.eclipse.jface.action.MenuManager$2.menuShown(MenuManager.java:498)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1081)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1062)
+	at org.eclipse.swt.widgets.Control.WM_INITMENUPOPUP(Control.java:5134)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4790)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4858)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4858)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3583)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+
+!ENTRY org.eclipse.ui 4 4 2021-12-27 21:34:27.484
+!MESSAGE Exception in org.eclipse.ui.internal.ReopenEditorMenu$1.fill: java.lang.NullPointerException
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.ui.internal.ReopenEditorMenu.calcText(ReopenEditorMenu.java:107)
+	at org.eclipse.ui.internal.ReopenEditorMenu.calcText(ReopenEditorMenu.java:80)
+	at org.eclipse.ui.internal.ReopenEditorMenu.access$0(ReopenEditorMenu.java:75)
+	at org.eclipse.ui.internal.ReopenEditorMenu$1.run(ReopenEditorMenu.java:228)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.ReopenEditorMenu.fill(ReopenEditorMenu.java:225)
+	at org.eclipse.jface.action.MenuManager.doItemFill(MenuManager.java:728)
+	at org.eclipse.jface.action.MenuManager.update(MenuManager.java:805)
+	at org.eclipse.jface.action.MenuManager.handleAboutToShow(MenuManager.java:473)
+	at org.eclipse.jface.action.MenuManager.access$1(MenuManager.java:466)
+	at org.eclipse.jface.action.MenuManager$2.menuShown(MenuManager.java:498)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:259)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1081)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1062)
+	at org.eclipse.swt.widgets.Control.WM_INITMENUPOPUP(Control.java:5134)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4790)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4858)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DefWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Shell.callWindowProc(Shell.java:508)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4858)
+	at org.eclipse.swt.widgets.Canvas.windowProc(Canvas.java:348)
+	at org.eclipse.swt.widgets.Decorations.windowProc(Decorations.java:1501)
+	at org.eclipse.swt.widgets.Shell.windowProc(Shell.java:2138)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3583)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+
+!ENTRY com.vector.cfg.project.creation.amsr.activities.CreateProjectFolderStructure.Activity_Logger 1 0 2021-12-27 21:34:51.365
+!MESSAGE Thread 'Worker-85: New DaVinci Adaptive Project' [#919]: Workflow 'Create project folder structure' started.
+
+!ENTRY com.vector.cfg.project.creation.amsr.activities.CreateProjectFolderStructure.Activity_Logger 1 0 2021-12-27 21:34:51.367
+!MESSAGE Thread 'Worker-85: New DaVinci Adaptive Project' [#919]: Workflow 'Create project folder structure' successfully finished.
+
+!ENTRY com.vector.cfg.project.creation.amsr.activities.CreateAdpaFile.Activity_Logger 1 0 2021-12-27 21:34:51.368
+!MESSAGE Thread 'Worker-85: New DaVinci Adaptive Project' [#919]: Workflow 'Generate new empty ECU configuration' started.
+
+!ENTRY com.vector.cfg.project.creation.amsr.activities.CreateAdpaFile.Activity_Logger 1 0 2021-12-27 21:34:51.372
+!MESSAGE Thread 'Worker-85: New DaVinci Adaptive Project' [#919]: Workflow 'Generate new empty ECU configuration' successfully finished.
+
+!ENTRY org.eclipse.core.resources 4 2 2021-12-27 21:34:51.427
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceDeltaVisitor.<init>(SourceFile:62)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.getDeltaVisitor(SourceFile:228)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.findResourceChangesForProject(SourceFile:193)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.createResourceChanges(SourceFile:150)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.resourceChanged(SourceFile:116)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:379)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1502)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1278)
+	at org.eclipse.core.internal.resources.Project.setDescription(Project.java:1288)
+	at com.vector.cfg.util.projectcontext.eclipse.resources.AdaptiveNatureUtil.setNature(SourceFile:53)
+	at com.vector.cfg.project.creation.amsr.internal.builder.ProjectOutput.a(SourceFile:148)
+	at com.vector.cfg.project.creation.amsr.internal.builder.ProjectOutput.b(SourceFile:127)
+	at com.vector.cfg.project.creation.amsr.internal.builder.ProjectOutput.build(SourceFile:107)
+	at com.vector.cfg.gui.app.dvaide.projects.wizards.GenericProjectStructurePage.v(SourceFile:248)
+	at com.vector.ctrl.assistant.internal.AssistantPage$1.run(SourceFile:564)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:51.760
+!MESSAGE Thread 'Worker-108: Activating DaVinci tooling for "tongjiDemoLuo"' [#1093]: Workflow 'Loading Project' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:51.761
+!MESSAGE Thread 'Worker-108: Activating DaVinci tooling for "tongjiDemoLuo"' [#1093]: Action 'Loading project files...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:51.782
+!MESSAGE Thread 'Worker-108: Activating DaVinci tooling for "tongjiDemoLuo"' [#1093]: Action 'Loading project files...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:51.811
+!MESSAGE Thread 'Worker-108: Activating DaVinci tooling for "tongjiDemoLuo"' [#1093]: Workflow 'Loading Project' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:51.834
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Workflow 'Loading Project' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:52.153
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Loading AUTOSAR XML files...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:52.196
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Loading AUTOSAR XML files...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:52.197
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Initialize model extensions...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:52.197
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Initialize model extensions...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:52.213
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Initialize generators...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:58.013
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Initialize generators...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:58.014
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Initialize validation...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:58.060
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Initialize validation...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:58.065
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Project loaded' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:58.065
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Action 'Project loaded' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 21:34:58.073
+!MESSAGE Thread 'Worker-110: Activating DaVinci tooling for "tongjiDemoLuo"' [#1095]: Workflow 'Loading Project' successfully finished.
+
+!ENTRY org.eclipse.ui.navigator.resources 4 0 2021-12-27 21:36:29.705
+!MESSAGE Could not acquire INavigatorContentService: Project Explorer not found.
+
+!ENTRY com.vector.cfg.user.com.vector.cfg.reporting.gen.execution.GenerationExecutionReport 1 0 2021-12-27 21:53:50.486
+!MESSAGE Thread 'main' [#1]: Generation Execution Report xml export to file 'F:\一汽项目\demo\tongjiDemo\.adpa\log\GenerationReport_202112272153\GenerationReport' started.
+
+!ENTRY com.vector.cfg.user.com.vector.cfg.reporting.gen.execution.GenerationExecutionReport 1 0 2021-12-27 21:53:50.651
+!MESSAGE Thread 'main' [#1]: Generation Execution Report xml export successfully finished.
+
+!ENTRY org.eclipse.core.resources 2 10035 2021-12-27 21:56:11.365
+!MESSAGE The workspace will exit with unsaved changes in this session.
+!SESSION 2021-12-27 22:29:59.835 -----------------------------------------------
+eclipse.buildId=4.13.0.I20190916-1045
+java.version=1.8.0_312
+java.vendor=Temurin
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2021-12-27 22:30:18.639
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.resources 4 2 2021-12-27 22:30:31.055
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.IllegalArgumentException: Cannot perform "getProjectContext" on project "tongjiDemo":
+Found no .adpa file in "tongjiDemo"
+	at com.vector.cfg.util.projectcontext.eclipse.resources.internal.WsProjectContextLookup.loadAndConsume(SourceFile:734)
+	at com.vector.cfg.util.projectcontext.eclipse.resources.IWsProjectContextLookup.loadFullyAndConsume(SourceFile:180)
+	at com.vector.cfg.gui.app.dvaide.projects.AbstractToolBarProjectCommandHandler$1.selectedProjectChanged(SourceFile:67)
+	at com.vector.cfg.gui.app.dvaide.projects.internal.ToolBarProjectSelectionService$1.b(SourceFile:83)
+	at java.lang.Iterable.forEach(Iterable.java:75)
+	at com.vector.cfg.gui.app.dvaide.projects.internal.ToolBarProjectSelectionService$1.resourceChanged(SourceFile:83)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:379)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1502)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:49)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.ui.workbench 4 2 2021-12-27 22:30:31.410
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.ui.workbench".
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypeDecorator.decorate(SourceFile:59)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:105)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:360)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:346)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:386)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:362)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 13 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:31.467
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 4 2021-12-27 22:30:31.476
+!MESSAGE Exception in Decorator. The 'DaVinci Adaptive Project Type Indicator' decorator will be disabled.
+!SUBENTRY 1 org.eclipse.ui 4 4 2021-12-27 22:30:31.476
+!MESSAGE F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypeDecorator.decorate(SourceFile:59)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorDefinition.decorate(LightweightDecoratorDefinition.java:251)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager$LightweightRunnable.run(LightweightDecoratorManager.java:105)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.decorate(LightweightDecoratorManager.java:360)
+	at org.eclipse.ui.internal.decorators.LightweightDecoratorManager.getDecorations(LightweightDecoratorManager.java:346)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.ensureResultCached(DecorationScheduler.java:386)
+	at org.eclipse.ui.internal.decorators.DecorationScheduler$1.run(DecorationScheduler.java:362)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 13 more
+
+!ENTRY org.eclipse.egit.ui 2 0 2021-12-27 22:30:31.960
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\MARIO'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:42.165
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:42.229
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:42.235
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:42.242
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:42.247
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:44.192
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:44.238
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:44.246
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:44.251
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:30:47.589
+!MESSAGE Thread 'Worker-2: Activating DaVinci tooling for "tongjiDemoLuo"' [#36]: Workflow 'Loading Project' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:30:47.739
+!MESSAGE Thread 'Worker-2: Activating DaVinci tooling for "tongjiDemoLuo"' [#36]: Action 'Loading project files...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:30:47.847
+!MESSAGE Thread 'Worker-2: Activating DaVinci tooling for "tongjiDemoLuo"' [#36]: Action 'Loading project files...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:30:49.481
+!MESSAGE Thread 'Worker-2: Activating DaVinci tooling for "tongjiDemoLuo"' [#36]: Workflow 'Loading Project' successfully finished.
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:55.647
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:55.664
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:30:55.668
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 33 more
+
+!ENTRY org.eclipse.jface 4 2 2021-12-27 22:37:31.736
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jface".
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.internal.commonnav.AutosarModelLabelProvider.getStyledText(SourceFile:49)
+	at org.eclipse.ui.internal.navigator.extensions.SafeDelegateCommonLabelProvider.getStyledText(SafeDelegateCommonLabelProvider.java:123)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.findStyledText(NavigatorContentServiceLabelProvider.java:172)
+	at org.eclipse.ui.internal.navigator.NavigatorContentServiceLabelProvider.getStyledText(NavigatorContentServiceLabelProvider.java:158)
+	at org.eclipse.ui.internal.navigator.NavigatorDecoratingLabelProvider$StyledLabelProviderAdapter.getStyledText(NavigatorDecoratingLabelProvider.java:69)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.getStyledText(DelegatingStyledCellLabelProvider.java:209)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.getStyledText(DecoratingStyledCellLabelProvider.java:197)
+	at org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.update(DelegatingStyledCellLabelProvider.java:109)
+	at org.eclipse.jface.viewers.DecoratingStyledCellLabelProvider.update(DecoratingStyledCellLabelProvider.java:134)
+	at org.eclipse.jface.viewers.ViewerColumn.refresh(ViewerColumn.java:144)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:946)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$UpdateItemSafeRunnable.run(AbstractTreeViewer.java:121)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:174)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.doUpdateItem(AbstractTreeViewer.java:1024)
+	at org.eclipse.jface.viewers.StructuredViewer$UpdateItemSafeRunnable.run(StructuredViewer.java:422)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.ui.internal.JFaceUtil.lambda$0(JFaceUtil.java:47)
+	at org.eclipse.jface.util.SafeRunnable.run(SafeRunnable.java:174)
+	at org.eclipse.jface.viewers.StructuredViewer.updateItem(StructuredViewer.java:2097)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createTreeItem(AbstractTreeViewer.java:840)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:818)
+	at org.eclipse.jface.viewers.TreeViewer.createChildren(TreeViewer.java:604)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.createChildren(AbstractTreeViewer.java:766)
+	at org.eclipse.jface.viewers.AbstractTreeViewer.handleTreeExpand(AbstractTreeViewer.java:1541)
+	at org.eclipse.jface.viewers.TreeViewer.handleTreeExpand(TreeViewer.java:889)
+	at org.eclipse.jface.viewers.AbstractTreeViewer$3.treeExpanded(AbstractTreeViewer.java:1553)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:136)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1081)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1066)
+	at org.eclipse.swt.widgets.Tree.wmNotifyChild(Tree.java:7554)
+	at org.eclipse.swt.widgets.Control.wmNotify(Control.java:5787)
+	at org.eclipse.swt.widgets.Composite.wmNotify(Composite.java:1988)
+	at org.eclipse.swt.widgets.Control.WM_NOTIFY(Control.java:5353)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4817)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.CallWindowProc(Native Method)
+	at org.eclipse.swt.widgets.Tree.callWindowProc(Tree.java:1554)
+	at org.eclipse.swt.widgets.Tree.WM_LBUTTONDOWN(Tree.java:6455)
+	at org.eclipse.swt.widgets.Control.windowProc(Control.java:4797)
+	at org.eclipse.swt.widgets.Tree.windowProc(Tree.java:5987)
+	at org.eclipse.swt.widgets.Display.windowProc(Display.java:4812)
+	at org.eclipse.swt.internal.win32.OS.DispatchMessage(Native Method)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3583)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 73 more
+
+!ENTRY org.eclipse.ui 4 0 2021-12-27 22:39:20.818
+!MESSAGE Unhandled event loop exception
+!STACK 0
+PersistencyRuntimeException [F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)]
+Cause: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:64)
+	at com.vector.cfg.persistency.adpa.access.ADpaProjectModelFactory.createADpaProjectModel(SourceFile:45)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.ADpaUseCaseAccess.getUseCase(SourceFile:28)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.DvAIdeNature.getProjectUseCase(SourceFile:78)
+	at com.vector.cfg.gui.app.dvaide.internal.ProjectTypes.getType(SourceFile:44)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:155)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.a(SourceFile:150)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection.access$300(SourceFile:40)
+	at com.vector.cfg.gui.app.dvaide.projects.ToolBarProjectSelection$4.run(SourceFile:134)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:3961)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3588)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.block(ModalContext.java:166)
+	at org.eclipse.jface.operation.ModalContext.run(ModalContext.java:368)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.run(RefactoringWizardDialog2.java:324)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.internalPerformFinish(RefactoringWizard.java:639)
+	at org.eclipse.ltk.ui.refactoring.UserInputWizardPage.performFinish(UserInputWizardPage.java:148)
+	at org.eclipse.ltk.ui.refactoring.resource.DeleteResourcesWizard$DeleteResourcesRefactoringConfigurationPage.performFinish(DeleteResourcesWizard.java:285)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizard.performFinish(RefactoringWizard.java:713)
+	at org.eclipse.ltk.internal.ui.refactoring.RefactoringWizardDialog2.okPressed(RefactoringWizardDialog2.java:450)
+	at org.eclipse.jface.dialogs.Dialog.buttonPressed(Dialog.java:468)
+	at org.eclipse.jface.dialogs.Dialog.lambda$0(Dialog.java:619)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:84)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:252)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3986)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3585)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:823)
+	at org.eclipse.jface.window.Window.open(Window.java:799)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation$1.run(RefactoringWizardOpenOperation.java:192)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:72)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:212)
+	at org.eclipse.ltk.ui.refactoring.RefactoringWizardOpenOperation.run(RefactoringWizardOpenOperation.java:126)
+	at org.eclipse.ltk.internal.ui.refactoring.actions.DeleteResourcesHandler.execute(DeleteResourcesHandler.java:44)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:283)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:95)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:58)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:318)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:252)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:173)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:156)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:498)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:213)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommandInContext(LegacyHandlerService.java:440)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.runCommand(LTKLauncher.java:99)
+	at org.eclipse.ui.internal.ide.actions.LTKLauncher.openDeleteWizard(LTKLauncher.java:51)
+	at org.eclipse.ui.actions.DeleteResourceAction.run(DeleteResourceAction.java:452)
+	at org.eclipse.ui.actions.BaseSelectionListenerAction.runWithEvent(BaseSelectionListenerAction.java:171)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:580)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:412)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:89)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4173)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1057)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:3986)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3585)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1160)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1049)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:633)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:150)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+Caused by: java.io.FileNotFoundException: F:\一汽项目\demo\tongjiDemo\.adpa\adpa.adpa (系统找不到指定的路径。)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.O(SourceFile:154)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.N(SourceFile:151)
+	at com.vector.cfg.persistency.adpa.internal.ADpaLoader.loadDpa(SourceFile:52)
+	... 83 more
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:21.262
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Workflow 'Loading Project' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:21.663
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Loading AUTOSAR XML files...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:28.216
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Loading AUTOSAR XML files...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:28.217
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Initialize model extensions...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:28.217
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Initialize model extensions...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:28.218
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Initialize generators...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:28.582
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Initialize generators...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:28.584
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Initialize validation...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:28.942
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Initialize validation...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:29.135
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Project loaded' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:29.136
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Action 'Project loaded' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:29.139
+!MESSAGE Thread 'Worker-16: Activating DaVinci tooling for "tongjiDemoLuo"' [#59]: Workflow 'Loading Project' successfully finished.
+
+!ENTRY org.eclipse.core.resources 4 2 2021-12-27 22:39:51.166
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 0
+java.lang.NullPointerException
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceDeltaVisitor.<init>(SourceFile:62)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.getDeltaVisitor(SourceFile:228)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.findResourceChangesForProject(SourceFile:193)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.createResourceChanges(SourceFile:150)
+	at com.vector.cfg.project.eclipse.resources.amsr.internal.listener.ArxmlFolderResourceChangeManager.resourceChanged(SourceFile:116)
+	at org.eclipse.core.internal.events.NotificationManager$1.run(NotificationManager.java:305)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.core.internal.events.NotificationManager.notify(NotificationManager.java:295)
+	at org.eclipse.core.internal.events.NotificationManager.broadcastChanges(NotificationManager.java:158)
+	at org.eclipse.core.internal.resources.Workspace.broadcastPostChange(Workspace.java:379)
+	at org.eclipse.core.internal.resources.Workspace.endOperation(Workspace.java:1502)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2308)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2322)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:131)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:51.206
+!MESSAGE Thread 'Worker-19: Activating DaVinci tooling for "tongji-demo"' [#73]: Workflow 'Loading Project' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:51.207
+!MESSAGE Thread 'Worker-19: Activating DaVinci tooling for "tongji-demo"' [#73]: Action 'Loading project files...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:51.219
+!MESSAGE Thread 'Worker-19: Activating DaVinci tooling for "tongji-demo"' [#73]: Action 'Loading project files...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:39:51.272
+!MESSAGE Thread 'Worker-19: Activating DaVinci tooling for "tongji-demo"' [#73]: Workflow 'Loading Project' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:03.418
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Workflow 'Loading Project' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:03.550
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Loading AUTOSAR XML files...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:03.955
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Loading AUTOSAR XML files...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:03.956
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Initialize model extensions...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:03.957
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Initialize model extensions...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:03.957
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Initialize generators...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:04.723
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Initialize generators...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:04.724
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Initialize validation...' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:04.880
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Initialize validation...' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:04.884
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Project loaded' started.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:04.886
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Action 'Project loaded' successfully finished.
+
+!ENTRY com.vector.cfg.project.loader.internal.contribution.ProjectLoadContribution.Activity_Logger 1 0 2021-12-27 22:40:04.886
+!MESSAGE Thread 'Worker-22: Activating DaVinci tooling for "tongji-demo"' [#78]: Workflow 'Loading Project' successfully finished.

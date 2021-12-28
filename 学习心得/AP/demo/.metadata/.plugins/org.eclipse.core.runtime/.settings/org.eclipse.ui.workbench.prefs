@@ -1,0 +1,6 @@
+//org.eclipse.ui.commands/state/com.vector.cfg.gui.app.dvaide.toolBarSelectedProject/org.eclipse.ui.commands.radioState=tongjiDemo
+//org.eclipse.ui.commands/state/com.vector.cfg.gui.gme.cmd.detailsMode/org.eclipse.ui.commands.radioState=Form
+//org.eclipse.ui.commands/state/com.vector.cfg.gui.gme.cmd.topLevelElements/org.eclipse.ui.commands.radioState=AUTOSAR Packages
+//org.eclipse.ui.commands/state/com.vector.cfg.gui.gme.layout/org.eclipse.ui.commands.radioState=Vertical
+//org.eclipse.ui.commands/state/org.eclipse.ui.navigator.resources.nested.changeProjectPresentation/org.eclipse.ui.commands.radioState=false
+eclipse.preferences.version=1

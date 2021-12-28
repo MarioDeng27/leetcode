@@ -1,0 +1,6 @@
+{
+    "applications": [
+        "../Client/etc/someip_config.json"
+        "../Server/etc/someip_config.json"
+    ]
+}

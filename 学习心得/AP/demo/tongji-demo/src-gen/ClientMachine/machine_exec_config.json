@@ -1,0 +1,26 @@
+
+{
+  "machine" : {
+    "resourceGroups" : [
+      {
+        "name" : "ControlGroup"
+      }
+    ],
+    "functionGroups" : [
+      {
+        "name" : "MachineState",
+        "states" : [
+          "Running",
+          "Startup",
+          "Shutdown",
+          "Restart",
+          "Off"
+        ]
+      }
+    ]
+  },
+  "generatorVersion" : {
+    "name" : "amsr_em_machine_config",
+    "commitId" : "6cc205edba694b4589f76a5356343f3aa8f48375"
+  }
+}

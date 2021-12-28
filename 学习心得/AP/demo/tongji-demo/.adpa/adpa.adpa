@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProjectAssistant DpaSchemaVersion="00.03" InitiallyCreatedWithToolVersion="2.3.41.93818" MsrPlatform="adaptive" uuid="6f8d2407-b0b2-417e-9eba-161a2703ed08">
+    <General>
+        <Name>adpa</Name>
+        <Version>1.0</Version>
+        <Author>MARIO</Author>
+    </General>
+    <CompatibilityVersion>
+        <Current>1.0.0</Current>
+        <AsrMdfRevision>R047</AsrMdfRevision>
+    </CompatibilityVersion>
+    <Environment>
+        <SipId>Adaptive-SIP</SipId>
+    </Environment>
+    <Folders>
+        <GenData>../src-gen</GenData>
+        <Logs>./log</Logs>
+        <ARXML>../arxml</ARXML>
+    </Folders>
+    <Properties>
+        <ProjectType>Legacy</ProjectType>
+    </Properties>
+    <ProjectReferences/>
+    <ToolSettings>
+        <Misc>
+            <Settings Name="com.vector.cfg.automation.scripting.SearchLocations">
+                <Settings Name="d2019cf1f7ea7315fdafcd1cb9d3f872">
+                    <Setting Value="$(DpaProjectFolder)\..\scripts" Name="LocationPath"/>
+                </Settings>
+            </Settings>
+        </Misc>
+    </ToolSettings>
+</ProjectAssistant>

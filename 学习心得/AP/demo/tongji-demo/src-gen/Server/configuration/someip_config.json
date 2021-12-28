@@ -1,0 +1,105 @@
+
+{
+  "services" : [
+    {
+      "name" : "ServiceInterfaceDeployment",
+      "service_id" : 100,
+      "major_version" : 1,
+      "minor_version" : 0,
+      "methods" : [
+        {
+          "name" : "add",
+          "id" : 2002,
+          "proto" : "udp"
+        },
+        {
+          "name" : "addResultGetter",
+          "id" : 2000,
+          "proto" : "udp"
+        },
+        {
+          "name" : "addResultSetter",
+          "id" : 2001,
+          "proto" : "udp"
+        }
+      ],
+      "events" : [
+        {
+          "name" : "addInfo",
+          "id" : 33768,
+          "field" : false,
+          "proto" : "udp"
+        },
+        {
+          "name" : "addResultNotifier",
+          "id" : 33769,
+          "field" : true,
+          "proto" : "udp"
+        }
+      ],
+      "eventgroups" : [
+        {
+          "id" : 200,
+          "events" : [
+            33768,
+            33769
+          ]
+        }
+      ]
+    }
+  ],
+  "required_service_instances" : [
+  ],
+  "provided_service_instances" : [
+    {
+      "service_id" : 100,
+      "instance_id" : 1,
+      "major_version" : 1,
+      "minor_version" : 0,
+      "service_discovery" : {
+        "initial_delay_min_ns" : 10000000,
+        "initial_delay_max_ns" : 100000000,
+        "initial_repetitions_base_delay_ns" : 200000000,
+        "initial_repetitions_max" : 10,
+        "cyclic_offer_delay_ns" : 4000000000,
+        "request_response_delay_min_ns" : 1500000000,
+        "request_response_delay_max_ns" : 1500000000,
+        "ttl" : 3,
+        "eventgroups" : [
+          {
+            "id" : 200,
+            "event_multicast_threshold" : 3
+          }
+        ]
+      },
+      "port_mappings" : [
+        {
+          "name" : "MachineMappingProvidedServiceInterfaceDeployment",
+          "address" : "192.168.199.127",
+          "udp_port" : 30002
+        }
+      ]
+    }
+  ],
+  "network_endpoints" : [
+    {
+      "name" : "NetworkEndpoint",
+      "address" : "192.168.199.127",
+      "mtu" : 1500,
+      "service_discovery" : {
+        "multicast_address" : "224.0.0.17",
+        "port" : 12330
+      },
+      "ports" : [
+        {
+          "proto" : "udp",
+          "port" : 30002
+        }
+      ]
+    }
+  ],
+  "generatorVersion" : {
+    "name" : "amsr_com_someip",
+    "commitId" : "6cc205edba694b4589f76a5356343f3aa8f48375"
+  }
+}

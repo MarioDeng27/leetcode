@@ -1,0 +1,8 @@
+MachineDesign ClientMachineDesign {
+	serviceDiscoverConfigs [
+		SomeipServiceDiscovery {
+			someipServiceDiscoveryPort : 30490
+			multicastSdIpAddress NetworkEndpointARRef -> /Machine/EthernetCluster/EthernetPhysicalChannel/SDMulticastEndpoint
+		}
+	]
+}

@@ -1,0 +1,11 @@
+MachineDesign ServerMachineDesign {
+	communicationConnectors [
+		EthernetCommunicationConnector NetworkConnector {}
+	]
+	serviceDiscoverConfigs [
+		SomeipServiceDiscovery {
+			someipServiceDiscoveryPort : 12330
+			multicastSdIpAddress NetworkEndpointARRef -> /Machine/EthernetCluster/EthernetPhysicalChannel/SDMulticastEndpoint
+		}
+	]
+}

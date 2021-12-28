@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00047.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="6d997c72-6d46-4900-ae33-fa4e9b12c4a9">
+      <SHORT-NAME>Machine</SHORT-NAME>
+      <ELEMENTS>
+        <ETHERNET-CLUSTER UUID="e125c670-8587-4f07-8a22-d36bca54761d">
+          <SHORT-NAME>EthernetCluster</SHORT-NAME>
+          <ETHERNET-CLUSTER-VARIANTS>
+            <ETHERNET-CLUSTER-CONDITIONAL>
+              <PHYSICAL-CHANNELS>
+                <ETHERNET-PHYSICAL-CHANNEL UUID="320cb548-6231-4a72-8a90-4c02b7c97e3c">
+                  <SHORT-NAME>EthernetPhysicalChannel</SHORT-NAME>
+                  <NETWORK-ENDPOINTS>
+                    <NETWORK-ENDPOINT UUID="93df2d57-233e-4de7-bdd3-5a6ad83f1d48">
+                      <SHORT-NAME>SDMulticastEndpoint</SHORT-NAME>
+                      <NETWORK-ENDPOINT-ADDRESSES>
+                        <IPV-4-CONFIGURATION>
+                          <IPV-4-ADDRESS>224.0.0.17</IPV-4-ADDRESS>
+                        </IPV-4-CONFIGURATION>
+                      </NETWORK-ENDPOINT-ADDRESSES>
+                    </NETWORK-ENDPOINT>
+                    <NETWORK-ENDPOINT UUID="d6a6a0a6-4904-4d8a-863c-643e0a85e1ba">
+                      <SHORT-NAME>NetworkEndpoint</SHORT-NAME>
+                      <NETWORK-ENDPOINT-ADDRESSES>
+                        <IPV-4-CONFIGURATION>
+                          <IPV-4-ADDRESS>192.168.199.127</IPV-4-ADDRESS>
+                        </IPV-4-CONFIGURATION>
+                      </NETWORK-ENDPOINT-ADDRESSES>
+                    </NETWORK-ENDPOINT>
+                  </NETWORK-ENDPOINTS>
+                </ETHERNET-PHYSICAL-CHANNEL>
+              </PHYSICAL-CHANNELS>
+            </ETHERNET-CLUSTER-CONDITIONAL>
+          </ETHERNET-CLUSTER-VARIANTS>
+        </ETHERNET-CLUSTER>
+        <MODE-DECLARATION-GROUP UUID="211aee35-d115-4d6c-be6d-cc51282cf3bc">
+          <SHORT-NAME>MachineStates</SHORT-NAME>
+          <INITIAL-MODE-REF DEST="MODE-DECLARATION">/Machine/MachineStates/Running</INITIAL-MODE-REF>
+          <MODE-DECLARATIONS>
+            <MODE-DECLARATION UUID="d3ccea5e-4321-4136-9227-aa8d5c76bfb3">
+              <SHORT-NAME>Running</SHORT-NAME>
+              <VALUE>0</VALUE>
+            </MODE-DECLARATION>
+            <MODE-DECLARATION UUID="ae46a980-e5bf-4085-a761-27aec6cd1660">
+              <SHORT-NAME>Startup</SHORT-NAME>
+              <VALUE>1</VALUE>
+            </MODE-DECLARATION>
+            <MODE-DECLARATION UUID="b563601c-a546-44ab-ac65-86fd37efe21e">
+              <SHORT-NAME>Shutdown</SHORT-NAME>
+              <VALUE>2</VALUE>
+            </MODE-DECLARATION>
+            <MODE-DECLARATION UUID="6bb8150c-1d85-47ad-84b8-6e80443ce894">
+              <SHORT-NAME>Restart</SHORT-NAME>
+              <VALUE>3</VALUE>
+            </MODE-DECLARATION>
+            <MODE-DECLARATION UUID="900a73d8-a01e-4431-bc33-50305fd40d1f">
+              <SHORT-NAME>Off</SHORT-NAME>
+              <VALUE>3</VALUE>
+            </MODE-DECLARATION>
+          </MODE-DECLARATIONS>
+        </MODE-DECLARATION-GROUP>
+        <MACHINE-DESIGN UUID="506e70dc-8a7b-4576-8a62-810526053b4b">
+          <SHORT-NAME>ClientMachineDesign</SHORT-NAME>
+          <COMMUNICATION-CONNECTORS>
+            <ETHERNET-COMMUNICATION-CONNECTOR UUID="7578d7a1-3889-42b1-9cd7-5183255a1b56">
+              <SHORT-NAME>NetworkConnector</SHORT-NAME>
+              <UNICAST-NETWORK-ENDPOINT-REF DEST="NETWORK-ENDPOINT">/Machine/EthernetCluster/EthernetPhysicalChannel/NetworkEndpoint</UNICAST-NETWORK-ENDPOINT-REF>
+            </ETHERNET-COMMUNICATION-CONNECTOR>
+            <ETHERNET-COMMUNICATION-CONNECTOR UUID="13811214-b321-4215-b426-771fb37630e8">
+              <SHORT-NAME>SDMulticastConnector</SHORT-NAME>
+              <UNICAST-NETWORK-ENDPOINT-REF DEST="NETWORK-ENDPOINT">/Machine/EthernetCluster/EthernetPhysicalChannel/SDMulticastEndpoint</UNICAST-NETWORK-ENDPOINT-REF>
+            </ETHERNET-COMMUNICATION-CONNECTOR>
+          </COMMUNICATION-CONNECTORS>
+          <SERVICE-DISCOVER-CONFIGS>
+            <SOMEIP-SERVICE-DISCOVERY>
+              <MULTICAST-SD-IP-ADDRESS-REF DEST="NETWORK-ENDPOINT">/Machine/EthernetCluster/EthernetPhysicalChannel/SDMulticastEndpoint</MULTICAST-SD-IP-ADDRESS-REF>
+              <SOMEIP-SERVICE-DISCOVERY-PORT>12330</SOMEIP-SERVICE-DISCOVERY-PORT>
+            </SOMEIP-SERVICE-DISCOVERY>
+          </SERVICE-DISCOVER-CONFIGS>
+        </MACHINE-DESIGN>
+        <MACHINE-DESIGN UUID="8ab92080-e550-487e-8d0a-878c941092a0">
+          <SHORT-NAME>ServerMachineDesign</SHORT-NAME>
+          <COMMUNICATION-CONNECTORS>
+            <ETHERNET-COMMUNICATION-CONNECTOR UUID="8d4ead09-9489-42b0-af3a-dcd71a5cbef3">
+              <SHORT-NAME>NetworkConnector</SHORT-NAME>
+              <UNICAST-NETWORK-ENDPOINT-REF DEST="NETWORK-ENDPOINT">/Machine/EthernetCluster/EthernetPhysicalChannel/NetworkEndpoint</UNICAST-NETWORK-ENDPOINT-REF>
+            </ETHERNET-COMMUNICATION-CONNECTOR>
+          </COMMUNICATION-CONNECTORS>
+          <SERVICE-DISCOVER-CONFIGS>
+            <SOMEIP-SERVICE-DISCOVERY>
+              <MULTICAST-SD-IP-ADDRESS-REF DEST="NETWORK-ENDPOINT">/Machine/EthernetCluster/EthernetPhysicalChannel/SDMulticastEndpoint</MULTICAST-SD-IP-ADDRESS-REF>
+              <SOMEIP-SERVICE-DISCOVERY-PORT>12330</SOMEIP-SERVICE-DISCOVERY-PORT>
+            </SOMEIP-SERVICE-DISCOVERY>
+          </SERVICE-DISCOVER-CONFIGS>
+        </MACHINE-DESIGN>
+        <MACHINE UUID="ff3b7664-c2ed-4242-be00-827cb2014f24">
+          <SHORT-NAME>ClientMachine</SHORT-NAME>
+          <FUNCTION-GROUPS>
+            <MODE-DECLARATION-GROUP-PROTOTYPE UUID="ecaab3c0-f646-481d-ab02-f13819372ea6">
+              <SHORT-NAME>MachineState</SHORT-NAME>
+              <SW-CALIBRATION-ACCESS>NOT-ACCESSIBLE</SW-CALIBRATION-ACCESS>
+              <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/Machine/MachineStates</TYPE-TREF>
+            </MODE-DECLARATION-GROUP-PROTOTYPE>
+          </FUNCTION-GROUPS>
+          <MACHINE-DESIGN-REF DEST="MACHINE-DESIGN">/Machine/ClientMachineDesign</MACHINE-DESIGN-REF>
+          <MODULE-INSTANTIATIONS>
+            <OS-MODULE-INSTANTIATION UUID="030ce4e7-dcb8-445f-b7a0-2dc465e1321f">
+              <SHORT-NAME>Os</SHORT-NAME>
+              <RESOURCE-GROUPS>
+                <RESOURCE-GROUP UUID="a74e4c53-0b3b-40b0-9205-05b1fc862aee">
+                  <SHORT-NAME>ControlGroup</SHORT-NAME>
+                  <CPU-USAGE>50</CPU-USAGE>
+                  <MEM-USAGE>1024</MEM-USAGE>
+                </RESOURCE-GROUP>
+              </RESOURCE-GROUPS>
+            </OS-MODULE-INSTANTIATION>
+          </MODULE-INSTANTIATIONS>
+          <PROCESSORS>
+            <PROCESSOR UUID="0c9b000a-1d09-409a-9d5b-c0c769cf3250">
+              <SHORT-NAME>Processor</SHORT-NAME>
+              <CORES>
+                <PROCESSOR-CORE UUID="45414b87-6214-402f-babc-3456f041de20">
+                  <SHORT-NAME>Core0</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="DV:Adaptive">
+                        <SD GID="DV:ProcessorCoreNumber">0</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </PROCESSOR-CORE>
+              </CORES>
+            </PROCESSOR>
+          </PROCESSORS>
+        </MACHINE>
+        <MACHINE UUID="837bad4a-2105-49e6-b3df-8719ef0b7c2e">
+          <SHORT-NAME>ServerMachine</SHORT-NAME>
+          <FUNCTION-GROUPS>
+            <MODE-DECLARATION-GROUP-PROTOTYPE UUID="a669a0bd-30e5-49e9-8fbb-ef456fe9a2f3">
+              <SHORT-NAME>MachineState</SHORT-NAME>
+              <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/Machine/MachineStates</TYPE-TREF>
+            </MODE-DECLARATION-GROUP-PROTOTYPE>
+          </FUNCTION-GROUPS>
+          <MACHINE-DESIGN-REF DEST="MACHINE-DESIGN">/Machine/ServerMachineDesign</MACHINE-DESIGN-REF>
+          <MODULE-INSTANTIATIONS>
+            <OS-MODULE-INSTANTIATION UUID="5ab66d45-be33-4cef-9272-4a5353623ac3">
+              <SHORT-NAME>Os</SHORT-NAME>
+              <RESOURCE-GROUPS>
+                <RESOURCE-GROUP UUID="1b5c5089-cc68-4661-9266-c86cc9a839f2">
+                  <SHORT-NAME>ControlGroup</SHORT-NAME>
+                  <CPU-USAGE>50</CPU-USAGE>
+                  <MEM-USAGE>1024</MEM-USAGE>
+                </RESOURCE-GROUP>
+              </RESOURCE-GROUPS>
+            </OS-MODULE-INSTANTIATION>
+          </MODULE-INSTANTIATIONS>
+          <PROCESSORS>
+            <PROCESSOR UUID="a88ce083-eb72-49ae-975a-3a8a220b2d5a">
+              <SHORT-NAME>Processor</SHORT-NAME>
+              <CORES>
+                <PROCESSOR-CORE UUID="b761ebc2-f52e-4506-8eb4-78f2d7a0b067">
+                  <SHORT-NAME>ProcessorCore</SHORT-NAME>
+                  <ADMIN-DATA>
+                    <SDGS>
+                      <SDG GID="DV:Adaptive">
+                        <SD GID="DV:ProcessCoreNumber">0</SD>
+                      </SDG>
+                    </SDGS>
+                  </ADMIN-DATA>
+                </PROCESSOR-CORE>
+              </CORES>
+            </PROCESSOR>
+          </PROCESSORS>
+        </MACHINE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="b3892fba-5235-43e6-9bd3-2b77259ca678">
+      <SHORT-NAME>ServiceInterfaces</SHORT-NAME>
+      <ELEMENTS>
+        <SERVICE-INTERFACE UUID="69ad23a8-9c44-4e17-b95b-382ff6a5cbb9">
+          <SHORT-NAME>ServiceInterface</SHORT-NAME>
+          <NAMESPACES>
+            <SYMBOL-PROPS>
+              <SHORT-NAME>tongjiDemo</SHORT-NAME>
+              <SYMBOL>tongjiDemo</SYMBOL>
+            </SYMBOL-PROPS>
+          </NAMESPACES>
+          <EVENTS>
+            <VARIABLE-DATA-PROTOTYPE UUID="90fe7eee-adca-4b36-a644-5b841ea779d5">
+              <SHORT-NAME>addInfo</SHORT-NAME>
+              <TYPE-TREF DEST="STD-CPP-IMPLEMENTATION-DATA-TYPE">/AUTOSAR/StdTypes/uint32_t</TYPE-TREF>
+            </VARIABLE-DATA-PROTOTYPE>
+          </EVENTS>
+          <FIELDS>
+            <FIELD UUID="3750b446-da30-443d-85e3-7780a5ea999e">
+              <SHORT-NAME>addResult</SHORT-NAME>
+              <TYPE-TREF DEST="STD-CPP-IMPLEMENTATION-DATA-TYPE">/AUTOSAR/StdTypes/uint32_t</TYPE-TREF>
+              <HAS-GETTER>true</HAS-GETTER>
+              <HAS-NOTIFIER>true</HAS-NOTIFIER>
+              <HAS-SETTER>true</HAS-SETTER>
+            </FIELD>
+          </FIELDS>
+          <METHODS>
+            <CLIENT-SERVER-OPERATION UUID="2c8a63d2-3f87-4dff-b250-844717ce0c52">
+              <SHORT-NAME>add</SHORT-NAME>
+              <ARGUMENTS>
+                <ARGUMENT-DATA-PROTOTYPE UUID="04fe2b7d-3f48-427d-b80a-20b82355db57">
+                  <SHORT-NAME>num1</SHORT-NAME>
+                  <TYPE-TREF DEST="STD-CPP-IMPLEMENTATION-DATA-TYPE">/AUTOSAR/StdTypes/uint32_t</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="8f065406-7dbe-4679-8a90-671e9a306b10">
+                  <SHORT-NAME>num2</SHORT-NAME>
+                  <TYPE-TREF DEST="STD-CPP-IMPLEMENTATION-DATA-TYPE">/AUTOSAR/StdTypes/uint32_t</TYPE-TREF>
+                  <DIRECTION>IN</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+                <ARGUMENT-DATA-PROTOTYPE UUID="44a0e325-c881-4e92-9bcb-023a1343a289">
+                  <SHORT-NAME>result</SHORT-NAME>
+                  <TYPE-TREF DEST="STD-CPP-IMPLEMENTATION-DATA-TYPE">/AUTOSAR/StdTypes/uint32_t</TYPE-TREF>
+                  <DIRECTION>OUT</DIRECTION>
+                </ARGUMENT-DATA-PROTOTYPE>
+              </ARGUMENTS>
+            </CLIENT-SERVER-OPERATION>
+          </METHODS>
+        </SERVICE-INTERFACE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="4d1da2f2-7518-49c5-8cb2-e8b0b7355f7a">
+      <SHORT-NAME>Applications</SHORT-NAME>
+      <ELEMENTS>
+        <ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE UUID="5f8f36a0-89af-4776-9a9d-0b52960cfd56">
+          <SHORT-NAME>ClientSwComponentType</SHORT-NAME>
+          <PORTS>
+            <R-PORT-PROTOTYPE UUID="e4c9637a-dd62-498d-ba42-602b826c80b2">
+              <SHORT-NAME>RPort_ServiceInterface</SHORT-NAME>
+              <REQUIRED-INTERFACE-TREF DEST="SERVICE-INTERFACE">/ServiceInterfaces/ServiceInterface</REQUIRED-INTERFACE-TREF>
+            </R-PORT-PROTOTYPE>
+          </PORTS>
+        </ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE>
+        <ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE UUID="bc9857a2-0943-4db0-b7ab-85387f4af584">
+          <SHORT-NAME>ServerSwComponentType</SHORT-NAME>
+          <PORTS>
+            <P-PORT-PROTOTYPE UUID="0b7d0d22-ad4b-4817-bfce-7008ed1bbfcf">
+              <SHORT-NAME>PPort_ServiceInterface</SHORT-NAME>
+              <PROVIDED-INTERFACE-TREF DEST="SERVICE-INTERFACE">/ServiceInterfaces/ServiceInterface</PROVIDED-INTERFACE-TREF>
+            </P-PORT-PROTOTYPE>
+          </PORTS>
+        </ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE>
+        <EXECUTABLE UUID="8ab205b0-47ef-460e-96f0-feab95cf99e0">
+          <SHORT-NAME>Client</SHORT-NAME>
+          <ROOT-SW-COMPONENT-PROTOTYPE UUID="b573c126-b71a-4f60-b4e8-8f3cfb63386e">
+            <SHORT-NAME>RootSwComponentPrototype</SHORT-NAME>
+            <APPLICATION-TYPE-TREF DEST="ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE">/Applications/ClientSwComponentType</APPLICATION-TYPE-TREF>
+          </ROOT-SW-COMPONENT-PROTOTYPE>
+        </EXECUTABLE>
+        <EXECUTABLE UUID="aeff63ba-d32f-44e3-a8b9-540320bd75e7">
+          <SHORT-NAME>Server</SHORT-NAME>
+          <ROOT-SW-COMPONENT-PROTOTYPE UUID="38df814e-92be-4c76-8e7c-321384ecd5d7">
+            <SHORT-NAME>RootSwComponentPrototype</SHORT-NAME>
+            <APPLICATION-TYPE-TREF DEST="ADAPTIVE-APPLICATION-SW-COMPONENT-TYPE">/Applications/ServerSwComponentType</APPLICATION-TYPE-TREF>
+          </ROOT-SW-COMPONENT-PROTOTYPE>
+        </EXECUTABLE>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="0e9f73aa-d569-42a4-81f1-e972fcb7e6a7">
+      <SHORT-NAME>ApplicationsDeploy</SHORT-NAME>
+      <ELEMENTS>
+        <STARTUP-CONFIG-SET UUID="e2e54fd8-85bb-4962-907b-cec9420ef61b">
+          <SHORT-NAME>ClientStartupConfigSet</SHORT-NAME>
+          <STARTUP-CONFIGS>
+            <STARTUP-CONFIG UUID="44d16778-6148-4280-90ca-52e8cc2fbb94">
+              <SHORT-NAME>StartupConfig</SHORT-NAME>
+              <SCHEDULING-POLICY>SCHEDULING-POLICY-ROUND-ROBIN</SCHEDULING-POLICY>
+              <SCHEDULING-PRIORITY>30</SCHEDULING-PRIORITY>
+              <STARTUP-OPTIONS>
+                <STARTUP-OPTION>
+                  <OPTION-ARGUMENT>./etc/application.json</OPTION-ARGUMENT>
+                  <OPTION-KIND>COMMAND-LINE-SHORT-FORM</OPTION-KIND>
+                  <OPTION-NAME>c</OPTION-NAME>
+                </STARTUP-OPTION>
+              </STARTUP-OPTIONS>
+            </STARTUP-CONFIG>
+          </STARTUP-CONFIGS>
+        </STARTUP-CONFIG-SET>
+        <PROCESS-DESIGN UUID="00902a92-1c82-4190-a351-899be215b72f">
+          <SHORT-NAME>ClientProcessDesign</SHORT-NAME>
+          <EXECUTABLE-REF DEST="EXECUTABLE">/Applications/Client</EXECUTABLE-REF>
+        </PROCESS-DESIGN>
+        <PROCESS UUID="d0e46949-9a9f-436b-8d6e-2db8d7482f0d">
+          <SHORT-NAME>ClientProcess</SHORT-NAME>
+          <DESIGN-REF DEST="PROCESS-DESIGN">/ApplicationsDeploy/ClientProcessDesign</DESIGN-REF>
+          <EXECUTABLE-REF DEST="EXECUTABLE">/Applications/Client</EXECUTABLE-REF>
+          <PROCESS-STATE-MACHINE UUID="0b03ced3-7388-4bbc-beee-64b39cddeb7c">
+            <SHORT-NAME>ModeDeclarationGroupPrototype</SHORT-NAME>
+            <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/Machine/MachineStates</TYPE-TREF>
+          </PROCESS-STATE-MACHINE>
+          <STATE-DEPENDENT-STARTUP-CONFIGS>
+            <STATE-DEPENDENT-STARTUP-CONFIG>
+              <FUNCTION-GROUP-STATE-IREFS>
+                <FUNCTION-GROUP-STATE-IREF>
+                  <CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/Machine/ClientMachine/MachineState</CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                  <TARGET-MODE-DECLARATION-REF DEST="MODE-DECLARATION">/Machine/MachineStates/Running</TARGET-MODE-DECLARATION-REF>
+                </FUNCTION-GROUP-STATE-IREF>
+              </FUNCTION-GROUP-STATE-IREFS>
+              <STARTUP-CONFIG-REF DEST="STARTUP-CONFIG">/ApplicationsDeploy/ClientStartupConfigSet/StartupConfig</STARTUP-CONFIG-REF>
+            </STATE-DEPENDENT-STARTUP-CONFIG>
+          </STATE-DEPENDENT-STARTUP-CONFIGS>
+        </PROCESS>
+        <STARTUP-CONFIG-SET UUID="5b78843a-547c-46d2-90f2-02e3af0d8117">
+          <SHORT-NAME>ServerStartupConfigSet</SHORT-NAME>
+          <STARTUP-CONFIGS>
+            <STARTUP-CONFIG UUID="beb40d4c-e584-4083-bfbd-bc6e04ddcb50">
+              <SHORT-NAME>StartupConfig</SHORT-NAME>
+              <SCHEDULING-POLICY>SCHEDULING-POLICY-ROUND-ROBIN</SCHEDULING-POLICY>
+              <SCHEDULING-PRIORITY>31</SCHEDULING-PRIORITY>
+              <STARTUP-OPTIONS>
+                <STARTUP-OPTION>
+                  <OPTION-ARGUMENT>./etc/application.json</OPTION-ARGUMENT>
+                  <OPTION-KIND>COMMAND-LINE-SHORT-FORM</OPTION-KIND>
+                  <OPTION-NAME>c</OPTION-NAME>
+                </STARTUP-OPTION>
+              </STARTUP-OPTIONS>
+            </STARTUP-CONFIG>
+          </STARTUP-CONFIGS>
+        </STARTUP-CONFIG-SET>
+        <PROCESS-DESIGN UUID="ecb4e974-17d5-4c51-8c40-7cc2533a02b1">
+          <SHORT-NAME>ServerProcessDesign</SHORT-NAME>
+          <EXECUTABLE-REF DEST="EXECUTABLE">/Applications/Server</EXECUTABLE-REF>
+        </PROCESS-DESIGN>
+        <PROCESS UUID="bca221f5-e6e4-4660-89a4-8d6677ae3d6d">
+          <SHORT-NAME>ServerProcess</SHORT-NAME>
+          <DESIGN-REF DEST="PROCESS-DESIGN">/ApplicationsDeploy/ServerProcessDesign</DESIGN-REF>
+          <EXECUTABLE-REF DEST="EXECUTABLE">/Applications/Server</EXECUTABLE-REF>
+          <PROCESS-STATE-MACHINE UUID="64b376ac-3e62-4e04-9ae5-596d5b10e9a5">
+            <SHORT-NAME>ModeDeclarationGroupPrototype</SHORT-NAME>
+            <TYPE-TREF DEST="MODE-DECLARATION-GROUP">/Machine/MachineStates</TYPE-TREF>
+          </PROCESS-STATE-MACHINE>
+          <STATE-DEPENDENT-STARTUP-CONFIGS>
+            <STATE-DEPENDENT-STARTUP-CONFIG>
+              <FUNCTION-GROUP-STATE-IREFS>
+                <FUNCTION-GROUP-STATE-IREF>
+                  <CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF DEST="MODE-DECLARATION-GROUP-PROTOTYPE">/Machine/ServerMachine/MachineState</CONTEXT-MODE-DECLARATION-GROUP-PROTOTYPE-REF>
+                  <TARGET-MODE-DECLARATION-REF DEST="MODE-DECLARATION">/Machine/MachineStates/Running</TARGET-MODE-DECLARATION-REF>
+                </FUNCTION-GROUP-STATE-IREF>
+              </FUNCTION-GROUP-STATE-IREFS>
+              <STARTUP-CONFIG-REF DEST="STARTUP-CONFIG">/ApplicationsDeploy/ServerStartupConfigSet/StartupConfig</STARTUP-CONFIG-REF>
+            </STATE-DEPENDENT-STARTUP-CONFIG>
+          </STATE-DEPENDENT-STARTUP-CONFIGS>
+        </PROCESS>
+      </ELEMENTS>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="e797a530-bd7a-4a4c-a0e2-ec25b470fd4d">
+      <SHORT-NAME>ServiceInstances</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="fc6fec15-2cb9-4ed2-8c54-9a589d5af7bb">
+          <SHORT-NAME>ClientServiceInstance</SHORT-NAME>
+          <ELEMENTS>
+            <REQUIRED-SOMEIP-SERVICE-INSTANCE UUID="9eb44ae4-0d95-4cf1-a7cc-4bdb73aaef51">
+              <SHORT-NAME>RequiredServiceInterfaceDeployment</SHORT-NAME>
+              <SERVICE-INTERFACE-REF DEST="SOMEIP-SERVICE-INTERFACE-DEPLOYMENT">/ServiceInterfaces/Someip/ServiceInterfaceDeployment</SERVICE-INTERFACE-REF>
+              <REQUIRED-EVENT-GROUPS>
+                <SOMEIP-REQUIRED-EVENT-GROUP>
+                  <SHORT-NAME>SomeipEventGroup</SHORT-NAME>
+                  <EVENT-GROUP-REF DEST="SOMEIP-EVENT-GROUP">/ServiceInterfaces/Someip/ServiceInterfaceDeployment/SomeipEventGroup</EVENT-GROUP-REF>
+                  <SD-CLIENT-EVENT-GROUP-TIMING-CONFIG-REF DEST="SOMEIP-SD-CLIENT-EVENT-GROUP-TIMING-CONFIG">/ServiceInstances/ClientServiceInstance/SomeipSdClientEventGroupTimingConfig</SD-CLIENT-EVENT-GROUP-TIMING-CONFIG-REF>
+                </SOMEIP-REQUIRED-EVENT-GROUP>
+              </REQUIRED-EVENT-GROUPS>
+              <REQUIRED-MINOR-VERSION>ANY</REQUIRED-MINOR-VERSION>
+              <REQUIRED-SERVICE-INSTANCE-ID>1</REQUIRED-SERVICE-INSTANCE-ID>
+              <SD-CLIENT-CONFIG-REF DEST="SOMEIP-SD-CLIENT-SERVICE-INSTANCE-CONFIG">/ServiceInstances/ClientServiceInstance/SomeipSdClientServiceInstanceConfigServiceInterface</SD-CLIENT-CONFIG-REF>
+            </REQUIRED-SOMEIP-SERVICE-INSTANCE>
+            <SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING UUID="6496a9ae-f07b-4533-9b93-99efd8fec70e">
+              <SHORT-NAME>PortMappingRequiredServiceInterfaceDeployment</SHORT-NAME>
+              <PORT-PROTOTYPE-IREF>
+                <CONTEXT-ROOT-SW-COMPONENT-PROTOTYPE-REF DEST="ROOT-SW-COMPONENT-PROTOTYPE">/Applications/Client/RootSwComponentPrototype</CONTEXT-ROOT-SW-COMPONENT-PROTOTYPE-REF>
+                <TARGET-PORT-PROTOTYPE-REF DEST="R-PORT-PROTOTYPE">/Applications/ClientSwComponentType/RPort_ServiceInterface</TARGET-PORT-PROTOTYPE-REF>
+              </PORT-PROTOTYPE-IREF>
+              <PROCESS-REF DEST="PROCESS">/ApplicationsDeploy/ClientProcess</PROCESS-REF>
+              <SERVICE-INSTANCE-REF DEST="REQUIRED-SOMEIP-SERVICE-INSTANCE">/ServiceInstances/ClientServiceInstance/RequiredServiceInterfaceDeployment</SERVICE-INSTANCE-REF>
+            </SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING>
+            <SOMEIP-SD-CLIENT-SERVICE-INSTANCE-CONFIG UUID="f5071f6b-a217-4e07-a1f7-017cfdb46187">
+              <SHORT-NAME>SomeipSdClientServiceInstanceConfigServiceInterface</SHORT-NAME>
+              <INITIAL-FIND-BEHAVIOR>
+                <INITIAL-DELAY-MAX-VALUE>0.1</INITIAL-DELAY-MAX-VALUE>
+                <INITIAL-DELAY-MIN-VALUE>0.01</INITIAL-DELAY-MIN-VALUE>
+                <INITIAL-REPETITIONS-BASE-DELAY>0.2</INITIAL-REPETITIONS-BASE-DELAY>
+                <INITIAL-REPETITIONS-MAX>3</INITIAL-REPETITIONS-MAX>
+              </INITIAL-FIND-BEHAVIOR>
+              <SERVICE-FIND-TIME-TO-LIVE>3</SERVICE-FIND-TIME-TO-LIVE>
+            </SOMEIP-SD-CLIENT-SERVICE-INSTANCE-CONFIG>
+            <SOMEIP-SD-CLIENT-EVENT-GROUP-TIMING-CONFIG UUID="8bfedc74-19eb-4d98-ad79-433e8c234c31">
+              <SHORT-NAME>SomeipSdClientEventGroupTimingConfig</SHORT-NAME>
+              <REQUEST-RESPONSE-DELAY>
+                <MAX-VALUE>2</MAX-VALUE>
+                <MIN-VALUE>1</MIN-VALUE>
+              </REQUEST-RESPONSE-DELAY>
+              <TIME-TO-LIVE>5</TIME-TO-LIVE>
+            </SOMEIP-SD-CLIENT-EVENT-GROUP-TIMING-CONFIG>
+          </ELEMENTS>
+        </AR-PACKAGE>
+        <AR-PACKAGE UUID="f9ab4014-7fc6-444a-acab-be026aeab2eb">
+          <SHORT-NAME>ServerServiceInstance</SHORT-NAME>
+          <ELEMENTS>
+            <PROVIDED-SOMEIP-SERVICE-INSTANCE UUID="aa1ba110-4c09-42d6-a70b-eacdc8a14399">
+              <SHORT-NAME>ProvidedServiceInterfaceDeployment</SHORT-NAME>
+              <SERVICE-INTERFACE-REF DEST="SOMEIP-SERVICE-INTERFACE-DEPLOYMENT">/ServiceInterfaces/Someip/ServiceInterfaceDeployment</SERVICE-INTERFACE-REF>
+              <PROVIDED-EVENT-GROUPS>
+                <SOMEIP-PROVIDED-EVENT-GROUP UUID="e37144f5-a168-4755-945f-4cc2d2cdd3f3">
+                  <SHORT-NAME>SomeipEventGroup</SHORT-NAME>
+                  <EVENT-GROUP-REF DEST="SOMEIP-EVENT-GROUP">/ServiceInterfaces/Someip/ServiceInterfaceDeployment/SomeipEventGroup</EVENT-GROUP-REF>
+                  <MULTICAST-THRESHOLD>3</MULTICAST-THRESHOLD>
+                </SOMEIP-PROVIDED-EVENT-GROUP>
+              </PROVIDED-EVENT-GROUPS>
+              <SD-SERVER-CONFIG-REF DEST="SOMEIP-SD-SERVER-SERVICE-INSTANCE-CONFIG">/ServiceInstances/ServerServiceInstance/SomeipSdServerServiceInstanceConfigServiceInterface</SD-SERVER-CONFIG-REF>
+              <SERVICE-INSTANCE-ID>1</SERVICE-INSTANCE-ID>
+            </PROVIDED-SOMEIP-SERVICE-INSTANCE>
+            <SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING UUID="cb7cfc15-524e-444e-9a63-b1b1ee63de1c">
+              <SHORT-NAME>PortMappingProvidedServiceInterfaceDeployment</SHORT-NAME>
+              <PORT-PROTOTYPE-IREF>
+                <CONTEXT-ROOT-SW-COMPONENT-PROTOTYPE-REF DEST="ROOT-SW-COMPONENT-PROTOTYPE">/Applications/Server/RootSwComponentPrototype</CONTEXT-ROOT-SW-COMPONENT-PROTOTYPE-REF>
+                <TARGET-PORT-PROTOTYPE-REF DEST="P-PORT-PROTOTYPE">/Applications/ServerSwComponentType/PPort_ServiceInterface</TARGET-PORT-PROTOTYPE-REF>
+              </PORT-PROTOTYPE-IREF>
+              <PROCESS-REF DEST="PROCESS">/ApplicationsDeploy/ServerProcess</PROCESS-REF>
+              <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/ServiceInstances/ServerServiceInstance/ProvidedServiceInterfaceDeployment</SERVICE-INSTANCE-REF>
+            </SERVICE-INSTANCE-TO-PORT-PROTOTYPE-MAPPING>
+            <SOMEIP-SD-SERVER-SERVICE-INSTANCE-CONFIG UUID="4c425637-c8b9-4556-9c67-3128394b925b">
+              <SHORT-NAME>SomeipSdServerServiceInstanceConfigServiceInterface</SHORT-NAME>
+              <INITIAL-OFFER-BEHAVIOR>
+                <INITIAL-DELAY-MAX-VALUE>0.1</INITIAL-DELAY-MAX-VALUE>
+                <INITIAL-DELAY-MIN-VALUE>0.01</INITIAL-DELAY-MIN-VALUE>
+                <INITIAL-REPETITIONS-BASE-DELAY>0.2</INITIAL-REPETITIONS-BASE-DELAY>
+                <INITIAL-REPETITIONS-MAX>10</INITIAL-REPETITIONS-MAX>
+              </INITIAL-OFFER-BEHAVIOR>
+              <OFFER-CYCLIC-DELAY>4</OFFER-CYCLIC-DELAY>
+              <REQUEST-RESPONSE-DELAY>
+                <MAX-VALUE>1.5</MAX-VALUE>
+                <MIN-VALUE>1.5</MIN-VALUE>
+              </REQUEST-RESPONSE-DELAY>
+              <SERVICE-OFFER-TIME-TO-LIVE>3</SERVICE-OFFER-TIME-TO-LIVE>
+            </SOMEIP-SD-SERVER-SERVICE-INSTANCE-CONFIG>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+    <AR-PACKAGE UUID="cdcaee8c-e994-477d-bacb-deae3cd1d036">
+      <SHORT-NAME>ServiceInstanceToMachineMappings</SHORT-NAME>
+      <ELEMENTS>
+        <SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING UUID="8e400c23-1ac1-492b-b2fc-151dee1ca5be">
+          <SHORT-NAME>MachineMappingRequiredServiceInterfaceDeployment</SHORT-NAME>
+          <COMMUNICATION-CONNECTOR-REF DEST="ETHERNET-COMMUNICATION-CONNECTOR">/Machine/ClientMachineDesign/NetworkConnector</COMMUNICATION-CONNECTOR-REF>
+          <SERVICE-INSTANCE-REFS>
+            <SERVICE-INSTANCE-REF DEST="REQUIRED-SOMEIP-SERVICE-INSTANCE">/ServiceInstances/ClientServiceInstance/RequiredServiceInterfaceDeployment</SERVICE-INSTANCE-REF>
+          </SERVICE-INSTANCE-REFS>
+          <IPV-4-MULTICAST-IP-ADDRESS/>
+          <UDP-PORT>30001</UDP-PORT>
+        </SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING>
+        <SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING UUID="d7a5a8ef-e0bc-42d6-95ed-31d71811e272">
+          <SHORT-NAME>MachineMappingProvidedServiceInterfaceDeployment</SHORT-NAME>
+          <COMMUNICATION-CONNECTOR-REF DEST="ETHERNET-COMMUNICATION-CONNECTOR">/Machine/ServerMachineDesign/NetworkConnector</COMMUNICATION-CONNECTOR-REF>
+          <SERVICE-INSTANCE-REFS>
+            <SERVICE-INSTANCE-REF DEST="PROVIDED-SOMEIP-SERVICE-INSTANCE">/ServiceInstances/ServerServiceInstance/ProvidedServiceInterfaceDeployment</SERVICE-INSTANCE-REF>
+          </SERVICE-INSTANCE-REFS>
+          <UDP-PORT>30002</UDP-PORT>
+        </SOMEIP-SERVICE-INSTANCE-TO-MACHINE-MAPPING>
+      </ELEMENTS>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

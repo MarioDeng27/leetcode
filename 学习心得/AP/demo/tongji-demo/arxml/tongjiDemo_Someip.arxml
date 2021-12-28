@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AUTOSAR xmlns="http://autosar.org/schema/r4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://autosar.org/schema/r4.0 AUTOSAR_00047.xsd">
+  <AR-PACKAGES>
+    <AR-PACKAGE UUID="b3892fba-5235-43e6-9bd3-2b77259ca678">
+      <SHORT-NAME>ServiceInterfaces</SHORT-NAME>
+      <AR-PACKAGES>
+        <AR-PACKAGE UUID="acd2a138-af02-43c0-a2c9-bbab8db4886d">
+          <SHORT-NAME>Someip</SHORT-NAME>
+          <ELEMENTS>
+            <SOMEIP-SERVICE-INTERFACE-DEPLOYMENT UUID="14beaf14-caeb-4ffa-9662-155ce5e63163">
+              <SHORT-NAME>ServiceInterfaceDeployment</SHORT-NAME>
+              <EVENT-DEPLOYMENTS>
+                <SOMEIP-EVENT-DEPLOYMENT UUID="91bcbb2b-5920-4a89-bb18-7bb65697e466">
+                  <SHORT-NAME>addInfo</SHORT-NAME>
+                  <EVENT-REF DEST="VARIABLE-DATA-PROTOTYPE">/ServiceInterfaces/ServiceInterface/addInfo</EVENT-REF>
+                  <EVENT-ID>1000</EVENT-ID>
+                  <TRANSPORT-PROTOCOL>UDP</TRANSPORT-PROTOCOL>
+                </SOMEIP-EVENT-DEPLOYMENT>
+              </EVENT-DEPLOYMENTS>
+              <FIELD-DEPLOYMENTS>
+                <SOMEIP-FIELD-DEPLOYMENT UUID="bc770644-6bec-4b20-9e12-4313f0b420ef">
+                  <SHORT-NAME>addResult</SHORT-NAME>
+                  <FIELD-REF DEST="FIELD">/ServiceInterfaces/ServiceInterface/addResult</FIELD-REF>
+                  <GET UUID="b094dbd1-1e4b-4fa2-9660-d2094234b20e">
+                    <SHORT-NAME>getAddResult</SHORT-NAME>
+                    <METHOD-ID>2000</METHOD-ID>
+                    <TRANSPORT-PROTOCOL>UDP</TRANSPORT-PROTOCOL>
+                  </GET>
+                  <NOTIFIER UUID="6203c8a6-0dc5-4ce6-80c8-5a462db5d0b3">
+                    <SHORT-NAME>onAddResult</SHORT-NAME>
+                    <EVENT-ID>1001</EVENT-ID>
+                    <TRANSPORT-PROTOCOL>UDP</TRANSPORT-PROTOCOL>
+                  </NOTIFIER>
+                  <SET UUID="77434144-3e9f-4893-abf8-d05e16d35fe3">
+                    <SHORT-NAME>setAddResult</SHORT-NAME>
+                    <METHOD-ID>2001</METHOD-ID>
+                    <TRANSPORT-PROTOCOL>UDP</TRANSPORT-PROTOCOL>
+                  </SET>
+                </SOMEIP-FIELD-DEPLOYMENT>
+              </FIELD-DEPLOYMENTS>
+              <METHOD-DEPLOYMENTS>
+                <SOMEIP-METHOD-DEPLOYMENT UUID="71c8fbeb-714a-4ef4-9d8d-cb9ae94cc47a">
+                  <SHORT-NAME>add</SHORT-NAME>
+                  <METHOD-REF DEST="CLIENT-SERVER-OPERATION">/ServiceInterfaces/ServiceInterface/add</METHOD-REF>
+                  <METHOD-ID>2002</METHOD-ID>
+                  <TRANSPORT-PROTOCOL>UDP</TRANSPORT-PROTOCOL>
+                </SOMEIP-METHOD-DEPLOYMENT>
+              </METHOD-DEPLOYMENTS>
+              <SERVICE-INTERFACE-REF DEST="SERVICE-INTERFACE">/ServiceInterfaces/ServiceInterface</SERVICE-INTERFACE-REF>
+              <EVENT-GROUPS>
+                <SOMEIP-EVENT-GROUP UUID="8c2c78a1-d674-4cc6-9e52-9361d0bc3f73">
+                  <SHORT-NAME>SomeipEventGroup</SHORT-NAME>
+                  <EVENT-GROUP-ID>200</EVENT-GROUP-ID>
+                  <EVENT-REFS>
+                    <EVENT-REF DEST="SOMEIP-EVENT-DEPLOYMENT">/ServiceInterfaces/Someip/ServiceInterfaceDeployment/addInfo</EVENT-REF>
+                    <EVENT-REF DEST="SOMEIP-EVENT-DEPLOYMENT">/ServiceInterfaces/Someip/ServiceInterfaceDeployment/addResult/onAddResult</EVENT-REF>
+                  </EVENT-REFS>
+                </SOMEIP-EVENT-GROUP>
+              </EVENT-GROUPS>
+              <SERVICE-INTERFACE-ID>100</SERVICE-INTERFACE-ID>
+              <SERVICE-INTERFACE-VERSION>
+                <MAJOR-VERSION>1</MAJOR-VERSION>
+                <MINOR-VERSION>0</MINOR-VERSION>
+              </SERVICE-INTERFACE-VERSION>
+            </SOMEIP-SERVICE-INTERFACE-DEPLOYMENT>
+          </ELEMENTS>
+        </AR-PACKAGE>
+      </AR-PACKAGES>
+    </AR-PACKAGE>
+  </AR-PACKAGES>
+</AUTOSAR>

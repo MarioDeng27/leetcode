@@ -1,0 +1,13 @@
+ARPackage StdTypes {
+	StdCppImplementationDataTypeValue bool {}
+	StdCppImplementationDataTypeValue float {}
+	StdCppImplementationDataTypeValue double {}
+	StdCppImplementationDataTypeValue int8_t {}
+	StdCppImplementationDataTypeValue int16_t {}
+	StdCppImplementationDataTypeValue int32_t {}
+	StdCppImplementationDataTypeValue int64_t {}
+	StdCppImplementationDataTypeValue uint8_t {}
+	StdCppImplementationDataTypeValue uint16_t {}
+	StdCppImplementationDataTypeValue uint32_t {}
+	StdCppImplementationDataTypeValue uint64_t {}
+}

@@ -1,0 +1,14 @@
+{
+  "name": "sdcl",
+  "description": "saic Demo Client",
+  "dlt_id": "sdcl",
+  "log_mode": [
+    "kConsole",
+    "kRemote"
+  ],
+  "log_level": "kVerbose",
+  "log_dir_path": "tmp",
+  "ipc_port": 33,
+  "reconnection_retry_offset": 0,
+  "msg_buf_size": 1000
+}

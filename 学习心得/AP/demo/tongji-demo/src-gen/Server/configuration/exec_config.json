@@ -1,0 +1,36 @@
+
+{
+  "category" : "APPLICATION_LEVEL",
+  "name" : "Server",
+  "isAdaptiveApplication" : 1,
+  "processes" : [
+    {
+      "name" : "ServerProcess",
+      "shortNamePath" : "/ApplicationsDeploy/ServerProcess",
+      "startupConfigs" : [
+        {
+          "schedulingPolicy" : "SCHEDULING-POLICY-ROUND-ROBIN",
+          "schedulingPriority" : 31,
+          "options" : [
+            "-c",
+            "./etc/application.json"
+          ],
+          "executionDependency" : {
+          },
+          "functionGroups" : [
+            {
+              "name" : "MachineState",
+              "states" : [
+                "Running"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "generatorVersion" : {
+    "name" : "amsr_em_exec_config",
+    "commitId" : "6cc205edba694b4589f76a5356343f3aa8f48375"
+  }
+}

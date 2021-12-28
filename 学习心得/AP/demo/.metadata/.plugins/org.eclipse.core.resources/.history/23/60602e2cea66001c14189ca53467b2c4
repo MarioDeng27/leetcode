@@ -1,0 +1,14 @@
+MachineDesign ClientMachineDesign {
+	communicationConnectors [
+		EthernetCommunicationConnector NetworkConnector {
+			unicastNetworkEndpoint NetworkEndpointARRef -> /Machine/EthernetCluster/EthernetPhysicalChannel/NetworkEndpoint
+		}
+		EthernetCommunicationConnector SD {}
+	]
+	serviceDiscoverConfigs [
+		SomeipServiceDiscovery {
+			someipServiceDiscoveryPort : 12330
+			multicastSdIpAddress NetworkEndpointARRef -> /Machine/EthernetCluster/EthernetPhysicalChannel/SDMulticastEndpoint
+		}
+	]
+}

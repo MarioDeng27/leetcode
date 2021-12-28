@@ -1,0 +1,25 @@
+Machine ClientMachine {
+	functionGroups [
+		ModeDeclarationGroupPrototype MachineState {
+			type ModeDeclarationGroupARRef -> /Machine/MachineStates
+		}
+	]
+	machineDesign MachineDesignARRef -> /Machine/ClientMachineDesign
+	processors [
+		Processor Processor {
+			cores [
+				ProcessorCore ProcessorCore {}
+			]
+		}
+	]
+	moduleInstantiations [
+		OsModuleInstantiation Os {
+			resourceGroups [
+				ResourceGroup ControlGroup {
+					cpuUsage : 50
+					memUsage : 1024
+				}
+			]
+		}
+	]
+}
