@@ -1,0 +1,28 @@
+/*
+ * @Description: 
+ * @Version: 1.0
+ * @Autor: Mario Deng
+ * @Date: 2021-01-16 18:36:00
+ * @LastEditors: Mario Deng
+ * @LastEditTime: 2021-01-16 18:48:18
+ */
+78. 子集
+方法1:总结归纳法
+//自己的想法
+//每多一个元素,就在前面已有的元素子集基础上再加上该元素就是新添加的子集
+
+方法2:回溯算法
+/*
+模板:
+这里路径是track,选择列表是nums和start的组合
+result[]
+def backtrack(路径,选择列表):
+    if 满足结束条件:
+        result.add(路径)
+        return
+
+    for 选择 in 选择列表:
+        做选择
+        backtrack(路径,选择列表)
+        撤销选择
+*/
