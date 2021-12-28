@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-12-27 21:59:35
- * @LastEditTime: 2021-12-27 22:28:50
+ * @LastEditTime: 2021-12-28 17:39:10
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \tongji-demo\src\server\tongjidemo_server.cc
@@ -76,5 +76,4 @@ namespace someip
     promise.set_value(std::move(ret));
     return promise.get_future();
   }
-
 } // namespace calculator

@@ -56,20 +56,6 @@ void Initialize_Signalhandler(void);
 void SignalHandler(void);
 
 /**
- * \brief Container for command line arguments.
- */
-struct CommandLineArguments {
-  /**
-   * \brief Path to configuration file.
-   */
-  std::string cfg_path_;
-  /**
-   * \brief Enables the applicationstate report to the executionmanager if true.
-   */
-  bool enable_em_;
-};
-
-/**
  * \brief Flag to identify whether the application was requested to terminate, i.e., has received a SIGTERM
  */
 std::atomic_bool exit_requested(false);
@@ -79,77 +65,8 @@ std::atomic_bool exit_requested(false);
  */
 std::vector<std::thread> threads;
 
-/**
- * \brief Prints the usage message.
- *
- * \param argc argument count
- * \param argv command line arguments
- */
-static void Usage(const int argc, char* argv[]) {
-  if (argc > 0) {
-    std::cerr << "usage: " << argv[0] <<
-        R"([-h] [--disable-em] -c <config file path>
-           -h                            Print this message and exit.
-           -c <config file path>         Specify the location of the configuration file.
-           --disable-em                 Disabling the applicationstate report to the executionmanager\n
-        )";
-  } else {
-    std::cerr << "usage: calculatorClient "
-              <<
-        R"([-h] [--disable-em] -c <config file path>
-           -h                            Print this message and exit.
-           -c <config file path>         Specify the location of the configuration file.
-           --disable-em                 Disabling the applicationstate report to the executionmanager\n
-
-        )";
-  }
-}
-
-/**
- * \brief Parses command line arguments.
- *
- * \param argc Command line argument count.
- * \param argv Array of pointers to command line arguments.
- * \return Parsed arguments.
- */
-static CommandLineArguments ParseArguments(int argc, char* argv[]) {
-  CommandLineArguments args;
-  args.cfg_path_ = "";
-  args.enable_em_ = true;
-
-  calc::commandlineparser::CommandLineParser parser(argc, argv, "hc:d");
-  for (auto& it : parser) {
-    switch (it.GetOption()) {
-      case 'h':
-        Usage(argc, argv);
-        exit(EXIT_SUCCESS);
-        break;
-      case 'c':
-        args.cfg_path_ = it.GetOptionArgument();
-        break;
-      case 'd':
-        args.enable_em_ = false;
-        break;
-      default:
-        Usage(argc, argv);
-        exit(EXIT_FAILURE);
-        break;
-    }
-  }
-  if (args.cfg_path_ == "") {
-    ara::log::InitLogging(calc::config::kSomeIpDLoggerApplicationId, calc::config::kSomeIpDLoggerApplicationDescription,
-                          ara::log::LogLevel::kError, ara::log::LogMode::kConsole, "");
-
-    ara::log::Logger& logger_ctx{
-        ara::log::CreateLogger(calc::config::kContextIdCalcServerMethodInvocator, "Context for tongjidemo server")};
-
-    logger_ctx.LogError() << "No configuration file path provided\n";
-    exit(EXIT_FAILURE);
-  }
-  return args;
-}
-
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[])
+{
   using vac::container::literals::operator""_sv;
 
   // Initialize signal handler to ensure all signals are blocked for all child processes
@@ -159,16 +76,16 @@ int main(int argc, char* argv[]) {
                         ara::log::LogMode::kConsole | ara::log::LogMode::kRemote, "tmp");
 
   // Create logger in the allocation phase
-  ara::log::Logger& logger_ctx{ara::log::CreateLogger(calc::config::kContextIdCalcServerMethodInvocator,
+  ara::log::Logger &logger_ctx{ara::log::CreateLogger(calc::config::kContextIdCalcServerMethodInvocator,
                                                       "Context for tongjidemo Server method implementation")};
 
   logger_ctx.LogInfo() << "Starting tongjidemo Server";
 
-  //CommandLineArguments args = ParseArguments(argc, argv);
 #ifdef ENABLE_EXEC_MANAGER
   vac::memory::optional<ApplicationClient> app_client;
 
-  if (args.enable_em_) {
+  if (args.enable_em_)
+  {
     // Instantiate the ApplicationClient
     app_client.emplace();
   }
@@ -195,7 +112,8 @@ int main(int argc, char* argv[]) {
   myService.OfferService();
 
 #ifdef ENABLE_EXEC_MANAGER
-  if (args.enable_em_ && app_client.has_value()) {
+  if (args.enable_em_ && app_client.has_value())
+  {
     // Report application state to execution management
     logger_ctx.LogInfo() << "Reporting application state kRunning.";
     app_client->ReportApplicationState(ApplicationState::kRunning);
@@ -204,12 +122,14 @@ int main(int argc, char* argv[]) {
 
   logger_ctx.LogInfo() << "Finished initialization sequence.";
   // Loop until the Execution Manager requests the application to exit
-  while (!exit_requested) {
+  while (!exit_requested)
+  {
     std::this_thread::sleep_for(std::chrono::seconds(100));
   }
 
 #ifdef ENABLE_EXEC_MANAGER
-  if (args.enable_em_ && app_client.has_value()) {
+  if (args.enable_em_ && app_client.has_value())
+  {
     // Report application state to execution management
     logger_ctx.LogInfo() << "Reporting application state kTerminating.";
     app_client->ReportApplicationState(ApplicationState::kTerminating);
@@ -229,7 +149,8 @@ int main(int argc, char* argv[]) {
 /**
  * \brief  Function to initialize the calculator server
  */
-void Initialize_Signalhandler(void) {
+void Initialize_Signalhandler(void)
+{
   /* Block all signals for this thread. Signal mask will be inherited by subsequent threads. */
   sigset_t signals;
   sigfillset(&signals);
@@ -241,18 +162,21 @@ void Initialize_Signalhandler(void) {
 /**
  * \brief Signal handler function for SIGTERM
  */
-void SignalHandler(void) {
+void SignalHandler(void)
+{
   sigset_t signal_set;
   int sig = -1;
   sigemptyset(&signal_set);        /* Empty the set of signals */
   sigaddset(&signal_set, SIGTERM); /* Add only SIGTERM to set */
-  while (sig != SIGTERM) {
+  sigaddset(&signal_set, SIGINT); /* Add SIGINT to set */
+  while (sig != SIGTERM && sig !=SIGINT)
+  {
     sigwait(&signal_set, &sig);
-    ara::log::Logger& logger_ctx = ara::log::CreateLogger(calc::config::kContextIdCalcServerMethodInvocator,
+    ara::log::Logger &logger_ctx = ara::log::CreateLogger(calc::config::kContextIdCalcServerMethodInvocator,
                                                           "Context for SOMEIPDemoServer method implementation");
     logger_ctx.LogInfo() << "Received signal number:" << sig;
   }
-  ara::log::Logger& logger_ctx = ara::log::CreateLogger(calc::config::kContextIdCalcServerMethodInvocator,
+  ara::log::Logger &logger_ctx = ara::log::CreateLogger(calc::config::kContextIdCalcServerMethodInvocator,
                                                         "Context for SOMEIPDemoServer method implementation");
   logger_ctx.LogInfo() << "Received signal SIGTERM";
   exit_requested = true;

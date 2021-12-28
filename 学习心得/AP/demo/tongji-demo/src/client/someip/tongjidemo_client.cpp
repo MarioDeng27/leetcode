@@ -72,7 +72,7 @@ void tongjiDemoClient::addInfoHandler(void) { GetLogger().LogError() << "Divisio
 void tongjiDemoClient::addResultHandler(void) {
   // Check if new events are placed into the local cache
   if (tongjidemo_service_proxy->addResult.Update()) {
-    GetLogger().LogInfo() << "Last valid division result is: "
+    GetLogger().LogInfo() << "Last valid add result is: "
                           << **(tongjidemo_service_proxy->addResult.GetCachedSamples().begin());
     add_event_received = true;
   }
@@ -85,7 +85,7 @@ void tongjiDemoClient::SubscribeToEvents() {
 	tongjidemo_service_proxy->addInfo.Subscribe(ara::com::EventCacheUpdatePolicy::kLastN,
                                                                              1);
 
-    // Subscribe to divideResult field (notify event)
+    // Subscribe to addResult field (notify event)
   tongjidemo_service_proxy->addResult.SetReceiveHandler([]() { addResultHandler(); });
   tongjidemo_service_proxy->addResult.Subscribe(ara::com::EventCacheUpdatePolicy::kLastN, 1);
 }
