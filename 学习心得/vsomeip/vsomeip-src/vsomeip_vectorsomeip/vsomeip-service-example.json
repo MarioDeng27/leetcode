@@ -1,0 +1,39 @@
+{
+    "unicast": "192.168.199.179",
+    "logging": {
+        "level": "debug",
+        "console": "true",
+        "file": {
+            "enable": "false",
+            "path": "/tmp/vsomeip.log"
+        },
+        "dlt": "false"
+    },
+    "applications": [
+        {
+            "name": "Service-Method-Example",
+            "id": "0x1212"
+        }
+    ],
+    "services": [
+        {
+            "service": "0x0064",
+            "instance": "0x0001",
+            "unreliable": "30001"
+        }
+    ],
+    "routing": "Service-Method-Example",
+    "service-discovery": {
+        "enable": "true",
+        "multicast": "224.0.0.17",
+        "port": "12330",
+        "protocol": "udp",
+        "initial_delay_min": "10",
+        "initial_delay_max": "100",
+        "repetitions_base_delay": "200",
+        "repetitions_max": "3",
+        "ttl": "3",
+        "cyclic_offer_delay": "2000",
+        "request_response_delay": "1500"
+    }
+}

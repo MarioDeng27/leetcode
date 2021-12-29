@@ -1,0 +1,4 @@
+/home/mario/apps/vsomeip/build/examples/vsomeip_vectorsomeip/CMakeFiles/rebuild_cache.dir
+/home/mario/apps/vsomeip/build/examples/vsomeip_vectorsomeip/CMakeFiles/service-method-example.dir
+/home/mario/apps/vsomeip/build/examples/vsomeip_vectorsomeip/CMakeFiles/edit_cache.dir
+/home/mario/apps/vsomeip/build/examples/vsomeip_vectorsomeip/CMakeFiles/client-method-example.dir

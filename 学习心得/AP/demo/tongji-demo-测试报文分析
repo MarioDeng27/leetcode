@@ -11,7 +11,7 @@ ffff8100:MessageID(ServiceID/MethodID)
 01010200:   
 c0000000:flags + reserved
 00000010:len of Entries(16bytes)
-00000000:Type+00000 FindService (0x00), OfferService (0x01) and StopOfferService(0x01),Subscribe (0x06), StopSubscribeEventgroup (0x06), SubscribeAck (0x07) 
+00000000:Type+00000 FindService (0x00), OfferService (0x01) and StopOfferService(0x01),Subscribe (0x06), StopSubscribeEventgroup (0x06), SubscribeAck 
 00640001:ServiceID/InstanceID
 01000003:Major Version + TTL
 ffffffff:Minor Version

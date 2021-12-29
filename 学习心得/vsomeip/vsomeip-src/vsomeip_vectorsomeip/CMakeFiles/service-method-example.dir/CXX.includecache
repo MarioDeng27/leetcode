@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/mario/apps/vsomeip/build/examples/vsomeip_vectorsomeip/service-method-example.cpp
+iomanip
+-
+iostream
+-
+sstream
+-
+vsomeip/vsomeip.hpp
+-
+
