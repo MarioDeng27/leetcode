@@ -1,14 +1,14 @@
 /*
- * @Description: 
+ * @Description:
  * @Version: 1.0
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2021-09-02 15:58:47
+ * @LastEditTime: 2022-05-27 22:03:48
  */
 /*
  * @FilePath: \Sort\test.cpp
- * @Brief: 
+ * @Brief:
  * @Version: 1.0
  * @Date: 2020-10-05 22:41:14
  * @Author: Mario Deng
@@ -74,19 +74,8 @@ struct TreeNode
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
-template <typename T>  struct is_void
+int main()
 {
-         static const bool value = false;
-     
-};
-template <>  struct is_void<void>
-{
-         static const bool value = true;
-     
-};
-int main()
-{
-        std::cout << is_void<int>::value;
-            std::cout << is_void<void>::value;
-        return 0;
+    cout << "ss" << endl;
+    return 0;
 }
