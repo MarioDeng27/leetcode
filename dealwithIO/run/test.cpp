@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-06-01 18:18:33
+ * @LastEditTime: 2022-06-02 03:03:47
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -76,27 +76,19 @@ struct TreeNode
 class Solution
 {
 public:
-    vector<int> partitionLabels(string s)
+    int maxProfit(vector<int> &prices)
     {
-        int mp[26];
-        for (int i = 0; i < s.size(); i++)
+        int n = prices.size();
+        int prev0 = 0;
+        int prev1 = -prices[0];
+        for (int i = 1; i < prices.size(); i++)
         {
-            mp[s[i] - 'a'] = i;
+            int temp = prev0;
+            prev0 = max(prev0, prev1 + prices[i]);
+            prev1 = max(prev1, prev0 - prices[i]);
         }
-        int start = 0;
-        vector<int> res;
-        while (start < s.size())
-        {
-            int end = mp[s[start] - 'a'];
-            for (int i = start + 1; i < end; i++)
-            {
-                if (mp[s[i] - 'a'] > end)
-                    end = mp[s[i] - 'a'];
-            }
-            res.push_back(end - start + 1);
-            start = end + 1;
-        }
-        return res;
+
+        return max(prev0, prev1);
     }
 };
 int main()
