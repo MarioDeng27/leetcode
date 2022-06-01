@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-05-27 22:03:48
+ * @LastEditTime: 2022-06-01 18:18:33
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -73,9 +73,36 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-
+class Solution
+{
+public:
+    vector<int> partitionLabels(string s)
+    {
+        int mp[26];
+        for (int i = 0; i < s.size(); i++)
+        {
+            mp[s[i] - 'a'] = i;
+        }
+        int start = 0;
+        vector<int> res;
+        while (start < s.size())
+        {
+            int end = mp[s[start] - 'a'];
+            for (int i = start + 1; i < end; i++)
+            {
+                if (mp[s[i] - 'a'] > end)
+                    end = mp[s[i] - 'a'];
+            }
+            res.push_back(end - start + 1);
+            start = end + 1;
+        }
+        return res;
+    }
+};
 int main()
 {
+    auto v = {1, 0, 0, 0, 1};
+    auto b = Solution().partitionLabels("bceacbacdbbadea");
     cout << "ss" << endl;
     return 0;
 }
