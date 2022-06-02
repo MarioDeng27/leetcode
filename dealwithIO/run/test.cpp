@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-06-02 03:03:47
+ * @LastEditTime: 2022-06-02 19:57:21
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -76,19 +76,28 @@ struct TreeNode
 class Solution
 {
 public:
-    int maxProfit(vector<int> &prices)
+    bool checkPossibility(vector<int> &nums)
     {
-        int n = prices.size();
-        int prev0 = 0;
-        int prev1 = -prices[0];
-        for (int i = 1; i < prices.size(); i++)
+        int n = nums.size();
+        if (n == 1)
+            return true;
+        int cnt = 0;
+        for (int i = 1; i < n; i++)
         {
-            int temp = prev0;
-            prev0 = max(prev0, prev1 + prices[i]);
-            prev1 = max(prev1, prev0 - prices[i]);
+            int x = nums[i - 1];
+            int y = nums[i];
+            if (x > y)
+            {
+                cnt++;
+                if (cnt > 1)
+                    return false;
+                if (i > 1 && nums[i - 2] > y)
+                {
+                    nums[i] = x;
+                }
+            }
         }
-
-        return max(prev0, prev1);
+        return true;
     }
 };
 int main()
