@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-06-03 19:15:32
+ * @LastEditTime: 2022-06-05 03:42:25
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -43,20 +43,6 @@ using namespace std;
 /* #include <bits/stdc++.h>
 using namespace std; */
 
-void func(vector<vector<int>> &A)
-{
-    int R = A.size();
-    int C = A[0].size();
-    vector<vector<int>> B(R, vector<int>(C));
-    for (int i = 0; i < R; i++)
-    {
-        for (int j = 0; j < C; j++)
-        {
-            B[j][R - 1 - i] = A[i][j];
-        }
-    }
-    A = B;
-}
 struct ListNode
 {
     int val;
@@ -76,59 +62,46 @@ struct TreeNode
 class Solution
 {
 public:
-    string minWindow(string s, string t)
+    bool check(string s, int low, int high)
     {
-        int l = 0;
-        map<char, int> need;
-        for (int i = 0; i < t.size(); i++)
+        while (low <= high)
         {
-            need[t[i]]++;
-        }
-        map<char, int> windows;
-        string res;
-        int len = INT_MAX;
-        for (int r = 0; r < s.size(); r++)
-        {
-            if (need.find(s[r]) != need.end())
+            if (s[low] == s[high])
             {
-                windows[s[r]]++;
-                if (windows[s[r]] >= need[s[r]])
-                {
-                    bool isok = true;
-                    for (auto it = need.begin(); it != need.end(); it++)
-                    {
-                        if (windows[it->first] < it->second)
-                        {
-                            isok = false;
-                            break;
-                        }
-                    }
-                    if (isok)
-                    {
-                        while (need.find(s[l]) == need.end() || windows[s[l]] > need[s[l]])
-                        {
-                            if (need.find(s[l]) != need.end())
-                                windows[s[l]]--;
-                            l++;
-                        }
-                        if (len > r - l + 1)
-                        {
-                            res = s.substr(l, r - l + 1);
-                            len = r - l + 1;
-                        }
-                        windows[s[l]]--;
-                        l++;
-                    }
-                }
+                low++;
+                high--;
+            }
+            else
+            {
+                return false;
             }
         }
-        return res;
+        return true;
+    }
+    bool validPalindrome(string s)
+    {
+        int l = 0;
+        int r = s.size() - 1;
+        int cnt = 0;
+        while (l <= r)
+        {
+            if (s[l] == s[r])
+            {
+                l++;
+                r--;
+            }
+            else
+            {
+                return check(s, l + 1, r) || check(s, l, r - 1);
+            }
+        }
+        return true;
     }
 };
 int main()
 {
     auto v = {1, 0, 0, 0, 1};
-    auto b = Solution().minWindow("ADOBECODEBANC", "ABC");
+    auto b = Solution().judgeSquareSum(2147482647);
     cout << "ss" << endl;
     return 0;
 }
