@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-06-05 03:42:25
+ * @LastEditTime: 2022-06-05 20:21:37
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -62,46 +62,56 @@ struct TreeNode
 class Solution
 {
 public:
-    bool check(string s, int low, int high)
+    bool search(vector<int> &nums, int target)
     {
-        while (low <= high)
-        {
-            if (s[low] == s[high])
-            {
-                low++;
-                high--;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-    bool validPalindrome(string s)
-    {
+        int n = nums.size();
         int l = 0;
-        int r = s.size() - 1;
-        int cnt = 0;
+        int r = n - 1;
+        int mid;
         while (l <= r)
         {
-            if (s[l] == s[r])
+            mid = l + (r - l) / 2;
+            if (nums[mid] == target)
+                return true;
+            if (nums[l] == nums[mid] && nums[r] == nums[mid])
             {
                 l++;
                 r--;
             }
-            else
+            else if (nums[l] <= nums[mid] && nums[r] != nums[mid])
             {
-                return check(s, l + 1, r) || check(s, l, r - 1);
+                if (nums[l] <= target && nums[mid] > target)
+                    r = mid - 1;
+                else
+                    l = mid + 1;
+            }
+            else if (nums[mid] <= nums[r] && nums[l] != nums[mid])
+            {
+                if (nums[mid] < target && nums[r] >= target)
+                    l = mid + 1;
+                else
+                    r = mid - 1;
+            }
+            else if (nums[l] == nums[mid] && nums[r] == nums[mid])
+            {
+                while (l <= r)
+                {
+                    if (nums[l] == target || nums[r] == target)
+                        return true;
+                    l++;
+                    r--;
+                }
+                return false;
             }
         }
-        return true;
+        return false;
     }
 };
 int main()
 {
-    auto v = {1, 0, 0, 0, 1};
-    auto b = Solution().judgeSquareSum(2147482647);
+    //"aewfafwafjlwajflwajflwafj"
+    //[ "apple", "ewaf", "awefawfwaf", "awef", "awefe", "ewafeffewafewf" ] auto v = {1, 0, 0, 0, 1};
+    auto b = Solution().mySqrt(8);
     cout << "ss" << endl;
     return 0;
 }
