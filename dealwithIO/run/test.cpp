@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-06-05 20:21:37
+ * @LastEditTime: 2022-06-06 22:49:55
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -62,7 +62,7 @@ struct TreeNode
 class Solution
 {
 public:
-    bool search(vector<int> &nums, int target)
+    int singleNonDuplicate(vector<int> &nums)
     {
         int n = nums.size();
         int l = 0;
@@ -71,47 +71,33 @@ public:
         while (l <= r)
         {
             mid = l + (r - l) / 2;
-            if (nums[mid] == target)
-                return true;
-            if (nums[l] == nums[mid] && nums[r] == nums[mid])
+            if (nums[(mid - 1 + n) % n] != nums[mid] && nums[(mid + 1) % n] != nums[mid])
             {
-                l++;
-                r--;
+                return nums[mid];
             }
-            else if (nums[l] <= nums[mid] && nums[r] != nums[mid])
+            else if (nums[(mid - 1 + n) % n] == nums[mid] && (r - mid) % 2 == 1 || nums[(mid + 1) % n] == nums[mid] && (r - mid - 1) % 2 == 1)
             {
-                if (nums[l] <= target && nums[mid] > target)
-                    r = mid - 1;
-                else
-                    l = mid + 1;
-            }
-            else if (nums[mid] <= nums[r] && nums[l] != nums[mid])
-            {
-                if (nums[mid] < target && nums[r] >= target)
+                if (nums[(mid - 1 + n) % n] == nums[mid])
                     l = mid + 1;
                 else
-                    r = mid - 1;
+                    l = mid + 2;
             }
-            else if (nums[l] == nums[mid] && nums[r] == nums[mid])
+            else
             {
-                while (l <= r)
-                {
-                    if (nums[l] == target || nums[r] == target)
-                        return true;
-                    l++;
-                    r--;
-                }
-                return false;
+                if (nums[(mid - 1 + n) % n] == nums[mid])
+                    r = mid - 2;
+                else
+                    r = mid - 1;
             }
         }
-        return false;
+        return nums[mid];
     }
 };
 int main()
 {
     //"aewfafwafjlwajflwajflwafj"
     //[ "apple", "ewaf", "awefawfwaf", "awef", "awefe", "ewafeffewafewf" ] auto v = {1, 0, 0, 0, 1};
-    auto b = Solution().mySqrt(8);
+    auto b = Solution().findMin({1, 3, 3, 3});
     cout << "ss" << endl;
     return 0;
 }
