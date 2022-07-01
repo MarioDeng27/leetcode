@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-06-06 22:49:55
+ * @LastEditTime: 2022-07-01 17:27:22
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -59,45 +59,78 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
+int partition(vector<int> &nums, int l, int r)
+{
+    if (l > r)
+        return -1;
+    int first = l, last = r, key = nums[first];
+    while (first < last)
+    {
+        while (first < last && nums[last] >= key)
+            last--;
+        nums[first] = nums[last];
+        while (first < last && nums[first] <= key)
+            first++;
+        nums[last] = nums[first];
+    }
+    nums[first] = key;
+    return first;
+}
+int k;
+int ans = 0;
+void quicksort(vector<int> &nums, int l, int r)
+{
+    if (l > r)
+        return;
+    int p = partition(nums, l, r);
+    quicksort(nums, l, r - 1);
+    quicksort(nums, p + 1, r);
+}
 class Solution
 {
 public:
-    int singleNonDuplicate(vector<int> &nums)
+    vector<int> topKFrequent(vector<int> &nums, int k)
     {
-        int n = nums.size();
-        int l = 0;
-        int r = n - 1;
-        int mid;
-        while (l <= r)
+        unordered_map<int, int> mp;
+        int max_count = 0;
+        for (auto num : nums)
         {
-            mid = l + (r - l) / 2;
-            if (nums[(mid - 1 + n) % n] != nums[mid] && nums[(mid + 1) % n] != nums[mid])
+            max_count = max(max_count, ++mp[num]);
+        }
+        vector<vector<int>> buckets(max_count);
+        for (auto item : mp)
+        {
+            buckets[item.second].push_back(item.first);
+        }
+        vector<int> res;
+        for (int i = max_count; i >= 0; i--)
+        {
+            for (auto bucket : buckets[i])
             {
-                return nums[mid];
-            }
-            else if (nums[(mid - 1 + n) % n] == nums[mid] && (r - mid) % 2 == 1 || nums[(mid + 1) % n] == nums[mid] && (r - mid - 1) % 2 == 1)
-            {
-                if (nums[(mid - 1 + n) % n] == nums[mid])
-                    l = mid + 1;
-                else
-                    l = mid + 2;
-            }
-            else
-            {
-                if (nums[(mid - 1 + n) % n] == nums[mid])
-                    r = mid - 2;
-                else
-                    r = mid - 1;
+                res.push_back(bucket);
+                if (res.size() == k)
+                    return res;
             }
         }
-        return nums[mid];
+        return res;
     }
+    struct Order
+    {
+        bool operator()(pair<int, int> p1, pair<int, int> p2)
+        {
+            return p1.second < p2.second;
+        }
+    };
 };
 int main()
 {
     //"aewfafwafjlwajflwajflwafj"
     //[ "apple", "ewaf", "awefawfwaf", "awef", "awefe", "ewafeffewafewf" ] auto v = {1, 0, 0, 0, 1};
-    auto b = Solution().findMin({1, 3, 3, 3});
+    // auto b = Solution().findMin({1, 3, 3, 3});
+    vector<int> nums1 = {2, 3, 4, 2, 2, 1};
+    Solution().findKthLargest(nums1, 3);
+    for (auto n : nums1)
+        cout << n << " ";
     cout << "ss" << endl;
     return 0;
 }
