@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-01 17:27:22
+ * @LastEditTime: 2022-07-04 11:01:55
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -89,38 +89,24 @@ void quicksort(vector<int> &nums, int l, int r)
 class Solution
 {
 public:
-    vector<int> topKFrequent(vector<int> &nums, int k)
+    void sortColors(vector<int> &nums)
     {
         unordered_map<int, int> mp;
-        int max_count = 0;
         for (auto num : nums)
         {
-            max_count = max(max_count, ++mp[num]);
+            mp[num]++;
         }
-        vector<vector<int>> buckets(max_count);
-        for (auto item : mp)
-        {
-            buckets[item.second].push_back(item.first);
-        }
+        vector<vector<int>> buckets(3);
         vector<int> res;
-        for (int i = max_count; i >= 0; i--)
+        for (int i = 0; i < 3; i++)
         {
-            for (auto bucket : buckets[i])
+            for (int j = 0; j < mp[i]; j++)
             {
-                res.push_back(bucket);
-                if (res.size() == k)
-                    return res;
+                res.push_back(i);
             }
         }
-        return res;
+        nums = res;
     }
-    struct Order
-    {
-        bool operator()(pair<int, int> p1, pair<int, int> p2)
-        {
-            return p1.second < p2.second;
-        }
-    };
 };
 int main()
 {
