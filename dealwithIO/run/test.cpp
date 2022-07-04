@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-04 15:45:03
+ * @LastEditTime: 2022-07-04 16:33:48
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -89,45 +89,41 @@ void quicksort(vector<int> &nums, int l, int r)
 class Solution
 {
 public:
-    vector<int> dir = {-1, 0, 1, 0, -1};
-    int m, n;
-    int maxAreaOfIsland(vector<vector<int>> &grid)
+    int findCircleNum(vector<vector<int>> &isConnected)
     {
-        m = grid.size(), n = m ? grid[0].size() : 0;
-        int area = 0;
+        int m = isConnected.size();
+        if (m == 0)
+            return 0;
+        int res = 0;
+        vector<bool> visited(m, false);
         for (int i = 0; i < m; i++)
         {
-            for (int j = 0; j < n; j++)
+            if (!visited[i])
             {
-                if (grid[i][j] == 1)
+                res++;
+                visited[i] = true;
+                stack<int> st;
+                st.push(i);
+                while (!st.empty())
                 {
-                    grid[i][j] = 0;
-                    area = max(area, 1 + dfs(grid, i, j));
+                    int t = st.top();
+                    st.pop();
+                    visited[t] = true;
+                    for (int k = 0; k < m; k++)
+                    {
+                        if (isConnected[t][k] == 1 && !visited[k])
+                        {
+                            st.push(k);
+                        }
+                    }
                 }
             }
         }
-        return area;
-    }
-    int dfs(vector<vector<int>> &grid, int a, int b)
-    {
-        if (a < 0 || a > m || b < 0 && b > n || grid[a][b] == 0)
-            return 0;
-        grid[a][b] = 0;
-        int area = 1;
-        for (int i = 0; i < 4; i++)
-        {
-            int x = a + dir[i];
-            int y = b + dir[i + 1];
-            area += dfs(grid, x, y);
-        }
-        return area;
+        return res;
     }
 };
 int main()
 {
-    //"aewfafwafjlwajflwajflwafj"
-    //[ "apple", "ewaf", "awefawfwaf", "awef", "awefe", "ewafeffewafewf" ] auto v = {1, 0, 0, 0, 1};
-    // auto b = Solution().findMin({1, 3, 3, 3});
     vector<int> nums1 = {2, 3, 4, 2, 2, 1};
     Solution().findKthLargest(nums1, 3);
     for (auto n : nums1)
