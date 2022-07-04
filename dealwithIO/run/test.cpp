@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-04 11:01:55
+ * @LastEditTime: 2022-07-04 15:45:03
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -89,23 +89,38 @@ void quicksort(vector<int> &nums, int l, int r)
 class Solution
 {
 public:
-    void sortColors(vector<int> &nums)
+    vector<int> dir = {-1, 0, 1, 0, -1};
+    int m, n;
+    int maxAreaOfIsland(vector<vector<int>> &grid)
     {
-        unordered_map<int, int> mp;
-        for (auto num : nums)
+        m = grid.size(), n = m ? grid[0].size() : 0;
+        int area = 0;
+        for (int i = 0; i < m; i++)
         {
-            mp[num]++;
-        }
-        vector<vector<int>> buckets(3);
-        vector<int> res;
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < mp[i]; j++)
+            for (int j = 0; j < n; j++)
             {
-                res.push_back(i);
+                if (grid[i][j] == 1)
+                {
+                    grid[i][j] = 0;
+                    area = max(area, 1 + dfs(grid, i, j));
+                }
             }
         }
-        nums = res;
+        return area;
+    }
+    int dfs(vector<vector<int>> &grid, int a, int b)
+    {
+        if (a < 0 || a > m || b < 0 && b > n || grid[a][b] == 0)
+            return 0;
+        grid[a][b] = 0;
+        int area = 1;
+        for (int i = 0; i < 4; i++)
+        {
+            int x = a + dir[i];
+            int y = b + dir[i + 1];
+            area += dfs(grid, x, y);
+        }
+        return area;
     }
 };
 int main()
