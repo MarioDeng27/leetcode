@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-04 16:33:48
+ * @LastEditTime: 2022-07-06 11:23:10
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -89,43 +89,35 @@ void quicksort(vector<int> &nums, int l, int r)
 class Solution
 {
 public:
-    int findCircleNum(vector<vector<int>> &isConnected)
+    vector<vector<int>> res;
+    int N, K;
+    void backtrack(int t, vector<int> &track)
     {
-        int m = isConnected.size();
-        if (m == 0)
-            return 0;
-        int res = 0;
-        vector<bool> visited(m, false);
-        for (int i = 0; i < m; i++)
+        if (track.size() == K)
         {
-            if (!visited[i])
-            {
-                res++;
-                visited[i] = true;
-                stack<int> st;
-                st.push(i);
-                while (!st.empty())
-                {
-                    int t = st.top();
-                    st.pop();
-                    visited[t] = true;
-                    for (int k = 0; k < m; k++)
-                    {
-                        if (isConnected[t][k] == 1 && !visited[k])
-                        {
-                            st.push(k);
-                        }
-                    }
-                }
-            }
+            res.push_back(track);
+            return;
         }
+        for (int i = t; i < N; i++)
+        {
+            track.push_back(i + 1);
+            backtrack(i + 1, track);
+            track.pop_back();
+        }
+    }
+    vector<vector<int>> combine(int n, int k)
+    {
+        N = n;
+        K = k;
+        vector<int> track;
+        backtrack(0, track);
         return res;
     }
 };
 int main()
 {
     vector<int> nums1 = {2, 3, 4, 2, 2, 1};
-    Solution().findKthLargest(nums1, 3);
+    auto r = Solution().combine(4, 2);
     for (auto n : nums1)
         cout << n << " ";
     cout << "ss" << endl;
