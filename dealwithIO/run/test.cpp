@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-06 11:23:10
+ * @LastEditTime: 2022-07-09 15:44:53
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -59,67 +59,118 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-int partition(vector<int> &nums, int l, int r)
-{
-    if (l > r)
-        return -1;
-    int first = l, last = r, key = nums[first];
-    while (first < last)
-    {
-        while (first < last && nums[last] >= key)
-            last--;
-        nums[first] = nums[last];
-        while (first < last && nums[first] <= key)
-            first++;
-        nums[last] = nums[first];
-    }
-    nums[first] = key;
-    return first;
-}
-int k;
-int ans = 0;
-void quicksort(vector<int> &nums, int l, int r)
-{
-    if (l > r)
-        return;
-    int p = partition(nums, l, r);
-    quicksort(nums, l, r - 1);
-    quicksort(nums, p + 1, r);
-}
+
 class Solution
 {
 public:
-    vector<vector<int>> res;
-    int N, K;
-    void backtrack(int t, vector<int> &track)
+    unordered_map<string, int> m;
+    unordered_map<int, string> backm;
+    int numOfWord = 0;
+    vector<unordered_set<int>> edges;
+    int addWord(string word)
     {
-        if (track.size() == K)
+        if (m.count(word) == 0)
         {
-            res.push_back(track);
+            backm[numOfWord] = word;
+            m[word] = numOfWord++;
+            edges.push_back({});
+            return numOfWord - 1;
+        }
+        return m[word];
+    }
+    void buildMap(string &word)
+    {
+        int id0 = addWord(word);
+        for (auto &chr : word)
+        {
+            char tmp = chr;
+            chr = '*';
+            int id1 = addWord(word);
+            edges[id0].insert(id1);
+            edges[id1].insert(id0);
+            chr = tmp;
+        }
+    }
+
+    vector<vector<string>> ans;
+    vector<vector<string>> findLadders(string beginWord, string endWord, vector<string> &wordList)
+    {
+        buildMap(beginWord);
+        for (auto word : wordList)
+        {
+            buildMap(word);
+        }
+        if (m.count(endWord) == 0)
+            return ans;
+        unordered_set<int> q1 = {m[beginWord]};
+        unordered_set<int> q2 = {m[endWord]};
+        bool isfound = false, reversed = false;
+        vector<vector<int>> next(numOfWord, vector<int>());
+        while (!q1.empty())
+        {
+            unordered_set<int> q;
+            for (auto src : q1)
+            {
+                auto set = edges[src];
+                for (int dst : set)
+                {
+                    reversed ? next[dst].push_back(src) : next[src].push_back(dst);
+                    if (q2.count(dst))
+                    {
+                        isfound = true;
+                        break;
+                    }
+                    q.insert(dst);
+                    edges[src].erase(dst);
+                    edges[dst].erase(src);
+                }
+            }
+            if (isfound)
+                break;
+            if (q.size() < q2.size())
+            {
+                q1 = q;
+            }
+            else
+            {
+                reversed = !reversed;
+                q1 = q2;
+                q2 = q;
+            }
+        }
+        if (isfound)
+        {
+            vector<string> path;
+            backtrack(m[beginWord], m[endWord], next, path);
+        }
+        return ans;
+    }
+    void backtrack(int src, int dst, vector<vector<int>> &next, vector<string> &path)
+    {
+        if (src == dst)
+        {
+            ans.push_back(path);
             return;
         }
-        for (int i = t; i < N; i++)
+        for (auto &index : next[src])
         {
-            track.push_back(i + 1);
-            backtrack(i + 1, track);
-            track.pop_back();
+            if (backm[index].find('*') == string::npos)
+                path.push_back(backm[index]);
+            backtrack(index, dst, next, path);
+            if (backm[index].find('*') == string::npos)
+                path.pop_back();
         }
     }
-    vector<vector<int>> combine(int n, int k)
-    {
-        N = n;
-        K = k;
-        vector<int> track;
-        backtrack(0, track);
-        return res;
-    }
 };
+
 int main()
 {
-    vector<int> nums1 = {2, 3, 4, 2, 2, 1};
-    auto r = Solution().combine(4, 2);
-    for (auto n : nums1)
-        cout << n << " ";
+    string w1 = "red";
+    string w2 = "tax";
+    vector<string> vec = {"ted", "tex", "red", "tax", "tad", "den", "rex", "pee"};
+    auto r = Solution().findLadders(w1, w2, vec);
+    /* for (auto n : nums1)
+        cout << n << " "; */
     cout << "ss" << endl;
     return 0;
 }
