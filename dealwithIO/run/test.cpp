@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-10 15:35:06
+ * @LastEditTime: 2022-07-11 15:08:15
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -63,50 +63,48 @@ struct TreeNode
 class Solution
 {
 public:
-    vector<string> res;
-    vector<vector<int>> paths;
-    void dfs(TreeNode *root, vector<int> path)
+    /* 输入: candidates = [10,1,2,7,6,1,5], target = 8,
+    输出:
+    [
+    [1,1,6],
+    [1,2,5],
+    [1,7],
+    [2,6]
+    ]
+     */
+    int t;
+    vector<vector<int>> res;
+    void dfs(vector<int> &candidates, vector<bool> &visited, int index, int sum, vector<int> nums)
     {
-        if (!root->left && !root->right)
+        if (sum == t)
         {
-            paths.push_back(path);
+            res.push_back(nums);
             return;
         }
-        if (root->left)
+        for (int i = index; i < candidates.size(); i++)
         {
-            path.push_back(root->left->val);
-            dfs(root->left, path);
-            path.pop_back();
-        }
-        if (root->right)
-        {
-            path.push_back(root->right->val);
-            dfs(root->right, path);
-            path.pop_back();
+            if (sum + candidates[i] > t)
+                return;
+            if (visited[i])
+                continue;
+            if (i > 0 && !visited[i - 1] && candidates[i - 1] == candidates[i])
+                continue;
+            visited[i] = true;
+            sum += candidates[i];
+            nums.push_back(candidates[i]);
+            dfs(candidates, visited, i + 1, sum, nums);
+            visited[i] = false;
+            sum -= candidates[i];
+            nums.pop_back();
         }
     }
-    vector<string> binaryTreePaths(TreeNode *root)
+    vector<vector<int>> combinationSum2(vector<int> &candidates, int target)
     {
-        if (!root)
-            return res;
-        vector<int> path = {root->val};
-        dfs(root, path);
-        for (int i = 0; i < paths.size(); i++)
-        {
-            string str = "";
-            for (int j = 0; j < paths[i].size(); j++)
-            {
-                if (j == paths[i].size() - 1)
-                {
-                    str += to_string(paths[i][j]);
-                }
-                else
-                {
-                    str += (to_string(paths[i][j]) + "->");
-                }
-            }
-            res.push_back(str);
-        }
+        t = target;
+        sort(candidates.begin(), candidates.end());
+        vector<int> nums;
+        vector<bool> visited(candidates.size(), false);
+        dfs(candidates, visited, 0, 0, nums);
         return res;
     }
 };
