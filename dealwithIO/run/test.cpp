@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-11 15:08:15
+ * @LastEditTime: 2022-07-12 15:12:56
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -63,63 +63,50 @@ struct TreeNode
 class Solution
 {
 public:
-    /* 输入: candidates = [10,1,2,7,6,1,5], target = 8,
-    输出:
-    [
-    [1,1,6],
-    [1,2,5],
-    [1,7],
-    [2,6]
-    ]
-     */
-    int t;
-    vector<vector<int>> res;
-    void dfs(vector<int> &candidates, vector<bool> &visited, int index, int sum, vector<int> nums)
+    vector<int> findMinHeightTrees(int n, vector<vector<int>> &edges)
     {
-        if (sum == t)
+        if (n == 1)
+            return {0};
+        vector<int> degree(n, 0);
+        vector<vector<int>> mp(n);
+        for (auto edge : edges)
         {
-            res.push_back(nums);
-            return;
+            mp[edge[0]].push_back(edge[1]);
+            mp[edge[1]].push_back(edge[0]);
+            degree[edge[0]]++;
+            degree[edge[1]]++;
         }
-        for (int i = index; i < candidates.size(); i++)
+        queue<int> que;
+        for (int i = 0; i < n; i++)
         {
-            if (sum + candidates[i] > t)
-                return;
-            if (visited[i])
-                continue;
-            if (i > 0 && !visited[i - 1] && candidates[i - 1] == candidates[i])
-                continue;
-            visited[i] = true;
-            sum += candidates[i];
-            nums.push_back(candidates[i]);
-            dfs(candidates, visited, i + 1, sum, nums);
-            visited[i] = false;
-            sum -= candidates[i];
-            nums.pop_back();
+            if (degree[i] == 1)
+                que.push(i);
         }
-    }
-    vector<vector<int>> combinationSum2(vector<int> &candidates, int target)
-    {
-        t = target;
-        sort(candidates.begin(), candidates.end());
-        vector<int> nums;
-        vector<bool> visited(candidates.size(), false);
-        dfs(candidates, visited, 0, 0, nums);
+        vector<int> res;
+        while (!que.empty())
+        {
+            res.clear();
+            int size = que.size();
+            for (int i = 0; i < size; i++)
+            {
+                int node = que.front();
+                que.pop();
+                res.push_back(node);
+                for (auto neibor : mp[node])
+                {
+                    degree[neibor]--;
+                    if (degree[neibor] == 1)
+                        que.push(neibor);
+                }
+            }
+        }
         return res;
     }
 };
 int main()
 {
-    TreeNode *root1 = new TreeNode(1);
-    TreeNode *root2 = new TreeNode(2);
-    TreeNode *root3 = new TreeNode(3);
-    TreeNode *root5 = new TreeNode(5);
-    root1->left = root2;
-    root1->right = root3;
-    root2->right = root5;
-
-    Solution()
-        .binaryTreePaths(root1);
+    vector<vector<int>> vec = {{1, 0}, {1, 2}, {1, 3}};
+    Solution().findMinHeightTrees(4, vec);
     /* for (auto n : nums1)
         cout << n << " "; */
     cout << "ss" << endl;
