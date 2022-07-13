@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2021-07-02 00:44:43
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-12 15:12:56
+ * @LastEditTime: 2022-07-13 13:00:05
  */
 /*
  * @FilePath: \Sort\test.cpp
@@ -63,52 +63,85 @@ struct TreeNode
 class Solution
 {
 public:
-    vector<int> findMinHeightTrees(int n, vector<vector<int>> &edges)
+    //前两个表示第几行第几列的块，如果第三个值为5，则表示5已经在方块里了
+    bool block[3][3][10];
+    //前一个表示第几列
+    bool cols[9][10];
+    //前一个表示第几行
+    bool rows[9][10];
+    vector<pair<int, int>> waits;
+    bool res = false;
+    void dfs(vector<vector<char>> &board, int index)
     {
-        if (n == 1)
-            return {0};
-        vector<int> degree(n, 0);
-        vector<vector<int>> mp(n);
-        for (auto edge : edges)
+        if (index == waits.size())
         {
-            mp[edge[0]].push_back(edge[1]);
-            mp[edge[1]].push_back(edge[0]);
-            degree[edge[0]]++;
-            degree[edge[1]]++;
+            res = true;
+            return;
         }
-        queue<int> que;
-        for (int i = 0; i < n; i++)
+        auto [row, col] = waits[index];
+        for (int i = 1; i <= 9; i++)
         {
-            if (degree[i] == 1)
-                que.push(i);
-        }
-        vector<int> res;
-        while (!que.empty())
-        {
-            res.clear();
-            int size = que.size();
-            for (int i = 0; i < size; i++)
+            if (!block[row / 3][col / 3][i] && !rows[row][i] && !cols[col][i])
             {
-                int node = que.front();
-                que.pop();
-                res.push_back(node);
-                for (auto neibor : mp[node])
+                board[row][col] = '0' + i;
+                block[row / 3][col / 3][i] = true;
+                rows[row][i] = true;
+                cols[col][i] = true;
+                dfs(board, index + 1);
+                if (res)
+                    return;
+                board[row][col] = '.';
+                block[row / 3][col / 3][i] = false;
+                rows[row][i] = false;
+                cols[col][i] = false;
+            }
+        }
+    }
+    void solveSudoku(vector<vector<char>> &board)
+    {
+        memset(block, false, sizeof(block));
+        memset(rows, false, sizeof(rows));
+        memset(cols, false, sizeof(cols));
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                char chr = board[i][j];
+                if (chr != '.')
                 {
-                    degree[neibor]--;
-                    if (degree[neibor] == 1)
-                        que.push(neibor);
+                    int pos = chr - '0';
+                    rows[i][pos] = true;
+                    cols[j][pos] = true;
+                    block[i / 3][j / 3][pos] = true;
+                }
+                else
+                {
+                    waits.push_back({i, j});
                 }
             }
         }
-        return res;
+        dfs(board, 0);
     }
 };
+void show(vector<vector<char>> &vec)
+{
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < 9; j++)
+        {
+            cout << vec[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
 int main()
 {
-    vector<vector<int>> vec = {{1, 0}, {1, 2}, {1, 3}};
-    Solution().findMinHeightTrees(4, vec);
-    /* for (auto n : nums1)
-        cout << n << " "; */
-    cout << "ss" << endl;
+    vector<vector<char>> vec = {{'5', '3', '.', '.', '7', '.', '.', '.', '.'}, {'6', '.', '.', '1', '9', '5', '.', '.', '.'}, {'.', '9', '8', '.', '.', '.', '.', '6', '.'}, {'8', '.', '.', '.', '6', '.', '.', '.', '3'}, {'4', '.', '.', '8', '.', '3', '.', '.', '1'}, {'7', '.', '.', '.', '2', '.', '.', '.', '6'}, {'.', '6', '.', '.', '.', '.', '2', '8', '.'}, {'.', '.', '.', '4', '1', '9', '.', '.', '5'}, {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
+    show(vec);
+    Solution()
+        .solveSudoku(vec);
+    cout << "----------------------------" << endl;
+    show(vec);
+    // cout << "ss" << endl;
     return 0;
 }
