@@ -2,19 +2,9 @@
  * @Description:
  * @Version: 1.0
  * @Autor: Mario Deng
- * @Date: 2021-07-02 00:44:43
+ * @Date: 2022-07-12 13:54:48
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-13 13:00:05
- */
-/*
- * @FilePath: \Sort\test.cpp
- * @Brief:
- * @Version: 1.0
- * @Date: 2020-10-05 22:41:14
- * @Author: Mario Deng
- * @Copyright: your copyright description
- * @LastEditors: Mario Deng
- * @LastEditTime: 2021-07-02 00:37:48
+ * @LastEditTime: 2022-07-14 12:08:29
  */
 #include <algorithm>
 #include <array>
@@ -63,64 +53,19 @@ struct TreeNode
 class Solution
 {
 public:
-    //前两个表示第几行第几列的块，如果第三个值为5，则表示5已经在方块里了
-    bool block[3][3][10];
-    //前一个表示第几列
-    bool cols[9][10];
-    //前一个表示第几行
-    bool rows[9][10];
-    vector<pair<int, int>> waits;
-    bool res = false;
-    void dfs(vector<vector<char>> &board, int index)
+    int rob(vector<int> &nums)
     {
-        if (index == waits.size())
+        int n = nums.size();
+        int pre1 = nums[0];
+        int pre2 = 0;
+        int cur = pre1;
+        for (int i = 2; i <= n; i++)
         {
-            res = true;
-            return;
+            cur = max(pre1, pre2 + nums[i - 1]);
+            pre2 = pre1;
+            pre1 = cur;
         }
-        auto [row, col] = waits[index];
-        for (int i = 1; i <= 9; i++)
-        {
-            if (!block[row / 3][col / 3][i] && !rows[row][i] && !cols[col][i])
-            {
-                board[row][col] = '0' + i;
-                block[row / 3][col / 3][i] = true;
-                rows[row][i] = true;
-                cols[col][i] = true;
-                dfs(board, index + 1);
-                if (res)
-                    return;
-                board[row][col] = '.';
-                block[row / 3][col / 3][i] = false;
-                rows[row][i] = false;
-                cols[col][i] = false;
-            }
-        }
-    }
-    void solveSudoku(vector<vector<char>> &board)
-    {
-        memset(block, false, sizeof(block));
-        memset(rows, false, sizeof(rows));
-        memset(cols, false, sizeof(cols));
-        for (int i = 0; i < 9; i++)
-        {
-            for (int j = 0; j < 9; j++)
-            {
-                char chr = board[i][j];
-                if (chr != '.')
-                {
-                    int pos = chr - '0';
-                    rows[i][pos] = true;
-                    cols[j][pos] = true;
-                    block[i / 3][j / 3][pos] = true;
-                }
-                else
-                {
-                    waits.push_back({i, j});
-                }
-            }
-        }
-        dfs(board, 0);
+        return cur;
     }
 };
 void show(vector<vector<char>> &vec)
