@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2022-07-12 13:54:48
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-14 12:08:29
+ * @LastEditTime: 2022-07-15 12:46:35
  */
 #include <algorithm>
 #include <array>
@@ -49,44 +49,41 @@ struct TreeNode
     TreeNode *right;
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
-
 class Solution
 {
 public:
-    int rob(vector<int> &nums)
+    int minPathSum(vector<vector<int>> &grid)
     {
-        int n = nums.size();
-        int pre1 = nums[0];
-        int pre2 = 0;
-        int cur = pre1;
-        for (int i = 2; i <= n; i++)
+        int m = grid.size();
+        int n = m ? grid[0].size() : 0;
+        if (!m || !n)
+            return 0;
+        int dp[m][n];
+        memset(dp, 0, sizeof(dp));
+        dp[0][0] = grid[0][0];
+        for (int i = 0; i < m; i++)
         {
-            cur = max(pre1, pre2 + nums[i - 1]);
-            pre2 = pre1;
-            pre1 = cur;
+            for (int j = 0; j < n; j++)
+            {
+                if (i == 0 && j > 0)
+                {
+                    dp[i][j] = dp[i][j - 1] + grid[i][j];
+                }
+                else if (i > 0 && j == 0)
+                {
+                    dp[i][j] = dp[i - 1][j] + grid[i][j];
+                }
+                else if (i > 0 && j > 0)
+                {
+                    dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
+                }
+            }
         }
-        return cur;
+        return dp[m - 1][n - 1];
     }
 };
-void show(vector<vector<char>> &vec)
-{
-    for (int i = 0; i < 9; i++)
-    {
-        for (int j = 0; j < 9; j++)
-        {
-            cout << vec[i][j] << " ";
-        }
-        cout << endl;
-    }
-}
 int main()
 {
-    vector<vector<char>> vec = {{'5', '3', '.', '.', '7', '.', '.', '.', '.'}, {'6', '.', '.', '1', '9', '5', '.', '.', '.'}, {'.', '9', '8', '.', '.', '.', '.', '6', '.'}, {'8', '.', '.', '.', '6', '.', '.', '.', '3'}, {'4', '.', '.', '8', '.', '3', '.', '.', '1'}, {'7', '.', '.', '.', '2', '.', '.', '.', '6'}, {'.', '6', '.', '.', '.', '.', '2', '8', '.'}, {'.', '.', '.', '4', '1', '9', '.', '.', '5'}, {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
-    show(vec);
-    Solution()
-        .solveSudoku(vec);
-    cout << "----------------------------" << endl;
-    show(vec);
-    // cout << "ss" << endl;
+    Derived d;
     return 0;
 }
