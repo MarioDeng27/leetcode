@@ -4,7 +4,7 @@
  * @Autor: Mario Deng
  * @Date: 2022-07-12 13:54:48
  * @LastEditors: Mario Deng
- * @LastEditTime: 2022-07-18 11:41:09
+ * @LastEditTime: 2022-07-19 12:27:18
  */
 #include <algorithm>
 #include <array>
@@ -52,52 +52,34 @@ struct TreeNode
 class Solution
 {
 public:
-    vector<vector<int>> updateMatrix(vector<vector<int>> &mat)
+    int maximalSquare(vector<vector<char>> &matrix)
     {
-        int m = mat.size();
-        int n = m ? mat[0].size() : 0;
-        if (!m && !n)
-            return {};
-        vector<vector<int>> dp(m, vector<int>(n, m + n));
+        int m = matrix.size();
+        int n = m ? matrix[0].size() : 0;
+        if (!m || !n)
+            return 0;
+        int dp[m][n];
+        memset(dp, 0, sizeof(dp));
+        int res = 0;
         for (int i = 0; i < m; i++)
         {
             for (int j = 0; j < n; j++)
             {
-                if (mat[i][j] == 0)
-                    dp[i][j] = 0;
-                else
+                if (matrix[i][j] == '1')
                 {
-                    if (i > 0)
+                    if (i > 0 && j > 0)
                     {
-                        dp[i][j] = min(dp[i][j], dp[i - 1][j] + 1);
+                        dp[i][j] = min(min(dp[i - 1][j], dp[i][j - 1]), dp[i - 1][j - 1]) + 1;
                     }
-                    if (j > 0)
+                    else
                     {
-                        dp[i][j] = min(dp[i][j], dp[i][j - 1] + 1);
+                        dp[i][j] = 1;
                     }
+                    res = max(res, dp[i][j]);
                 }
             }
         }
-        for (int i = m - 1; i >= 0; i--)
-        {
-            for (int j = n - 1; j >= 0; j--)
-            {
-                if (mat[i][j] == 0)
-                    dp[i][j] = 0;
-                else
-                {
-                    if (i < m - 1)
-                    {
-                        dp[i][j] = min(dp[i][j], dp[i + 1][j] + 1);
-                    }
-                    if (j < n - 1)
-                    {
-                        dp[i][j] = min(dp[i][j], dp[i][j + 1] + 1);
-                    }
-                }
-            }
-        }
-        return dp;
+        return res * res;
     }
 };
 int main()
